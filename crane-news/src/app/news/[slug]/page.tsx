@@ -14,20 +14,13 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   return {
     title: `${p.title} — Crane.news`,
     description: p.summary,
-    openGraph: {
-      title: p.title,
-      description: p.summary,
-      images: [img],
-      url: `https://crane.news/news/${p.slug}`,
-      type: "article",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: p.title,
-      description: p.summary,
-      images: [img],
-    },
+    openGraph: { title: p.title, description: p.summary, images: [img], url: `https://crane.news/news/${p.slug}`, type: "article" },
+    twitter: { card: "summary_large_image", title: p.title, description: p.summary, images: [img] },
   };
+}
+
+function isExternal(href: string) {
+  return /^https?:\/\//i.test(href);
 }
 
 export default function Article({ params }: { params: { slug: string } }) {
@@ -47,7 +40,6 @@ export default function Article({ params }: { params: { slug: string } }) {
 
       <h1 className="h-serif text-3xl mt-2">{p.title}</h1>
 
-      {/* Post hero image = same as listing image */}
       <div className="relative w-full aspect-[16/9] mt-4 rounded-[var(--radius)] overflow-hidden">
         <Image src={hero} alt={p.title} fill className="object-cover" priority />
       </div>
@@ -55,6 +47,30 @@ export default function Article({ params }: { params: { slug: string } }) {
       <div className="prose mt-4">
         {p.body.map((para, i) => <p key={i}>{para}</p>)}
       </div>
+
+      {/* Sources / Official links */}
+      {p.links && p.links.length > 0 && (
+        <div className="panel p-4 mt-6">
+          <div className="h-serif text-lg mb-2">Sources &amp; official links</div>
+          <ul className="list-disc pl-5 space-y-1 text-sm">
+            {p.links.map((l, i) => {
+              const label = l.label ?? l.href.replace(/^https?:\/\//, "");
+              return isExternal(l.href) ? (
+                <li key={i}>
+                  <a href={l.href} target="_blank" rel="noopener noreferrer" className="underline">
+                    {label}
+                  </a>{" "}
+                  <span className="text-[var(--color-muted)]">(opens in new tab)</span>
+                </li>
+              ) : (
+                <li key={i}>
+                  <Link href={l.href} className="underline">{label}</Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
 
       <div className="mt-6 text-sm text-[var(--color-muted)]">
         ❤️ {p.likes ?? 0} • 💬 {p.comments ?? 0} (interactions coming soon)
