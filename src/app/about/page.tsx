@@ -10,7 +10,6 @@ export default function AboutPage() {
         <h1 className="h-serif text-2xl">About Crane.news</h1>
         <p className="text-[var(--color-muted)] mt-2">
           Independent local updates for Crane, Missouri — news, events, and media.
-          We’re community-run and not affiliated with the City of Crane.
         </p>
       </header>
 
@@ -46,7 +45,7 @@ export default function AboutPage() {
         <h2 className="h-serif text-lg">Corrections & updates</h2>
         <p className="text-sm mt-2">
           See something off? We’ll fix it. Email{" "}
-          <a href="mailto:hello@crane.news" className="underline">hello@crane.news</a>{" "}
+          <a href="mailto:support@crane.news" className="underline">support@crane.news</a>{" "}
           with the post link and the correction. Time-sensitive items (road closures, advisories) are prioritized.
         </p>
       </section>
