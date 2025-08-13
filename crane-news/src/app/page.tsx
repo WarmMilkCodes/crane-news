@@ -3,6 +3,7 @@ import { AlertBar } from "@/components/AlertBar";
 import { getLatest } from "@/data/posts";
 import { PostCard } from "@/components/PostCard";
 import WeatherWidget from "@/components/WeatherWidget";
+import SevereWeatherAlert from "@/components/SevereWeatherAlert";
 
 export default function Home() {
   const latest = getLatest(6);
@@ -20,7 +21,7 @@ export default function Home() {
       {/* Main content: feed + sidebar */}
       <div className="grid lg:grid-cols-3 gap-6">
         <section className="lg:col-span-2 space-y-4">
-          <AlertBar variant="gold" text="This is a community-run site. Not affiliated with the City of Crane." />
+          <SevereWeatherAlert />
           <h2 className="h-serif text-xl mt-2">Latest</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {feature && <PostCard {...feature} />}
