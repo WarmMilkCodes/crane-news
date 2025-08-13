@@ -1,4 +1,5 @@
 export const metadata = {
+  metadataBase: new URL("https://crane.news"),
   title: "Crane.news",
   description: "Local news, events, and media for Crane, Missouri.",
   openGraph: { title: "Crane.news", images: ["/og-default.jpg"], url: "https://crane.news", type: "website" }

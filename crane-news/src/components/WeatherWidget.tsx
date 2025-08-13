@@ -56,7 +56,7 @@ export default function WeatherWidget() {
         if (!res.ok) throw new Error("fetch_failed");
         const j = await res.json();
         if (alive) setData({ current: j.current, daily: j.daily });
-      } catch (_err: unknown) {
+      } catch {
         if (alive) setErr("Weather unavailable");
       }
     })();
