@@ -20,11 +20,12 @@ export const events: Event[] = [
     link: "https://www.crane.k12.mo.us/",
   },
   {
-    id: "farmers-market-0816",
-    title: "Crane Farmers Market",
-    when: "2025-08-16T09:00:00-05:00",
-    location: "Downtown Crane",
-    description: "Local vendors offering fresh produce, baked goods, and crafts.",
+    id: "chicken-chase-2025",
+    title: "Crane Chicken Chase",
+    when: "2025-08-23T07:30",
+    location: "Main Street",
+    description: "Run / Walk 5K",
+    link: "https://facebook.com/events/s/crane-chicken-chase-5k/3705684569729412/"
   },
 ];
 
