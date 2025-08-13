@@ -1,10 +1,9 @@
 import HeroHeader from "@/components/HeroHeader";
-import { getLatest } from "@/data/posts";
+import { getLatest, getDeathNotices } from "@/data/posts";
 import { PostCard } from "@/components/PostCard";
 import WeatherWidget from "@/components/WeatherWidget";
 import SevereWeatherAlert from "@/components/SevereWeatherAlert";
 import { getEventsThisWeek } from "@/data/events";
-import { getDeathNotices } from "@/data/posts";
 
 // Small reusable panel for death notices
 function DeathNoticesBlock() {
@@ -55,7 +54,7 @@ export default function Home() {
 
           <h2 className="h-serif text-xl mt-2">Latest</h2>
           <div className="grid sm:grid-cols-2 gap-4">
-            {feature && <PostCard {...feature} />}
+            {feature ? <PostCard {...feature} /> : null}
             {rest.map((p) => (
               <PostCard key={p.slug} {...p} />
             ))}
