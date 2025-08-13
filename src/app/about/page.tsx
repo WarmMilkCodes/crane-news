@@ -67,7 +67,7 @@ export default function AboutPage() {
       </section>
 
       <footer className="text-sm text-[var(--color-muted)]">
-        <p>Crane.news is an independent community site. For city services, contact City Hall directly.</p>
+        <p>Crane.news is an independent community site..</p>
       </footer>
     </section>
   );
