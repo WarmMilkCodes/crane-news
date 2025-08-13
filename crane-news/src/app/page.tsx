@@ -4,17 +4,50 @@ import { getLatest } from "@/data/posts";
 import { PostCard } from "@/components/PostCard";
 
 export default function Home() {
-  const latest = getLatest(4);
+  const latest = getLatest(6);
+  const [feature, ...rest] = latest;
+
   return (
     <div className="space-y-6">
-      <HeroHeader title="Crane.news" subtitle="Local news, events, and media for Crane, Missouri." />
-      <section className="card p-6 md:p-8">
-        <AlertBar variant="gold" text="This is a community-run site. Not affiliated with the City of Crane." />
-        <h2 className="text-lg font-semibold mt-6">Latest</h2>
-        <div className="mt-3 grid md:grid-cols-2 gap-4">
-          {latest.map(p => <PostCard key={p.slug} {...p} />)}
-        </div>
-      </section>
+      {/* Feature hero */}
+      <HeroHeader
+        tag="Top Story"
+        title="Crane.news"
+        subtitle="Local news, events, and media for Crane, Missouri."
+        image="/header.jpg"
+      />
+
+      {/* Main content: feed + sidebar */}
+      <div className="grid lg:grid-cols-3 gap-6">
+        <section className="lg:col-span-2 space-y-4">
+          <AlertBar variant="gold" text="This is a community-run site. Not affiliated with the City of Crane." />
+          <h2 className="h-serif text-xl mt-2">Latest</h2>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {feature && <PostCard {...feature} />}
+            {rest.map(p => <PostCard key={p.slug} {...p} />)}
+          </div>
+        </section>
+
+        <aside className="space-y-4">
+          <div className="panel p-4">
+            <div className="h-serif text-lg">This Week in Crane</div>
+            <ul className="mt-2 text-sm space-y-2">
+              <li>Back-to-School Night — Wed 6:00 PM @ High School</li>
+              <li>Farmers Market — Sat 8:00 AM @ Main St</li>
+              <li>City Park Cleanup — Sun 2:00 PM</li>
+            </ul>
+          </div>
+          <div className="panel p-4">
+            <div className="h-serif text-lg">Weather</div>
+            <p className="text-sm text-[var(--color-muted)] mt-2">Sunny • 92° / 69°</p>
+          </div>
+          <div className="panel p-4">
+            <div className="h-serif text-lg">Post an update</div>
+            <p className="text-sm text-[var(--color-muted)] mt-1">Share a quick note, photo, or event.</p>
+            <a className="btn-primary mt-3 inline-flex" href="/about">Coming soon</a>
+          </div>
+        </aside>
+      </div>
     </div>
   );
 }

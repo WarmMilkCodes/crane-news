@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getPost, posts } from "@/data/posts";
+import { posts, getPost } from "@/data/posts";
 import Link from "next/link";
 
 export async function generateStaticParams() {
@@ -11,13 +11,22 @@ export default function Article({ params }: { params: { slug: string } }) {
   if (!p) return notFound();
 
   return (
-    <article className="card p-6 md:p-8 prose max-w-none">
-      <Link href="/news" className="btn mb-4">← Back to News</Link>
-      <h1 className="text-2xl md:text-3xl font-semibold">{p.title}</h1>
-      <div className="text-sm text-[var(--color-muted)] mt-1">{new Date(p.date).toLocaleDateString()}</div>
-      <div className="mt-4 space-y-4 text-[var(--color-text)]">
+    <article className="card p-6 md:p-8">
+      <Link href="/news" className="btn-plain mb-4 inline-flex">← Back to News</Link>
+      <div className="flex items-center justify-between text-xs text-[var(--color-muted)]">
+        <span className="tag tag--gold">News</span>
+        <span>{new Date(p.date).toLocaleDateString()}</span>
+      </div>
+      <h1 className="h-serif text-3xl mt-2">{p.title}</h1>
+
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={"/header.jpg"} alt="" className="w-full rounded-[var(--radius)] mt-4" />
+
+      <div className="prose mt-4">
         {p.body.map((para, i) => <p key={i}>{para}</p>)}
       </div>
+
+      <div className="mt-6 text-sm text-[var(--color-muted)]">❤️ 12 • 💬 3 (interactions coming soon)</div>
     </article>
   );
 }
