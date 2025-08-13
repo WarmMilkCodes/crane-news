@@ -13,7 +13,7 @@ export type Post = {
   links?: PostLink[];  // source URLs
   death?: {
     name: string;
-    age?: string;
+    age?: number;
     city?: string;
     dateOfDeath?: string;  // ISO
     services?: {
