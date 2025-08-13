@@ -36,7 +36,7 @@ export default function SiteHeader() {
             className="object-contain" 
             priority 
           />
-          <span className="font-semibold text-white">Crane.news</span>
+         
         </Link>
 
         {/* Desktop nav */}
