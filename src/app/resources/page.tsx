@@ -6,7 +6,7 @@ export const metadata = {
 
 type ResourceLink = {
     label: string;
-    href?: string;
+    href: string;
     note?: string;      // helper text - hours, fees, etc
     external?: boolean; // defaults to true; internal links set to false
 };
@@ -14,7 +14,7 @@ type ResourceLink = {
 type ResourceSection = {
     title: string;
     tag?: string; // Small badge like "City", "County", "State"
-    links?: ResourceLink[];
+    links: ResourceLink[];
 };
 
 const sections: ResourceSection[] = [
@@ -105,21 +105,19 @@ const sections: ResourceSection[] = [
         tag: "Churches",
         links: [
             {
-              label: "Crane Bible Baptist",
+              label: "Crane Bible Baptist Church",
+              href: "https://www.facebook.com/CBBCmissouri/",
               note: "209 South Street"
             },
             {
                 label: "Crane Christian Church",
+                href: "https://www.facebook.com/ccccommunitybuilding/",
                 note: "106 E. Edgewood Avenue"
             },
             {
                 label: "Crane First Baptist",
                 href: "http://www.fbccrane.org/",
                 note: "30 Hallelujah Drive"
-            },
-            {
-                label: "Crane Fundamental Methodist",
-                note: "810 State Hwy D"
             },
             {
                 label: "Crane Presbyterian Church",
@@ -138,6 +136,7 @@ const sections: ResourceSection[] = [
             },
             {
                 label: "New Life Fellowship",
+                href: "https://www.facebook.com/newlifefellowshipcrane/",
                 note: "209 Leah Avenue"
             },
             {
