@@ -35,7 +35,26 @@ export const posts: Post[] = [
         links: [
             { label: "District Website", href: "https://www.crane.k12.mo.us/" }
         ]
-    }
+    },
+    {
+        slug: "crane-sidewalk-upgrade-2025",
+        title: "Sidewalk Upgrade Project Underway in Crane — MoDOT Expects Completion by November",
+        summary: "MoDOT begins a $421,722 ADA-compliant sidewalk project along Missouri Route 265 and Stone County Route D, scheduled to finish by November 1, 2025.",
+        date: "2025-08-12",
+        category: "News",
+        image: "/sidewalk-upgrade.jpg",
+        body: [
+          "Work crews have begun a major sidewalk improvement project in Crane, aimed at upgrading pedestrian access and meeting ADA (Americans with Disabilities Act) standards. The Missouri Department of Transportation (MoDOT) says the work started the week of July 21, 2025 and will continue through early fall.",
+          "The project covers two main areas: Missouri Route 265 from North Hemphill Avenue to Stone County Route D, and Stone County Route D from Missouri Route 265 to Pirate Lane.",
+          "Upgrades include new sidewalks, paved approaches, crosswalks, curbs, guttering, curb ramps, pavement markings, upgraded signage, and guardrail installation. Temporary gravel driveways will be provided to keep business access open during construction.",
+          "Drivers should expect flaggers, lane shifts, and short delays in the work zones. MoDOT urges motorists to slow down, obey posted signs, and watch for workers on site.",
+          "The project is being carried out by Hunter Chase & Associates, Inc. of Springfield, which won the contract with a bid of $421,722. Completion is currently scheduled for November 1, 2025.",
+          "For more details and updates, visit the official MoDOT project page."
+        ],
+        links: [
+          { label: "MoDOT Project Page", href: "https://www.modot.org/node/71802" }
+        ]
+      }
 ]
 
 export function getLatest(n = 6) {
