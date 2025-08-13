@@ -2,6 +2,7 @@ import HeroHeader from "@/components/HeroHeader";
 import { AlertBar } from "@/components/AlertBar";
 import { getLatest } from "@/data/posts";
 import { PostCard } from "@/components/PostCard";
+import WeatherWidget from "@/components/WeatherWidget";
 
 export default function Home() {
   const latest = getLatest(6);
@@ -37,7 +38,7 @@ export default function Home() {
           </div>
           <div className="panel p-4">
             <div className="h-serif text-lg">Weather</div>
-            <p className="text-sm text-[var(--color-muted)] mt-2">Sunny • 92° / 69°</p>
+            <WeatherWidget />
           </div>
           <div className="panel p-4">
             <div className="h-serif text-lg">Post an update</div>
