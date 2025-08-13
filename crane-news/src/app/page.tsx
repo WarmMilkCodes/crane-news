@@ -44,7 +44,7 @@ export default function Home() {
           <div className="panel p-4">
             <div className="h-serif text-lg">Post an update</div>
             <p className="text-sm text-[var(--color-muted)] mt-1">Share a quick note, photo, or event.</p>
-            <a className="btn-primary mt-3 inline-flex" href="/about">Coming soon</a>
+            <a className="btn-primary mt-3 inline-flex" href="/">Coming soon</a>
           </div>
         </aside>
       </div>
