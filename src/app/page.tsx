@@ -4,6 +4,35 @@ import { PostCard } from "@/components/PostCard";
 import WeatherWidget from "@/components/WeatherWidget";
 import SevereWeatherAlert from "@/components/SevereWeatherAlert";
 import { getEventsThisWeek } from "@/data/events";
+import { getDeathNotices } from "@/data/posts";
+
+export function DeathNoticesBlock() {
+  const items = getDeathNotices(4);
+  if (!items.length) return null;
+
+  return (
+    <div className="panel p-4">
+      <div className="h-serif text-lg">Death Notices</div>
+      <ul className="mt-2 space-y-2">
+        {items.map((p) => (
+          <li key={p.slug} className="text-sm">
+            <a href={`/news/${p.slug}`} className="underline hover:no-underline">
+              {p.title}
+            </a>
+            <div className="text-[var(--color-muted)] text-xs">
+              {new Date(p.date).toLocaleDateString()}
+            </div>
+          </li>
+        ))}
+      </ul>
+      <div className="text-xs text-[var(--color-muted)] mt-2">
+        Notices are compiled from funeral home postings and family submissions.{" "}
+        <a href="/submit" className="underline">Submit a notice</a>.
+      </div>
+    </div>
+  );
+}
+  
 
 export default function Home() {
   const latest = getLatest(6);
