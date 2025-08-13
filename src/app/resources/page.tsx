@@ -99,6 +99,53 @@ const sections: ResourceSection[] = [
                 note: "Student lunch bill, grades"
             }
         ]
+    },
+    {
+        title: "Churches",
+        tag: "Churches",
+        links: [
+            {
+              label: "Crane Bible Baptist",
+              note: "209 South Street"
+            },
+            {
+                label: "Crane Christian Church",
+                note: "106 E. Edgewood Avenue"
+            },
+            {
+                label: "Crane First Baptist",
+                href: "http://www.fbccrane.org/",
+                note: "30 Hallelujah Drive"
+            },
+            {
+                label: "Crane Fundamental Methodist",
+                note: "810 State Hwy D"
+            },
+            {
+                label: "Crane Presbyterian Church",
+                href: "https://www.pcusa.org/",
+                note: "39322 MO-413"
+            },
+            {
+                label: "Faith Chapel",
+                href: "http://faithchapelofcranemo.com/",
+                note: "201 East Avenue"
+            },
+            {
+                label: "New Hope Assembly of God",
+                href: "http://newhopecraneag.org/",
+                note: "112 Main Street"
+            },
+            {
+                label: "New Life Fellowship",
+                note: "209 Leah Avenue"
+            },
+            {
+                label: "The Gathering Church",
+                href: "www.thegatheringchurchcrane.org",
+                note: "39322 MO-413"
+            }
+        ]
     }
 ]
 
