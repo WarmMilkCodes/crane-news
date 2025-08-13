@@ -11,6 +11,18 @@ export type Post = {
   comments?: number;
   body: string[];
   links?: PostLink[];  // source URLs
+  death?: {
+    name: string;
+    age?: string;
+    city?: string;
+    dateOfDeath?: string;  // ISO
+    services?: {
+      visitation?: { at: string, when: string }; // readable place names
+      funeral?: { at: string, when: string };
+      burial?: { at: string, when: string };
+    };
+    source?: { label: string, href: string };
+  };
 };
 
 export const posts: Post[] = [
