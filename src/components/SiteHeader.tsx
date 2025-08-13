@@ -10,6 +10,8 @@ const links = [
   { href: "/events", label: "Events" },
   { href: "/media", label: "Media" },
   { href: "/resources", label: "Local Resources" },
+  { href: "/community", label: "Community" },
+  { href: "/sports", label: "Sports" },
   { href: "/about", label: "About" },
 ];
 
