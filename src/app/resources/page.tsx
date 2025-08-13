@@ -14,7 +14,7 @@ type ResourceLink = {
 type ResourceSection = {
     title: string;
     tag?: string; // Small badge like "City", "County", "State"
-    links: ResourceLink[];
+    links?: ResourceLink[];
 };
 
 const sections: ResourceSection[] = [
