@@ -15,6 +15,27 @@ export type Post = {
 
 export const posts: Post[] = [
     {
+      slug: "broiler-fest-2025",
+      title: "Crane Broiler Festival Welcomes Kenny's Funland for Rides",
+      summary: "The 2025 Crane Broiler Festival runs Aug. 21-24 at Crane City Park, with Kenny’s Funland providing the carnival rides for the first time.",
+      date: "2025-08-12",
+      category: "Events",
+      image: "/kennys-funland.jpg",
+      body: [
+        "Crane’s annual Broiler Festival is right around the corner and everybody is eagerly awaiting the delicious chicken, craft booths, fair rides, and all the summer vibes.",
+        "This year, the festival has partnered with a new ride provider, Kenny’s Funland, to bring a fresh lineup of amusement rides to Crane City Park. The event runs from Thursday, August 21, through Sunday, August 24, 2025.",
+        "Kenny’s Funland will set up and start offering rides on Wednesday evening, continuing through Saturday night. Rides will operate during the following times:",
+        "- **Wednesday & Thursday:** 6:00 – 10:00 p.m. ($28 armband)",
+        "- **Friday:** 5:00 – 10:00 p.m. ($30 armband)",
+        "- **Saturday:** 12:00 – 10:00 p.m. ($35 armband)",
+        "Ride armbands can be purchased in advance at several local businesses, including Shelter Insurance, Sunfest Market, Simmons Bank, Stockmens Bank, and Table Rock Community Bank. Riders must be at least 32 inches tall to participate.",
+        "In addition to the rides, festivalgoers can enjoy classic Broiler Festival chicken dinners, live entertainment, vendor booths, and the welcoming community atmosphere that has made this event a local favorite for decades."
+      ],
+      links: [
+        { label: "Crane Broiler Festival Facebook", href: "https://www.facebook.com/CraneMoBroilerFestival"}
+      ]
+    },
+    {
         slug: "school-open-house",
         title: "Pirates Back-to-School Open House",
         summary: "Times for elementary, junior high, and high school open house.",
@@ -40,7 +61,7 @@ export const posts: Post[] = [
         slug: "crane-sidewalk-upgrade-2025",
         title: "Sidewalk Upgrade Project Underway in Crane — MoDOT Expects Completion by November",
         summary: "MoDOT begins a $421,722 ADA-compliant sidewalk project along Missouri Route 265 and Stone County Route D, scheduled to finish by November 1, 2025.",
-        date: "2025-08-12",
+        date: "2025-07-18",
         category: "News",
         image: "/sidewalk-upgrade.jpg",
         body: [
