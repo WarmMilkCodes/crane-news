@@ -11,7 +11,6 @@ export default function Home() {
     <div className="space-y-6">
       {/* Feature hero */}
       <HeroHeader
-        tag="Top Story"
         title="Crane.news"
         subtitle="Local news, events, and media for Crane, Missouri."
         image="/header.jpg"
@@ -32,9 +31,8 @@ export default function Home() {
           <div className="panel p-4">
             <div className="h-serif text-lg">This Week in Crane</div>
             <ul className="mt-2 text-sm space-y-2">
-              <li>Back-to-School Night — Wed 6:00 PM @ High School</li>
-              <li>Farmers Market — Sat 8:00 AM @ Main St</li>
-              <li>City Park Cleanup — Sun 2:00 PM</li>
+              <li>Crane Schools Open House — Thur 4:30 PM - 6:30 PM</li>
+              <li>Last Day for Crane Public Pool - Sun 12:00 PM - 5:00 PM</li>
             </ul>
           </div>
           <div className="panel p-4">

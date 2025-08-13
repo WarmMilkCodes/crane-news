@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function HeroHeader({
   image = "/header.jpg",
-  kicker = "Crane, Missouri and surrounding areas",
+  kicker = "Crane News & Media Hub",
   title,
   subtitle,
   tag
