@@ -29,7 +29,7 @@ export const games: Game[] = [
     date: "2025-08-30",
     level: "HS",
     sport: "Volleyball",
-    opponent: "Tournament",
+    opponent: "Monett",
     home: false,
     venue: "Monett High School",
     status: "Scheduled"
