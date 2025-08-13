@@ -11,7 +11,7 @@ export default function MediaPage() {
       <div className="grid md:grid-cols-2 gap-4">
         {/* Empty State — replace with real mapped content */}
         <div className="col-span-full card p-6 text-center text-sm text-[var(--color-muted)]">
-          Our podcasts, videos, and special features will be published here soon.
+          Podcasts, videos, and special features will be published here soon.
         </div>
       </div>
     </section>
