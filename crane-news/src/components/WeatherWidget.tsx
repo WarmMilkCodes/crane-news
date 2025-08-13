@@ -35,12 +35,12 @@ function wcLabel(code?: number) {
 function wcEmoji(code?: number) {
   if (code == null) return "🌡️";
   if (code === 0) return "☀️";
-  if ([1,2].includes(code)) return "⛅";
+  if ([1, 2].includes(code)) return "⛅";
   if (code === 3) return "☁️";
-  if ([45,48].includes(code)) return "🌫️";
-  if ([51,61,63,65,80,81,82].includes(code)) return "🌧️";
-  if ([71,73,75].includes(code)) return "❄️";
-  if ([95,96,99].includes(code)) return "⛈️";
+  if ([45, 48].includes(code)) return "🌫️";
+  if ([51, 61, 63, 65, 80, 81, 82].includes(code)) return "🌧️";
+  if ([71, 73, 75].includes(code)) return "❄️";
+  if ([95, 96, 99].includes(code)) return "⛈️";
   return "🌡️";
 }
 
@@ -56,16 +56,18 @@ export default function WeatherWidget() {
         if (!res.ok) throw new Error("fetch_failed");
         const j = await res.json();
         if (alive) setData({ current: j.current, daily: j.daily });
-      } catch (e:any) {
+      } catch (_err: unknown) {
         if (alive) setErr("Weather unavailable");
       }
     })();
+
     const id = setInterval(() => {
       fetch("/api/weather", { cache: "no-store" })
         .then(r => r.ok ? r.json() : Promise.reject())
         .then(j => setData({ current: j.current, daily: j.daily }))
         .catch(() => {});
     }, 15 * 60 * 1000); // refresh client-side every 15 min
+
     return () => { alive = false; clearInterval(id); };
   }, []);
 
@@ -121,7 +123,11 @@ export default function WeatherWidget() {
             <div className="mt-1 text-xs">
               <span className="font-semibold">{d.tmax}°</span> / <span className="text-[var(--color-muted)]">{d.tmin}°</span>
             </div>
-            {Number.isFinite(d.pop) && <div className="text-[var(--color-muted)] text-xs mt-1">🌧️ {d.pop}%</div>}
+            {Number.isFinite(d.pop) && (
+              <div className="text-[var(--color-muted)] text-xs mt-1">
+                🌧️ {d.pop}%
+              </div>
+            )}
           </div>
         ))}
       </div>
