@@ -28,7 +28,14 @@ export default function SiteHeader() {
       <div className="mx-auto max-w-6xl px-4 md:px-6 h-14 flex items-center justify-between">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/logo-crane-news.png" alt="" width={28} height={28} className="object-contain" priority />
+          <Image 
+            src="/logo-crane-news.png"
+            alt="" 
+            width={75} 
+            height={40} 
+            className="object-contain" 
+            priority 
+          />
           <span className="font-semibold text-white">Crane.news</span>
         </Link>
 
