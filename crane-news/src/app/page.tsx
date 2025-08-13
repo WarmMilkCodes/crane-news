@@ -37,7 +37,7 @@ export default function Home() {
             </ul>
           </div>
           <div className="panel p-4">
-            <div className="h-serif text-lg">Weather</div>
+            <div className="h-serif text-lg"></div>
             <WeatherWidget />
           </div>
           <div className="panel p-4">
