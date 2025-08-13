@@ -6,7 +6,7 @@ export const metadata = {
 
 type ResourceLink = {
     label: string;
-    href: string;
+    href?: string;
     note?: string;      // helper text - hours, fees, etc
     external?: boolean; // defaults to true; internal links set to false
 };
