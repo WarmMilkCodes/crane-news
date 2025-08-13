@@ -1,7 +1,9 @@
 export const metadata = {
   title: "Crane.news",
   description: "Local news, events, and media for Crane, Missouri.",
+  openGraph: { title: "Crane.news", images: ["/og-default.jpg"], url: "https://crane.news", type: "website" }
 };
+
 
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";

@@ -6,6 +6,15 @@ export async function generateStaticParams() {
   return posts.map(p => ({ slug: p.slug }));
 }
 
+export function generateMetadata({ params }: { params: { slug: string } }) {
+  const p = getPost(params.slug); if (!p) return {};
+  return {
+    title: `${p.title} — Crane.news`,
+    description: p.summary,
+    openGraph: { title: p.title, description: p.summary, images: ["/header.jpg"] }
+  };
+}
+
 export default function Article({ params }: { params: { slug: string } }) {
   const p = getPost(params.slug);
   if (!p) return notFound();
