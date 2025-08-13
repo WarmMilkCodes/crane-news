@@ -25,41 +25,30 @@ export type StandingsRow = {
 
 export const games: Game[] = [
   {
-    id: "2025-08-22-fb-hs-lamina",
-    date: "2025-08-22T19:00:00-05:00",
+    id: "2025-08-30-vb-hs-monett-tourn",
+    date: "2025-08-30",
     level: "HS",
-    sport: "Football",
-    opponent: "Lamina Tigers",
-    home: true,
-    venue: "Crane Stadium",
-    status: "Scheduled",
-    notes: "Senior night details TBA",
-  },
-  {
-    id: "2025-08-25-vb-jh-oakridge",
-    date: "2025-08-25T17:30:00-05:00",
-    level: "JH",
     sport: "Volleyball",
-    opponent: "Oakridge",
+    opponent: "Tournament",
     home: false,
-    venue: "Oakridge MS Gym",
-    status: "Scheduled",
+    venue: "Monett High School",
+    status: "Scheduled"
   },
   {
-    id: "2025-08-29-fb-hs-millcreek",
-    date: "2025-08-29T19:00:00-05:00",
+    id: "2025-09-01-bsb-hs-sparta",
+    date: "2025-09-01T17:00:00",
     level: "HS",
-    sport: "Football",
-    opponent: "Mill Creek",
-    home: false,
-    venue: "Mill Creek HS",
-    status: "Scheduled",
-  },
+    sport: "Baseball",
+    opponent: "Sparta Trojans",
+    home: true,
+    venue: "Tootie Parsons Memorial Stadium",
+    status: "Scheduled"
+  }
 ];
 
 export const standings: StandingsRow[] = [
-  { level: "HS", sport: "Football", wins: 0, losses: 0 },
-  { level: "JH", sport: "Volleyball", wins: 0, losses: 0 },
+  { level: "HS", sport: "Baseball", wins: 0, losses: 0 },
+  { level: "HS", sport: "Volleyball", wins: 0, losses: 0 },
 ];
 
 // Helpers
