@@ -28,7 +28,7 @@ export type Post = {
 export const posts: Post[] = [
   {
     slug: "obit-carol-maples-84-crane",
-    title: "Death Notice: Carol L. Maples, 84, of Crane",
+    title: "Carol Lee Maples, 84, of Crane",
     summary: "Celebration of life Friday, August 15, 10-11 AM at Reavisville Baptist Church",
     date: "2025-08-13",
     category: "Death Notices",
