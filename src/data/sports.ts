@@ -26,7 +26,7 @@ export type StandingsRow = {
 export const games: Game[] = [
   {
     id: "2025-08-30-vb-hs-monett-tourn",
-    date: "2025-08-30",
+    date: "2025-08-30T12:00",
     level: "HS",
     sport: "Volleyball",
     opponent: "Monett",
@@ -36,12 +36,32 @@ export const games: Game[] = [
   },
   {
     id: "2025-09-01-bsb-hs-sparta",
-    date: "2025-09-01T17:00:00",
+    date: "2025-09-01T17:00",
     level: "HS",
     sport: "Baseball",
     opponent: "Sparta Trojans",
     home: true,
     venue: "Tootie Parsons Memorial Stadium",
+    status: "Scheduled"
+  },
+  {
+    id: "2025-09-02-bsb-hs-exeter",
+    date: "2025-09-02T17:00",
+    level: "HS",
+    sport: "Baseball",
+    opponent: "Exeter Tigers",
+    home: true,
+    venue: "Tootie Parsons Memorial Stadium",
+    status: "Scheduled"
+  },
+  {
+    id: "2025-09-04-vb-fordland",
+    date: "2025-09-04T17:30",
+    level: "HS",
+    sport: "Volleyball",
+    opponent: "Fordland Eagles",
+    home: true,
+    venue: "Crane High School",
     status: "Scheduled"
   }
 ];
