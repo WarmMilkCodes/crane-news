@@ -32,6 +32,7 @@ export const posts: Post[] = [
     summary: "Celebration of life Friday, August 15, 10-11 AM at Reavisville Baptist Church",
     date: "2025-08-13",
     category: "Death Notices",
+    image: "/death-notice.png"
     body: [
       "Carol Lee Maples, 84, of Crane, passed away on August 7, 2025",
       "A celebration of life will be held Friday, August 15 with visitation starting at 10:00 AM and services at 11:00 AM",
