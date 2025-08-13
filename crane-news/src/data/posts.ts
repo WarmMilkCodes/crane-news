@@ -2,35 +2,29 @@ export type Post = {
   slug: string;
   title: string;
   summary: string;
-  date: string;  // ISO
+  date: string;         // ISO
+  image?: string;       // /news/*.jpg
+  category?: string;    // "News" | "Events" | "School" | ...
+  likes?: number;
+  comments?: number;
   body: string[];
-  tags?: string[];
 };
 
 export const posts: Post[] = [
-  {
-    slug: "rose-ave-sidewalk-project",
-    title: "Rose Ave Sidewalk Construction Continues",
-    summary: "Daytime closures in active work zones. Use alternate routes and watch for workers.",
-    date: "2025-08-10",
-    body: [
-      "Crews are continuing sidewalk improvements along Rose Ave.",
-      "Sections will be closed during daytime work hours. Please follow posted detours and use caution in work zones."
-    ],
-    tags: ["roads", "public-works"]
-  },
-  {
-    slug: "back-to-school-events",
-    title: "Back-to-School Events This Week",
-    summary: "Open houses, supply drives, and first-day reminders for Crane schools.",
-    date: "2025-08-08",
-    body: [
-      "Crane schools will host open houses and supply events this week.",
-      "Check the district site for grade-level times; allow extra time for parking."
-    ],
-    tags: ["schools", "events"]
-  }
-];
+    {
+        slug: "school-open-house",
+        title: "Pirates Back-to-School Open House",
+        summary: "Times for elementary, junior high, and high school open house.",
+        date: "2025-08-12",
+        category: "School",
+        image: "/crane-pirate-logo.jpg",
+        body: [
+            "Crane Schools have posted the open house schedule that is applicable to all grade levels.",
+            "Open house will run from 4:30 PM to 6:30 PM for all grade levels and buildings.",
+            "Allow extra time for parking and bringing class supplies if you have them ready."
+        ]
+    }
+]
 
 export function getLatest(n = 6) {
   return [...posts].sort((a,b)=>+new Date(b.date)-+new Date(a.date)).slice(0,n);
