@@ -1,5 +1,4 @@
 import HeroHeader from "@/components/HeroHeader";
-import { AlertBar } from "@/components/AlertBar";
 import { getLatest } from "@/data/posts";
 import { PostCard } from "@/components/PostCard";
 import WeatherWidget from "@/components/WeatherWidget";
