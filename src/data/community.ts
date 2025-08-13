@@ -21,28 +21,6 @@ export type JobPost = PostBase & {
   pay?: string;              // "$14–$16/hr", "DOE"
 };
 
-export const lostFound: LostFoundPost[] = [
-  {
-    id: "lf-2025-08-12-tabby",
-    type: "Lost",
-    category: "Pet",
-    title: "Lost gray tabby near City Park",
-    date: "2025-08-12",
-    contact: "555-555-0134",
-    location: "Crane City Park area",
-    notes: "Answers to 'Milo'. Green collar. Friendly.",
-  },
-];
+export const lostFound: LostFoundPost[] = [];
 
-export const jobs: JobPost[] = [
-  {
-    id: "job-2025-08-10-market-cashier",
-    company: "Sunfest Market",
-    type: "Part-time",
-    title: "Cashier / Front End",
-    date: "2025-08-10",
-    contact: "apply in-store",
-    notes: "Evenings & weekends. Great for students.",
-    pay: "$13–$15/hr",
-  },
-];
+export const jobs: JobPost[] = [];
