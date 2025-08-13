@@ -127,5 +127,3 @@ export function getDeathNotices(n?: number) {
     .sort((a,b)=> +new Date(b.date) - +new Date(a.date));
   return typeof n === "number" ? all.slice(0, n) : all;
 }
-
-}
