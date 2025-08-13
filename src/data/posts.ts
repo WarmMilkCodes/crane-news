@@ -120,3 +120,12 @@ export function getLatest(n = 6) {
   return [...posts].sort((a,b)=>+new Date(b.date)-+new Date(a.date)).slice(0,n);
 }
 export function getPost(slug: string) { return posts.find(p => p.slug === slug); }
+
+export function getDeathNotices(n?: number) {
+  const all = posts
+    .filter(p => p.category === "Death Notices")
+    .sort((a,b)=> +new Date(b.date) - +new Date(a.date));
+  return typeof n === "number" ? all.slice(0, n) : all;
+}
+
+}
