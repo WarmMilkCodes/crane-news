@@ -29,7 +29,7 @@ export default function MediaPage() {
       <MediaClient items={media} />
 
       <div className="panel p-3 text-xs text-[var(--color-muted)]">
-        Note: We list works believed PD in the U.S. or U.S. government works.
+        Note: We list works believed to be public domain in the U.S. or U.S. government works.
         If you are a rights holder with concerns, contact us for review.
       </div>
     </section>
