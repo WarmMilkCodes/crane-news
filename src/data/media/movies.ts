@@ -63,8 +63,7 @@ export const movies: MediaItem[] = [
     title: "McLintock",
     year: 1963,
     poster: "/mclintock.jpg",
-    url: "https://publicdomainmovie.net/movie.php?id=Mclintock.avi&type=.mp4",
-    source: "Other",
+    url: ia("mclintok_widescreen", "McLintock.mp4"),
     mature: false,
   }),
 ];
