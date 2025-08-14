@@ -18,9 +18,7 @@ const NAV: Group[] = [
       { label: "Sports", href: "/sports" },
     ],
   },
-  {
-    label: "Media", href: "/media"
-  },
+  { label: "Media", href: "/media" },
   {
     label: "Community",
     href: "/community",
@@ -39,7 +37,6 @@ export default function SiteHeader() {
   const pathname = usePathname();
   const headerRef = useRef<HTMLElement>(null);
 
-  // shared close timer so dropdowns don't snap shut instantly
   const closeTimer = useRef<number | null>(null);
   const cancelClose = () => {
     if (closeTimer.current != null) {
@@ -49,7 +46,6 @@ export default function SiteHeader() {
   };
   const scheduleClose = (detailsEl: HTMLDetailsElement) => {
     cancelClose();
-    // desktop only
     if (window.innerWidth < 768) return;
     closeTimer.current = window.setTimeout(() => {
       detailsEl.open = false;
@@ -73,7 +69,6 @@ export default function SiteHeader() {
     };
   }, []);
 
-  // close all on outside click
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
       if (!headerRef.current?.contains(e.target as Node)) {
@@ -127,14 +122,12 @@ export default function SiteHeader() {
                         .forEach((d) => d !== parentDetails && (d.open = false));
                     }
                   }}
-
                 >
                   {g.label}
                 </summary>
 
                 <div
                   role="menu"
-                  // small mt to reduce flicker gap between summary and panel
                   className="absolute left-0 mt-0.5 w-56 rounded-lg border border-white/10 bg-[rgba(15,17,21,0.95)] text-white backdrop-blur-sm py-2 shadow-lg"
                   onMouseEnter={cancelClose}
                   onMouseLeave={(e) => {
@@ -152,7 +145,6 @@ export default function SiteHeader() {
                         pathname === c.href && "bg-white/10"
                       )}
                       onClick={() => {
-                        // close all dropdowns after navigating
                         document.querySelectorAll<HTMLDetailsElement>("nav details[open]").forEach((d) => (d.open = false));
                       }}
                     >
@@ -192,16 +184,16 @@ export default function SiteHeader() {
       <div
         id="mobile-nav"
         className={clsx(
-          // make it solid dark (no blur, no opacity)
           "md:hidden border-t border-white/15 bg-bg transition-[max-height] overflow-hidden",
           openMobile ? "max-h-[90vh]" : "max-h-0"
         )}
       >
-        <div className="mx-auto max-w-6xl px-4 md:px-6 py-2">
+        {/* This wrapper forces ALL <a> inside to be black */}
+        <div className="mx-auto max-w-6xl px-4 md:px-6 py-2 [&_a]:!text-black/90 [&_a:hover]:bg-black/5">
           {NAV.map((g) =>
             g.children ? (
               <details key={g.label} className="border-b border-white/10 py-1">
-                <summary className="list-none cursor-pointer py-3 px-1 font-medium text-white/90 bg-bg hover:bg-white/10 rounded-md">
+                <summary className="list-none cursor-pointer py-3 px-1 font-medium !text-black/90 bg-bg hover:bg-black/5 rounded-md">
                   {g.label}
                 </summary>
                 <div className="pb-2">
@@ -211,8 +203,8 @@ export default function SiteHeader() {
                       href={c.href}
                       onClick={() => setOpenMobile(false)}
                       className={clsx(
-                        "block py-2 pl-4 pr-2 rounded-md text-white/90 hover:bg-white/10",
-                        pathname === c.href && "bg-white/10"
+                        "block py-2 pl-4 pr-2 rounded-md hover:bg-black/5",
+                        pathname === c.href && "bg-black/5"
                       )}
                     >
                       {c.label}
@@ -226,8 +218,8 @@ export default function SiteHeader() {
                 href={g.href}
                 onClick={() => setOpenMobile(false)}
                 className={clsx(
-                  "block py-3 px-1 border-b border-white/10 text-white/90 hover:bg-white/10",
-                  pathname.startsWith(g.href) && "text-yellow-400"
+                  "block py-3 px-1 border-b border-white/10 hover:bg-black/5",
+                  pathname.startsWith(g.href) && "!text-yellow-500"
                 )}
               >
                 {g.label}
@@ -236,8 +228,6 @@ export default function SiteHeader() {
           )}
         </div>
       </div>
-
-
     </header>
   );
 }
