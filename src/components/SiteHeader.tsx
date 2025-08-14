@@ -192,7 +192,8 @@ export default function SiteHeader() {
       <div
         id="mobile-nav"
         className={clsx(
-          "md:hidden border-t border-white/15 bg-bg/95 backdrop-blur-sm transition-[max-height] overflow-hidden",
+          // make it solid dark (no blur, no opacity)
+          "md:hidden border-t border-white/15 bg-bg transition-[max-height] overflow-hidden",
           openMobile ? "max-h-[90vh]" : "max-h-0"
         )}
       >
@@ -200,7 +201,7 @@ export default function SiteHeader() {
           {NAV.map((g) =>
             g.children ? (
               <details key={g.label} className="border-b border-white/10 py-1">
-                <summary className="list-none cursor-pointer py-3 px-1 font-medium text-white/90 hover:bg-white/10 rounded-md">
+                <summary className="list-none cursor-pointer py-3 px-1 font-medium text-white/90 bg-bg hover:bg-white/10 rounded-md">
                   {g.label}
                 </summary>
                 <div className="pb-2">
@@ -235,6 +236,7 @@ export default function SiteHeader() {
           )}
         </div>
       </div>
+
 
     </header>
   );
