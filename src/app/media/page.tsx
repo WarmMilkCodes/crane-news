@@ -25,24 +25,38 @@ export default function MediaPage() {
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {media.map((m) => (
-          <a key={m.id} href={`/media/watch/${m.id}`} className="card p-0 overflow-hidden block">
-            <div className="relative w-full aspect-[2/3] bg-[var(--panel)]">
-              {m.poster ? (
-                <img src={m.poster} alt="{m.title}" className="absolute inset-0 w-full h-full object-cover" />
-              ) : (
-                <div className="absolute inset-0 grid place-items-center text-sm text-[var(--color-muted)]">
-                  {m.title}
-                </div>
-              )}
-            </div>
-            <div className="p-3">
-              <div className="font-semibold">{m.title}</div>
-              <div className="text-xs text-[var(--color-muted)]">
+        <a key={m.id} href={`/media/watch/${m.id}`} className="card p-0 overflow-hidden block group">
+          <div className="relative w-full aspect-[2/3] bg-[var(--panel)]">
+            {m.poster ? (
+              <img
+                src={m.poster}
+                alt={m.title}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            ) : (
+              <div className="absolute inset-0 grid place-items-center text-sm text-[var(--color-muted)]">
+                {m.title}
+              </div>
+            )}
+
+            {/* Fade overlay */}
+            <div className="pointer-events-none absolute inset-0
+                            bg-gradient-to-t from-black/75 via-black/25 to-transparent
+                            opacity-90 transition-opacity duration-200
+                            group-hover:opacity-100" />
+
+            {/* Title inside fade */}
+            <div className="absolute bottom-0 left-0 right-0 p-3">
+              <div className="font-semibold text-white drop-shadow-sm line-clamp-2">
+                {m.title}
+              </div>
+              <div className="text-xs text-white/80">
                 {m.year ? `${m.year} • ` : ""}{m.kind} • {m.source}
               </div>
             </div>
-          </a>
-        ))}
+          </div>
+        </a>
+      ))}
       </div>
 
       <div className="panel p-3 text-xs text-[var(--color-muted)]">
