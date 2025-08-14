@@ -41,9 +41,9 @@ export default function MediaPage() {
 
             {/* Fade overlay */}
             <div className="pointer-events-none absolute inset-0
-                            bg-gradient-to-t from-black/75 via-black/25 to-transparent
-                            opacity-90 transition-opacity duration-200
-                            group-hover:opacity-100" />
+                            bg-gradient-to-t from-black/95 via-black/15 to-transparent
+                            opacity-100 transition-opacity duration-200
+                            group-hover:opacity-50" />
 
             {/* Title inside fade */}
             <div className="absolute bottom-0 left-0 right-0 p-3">
