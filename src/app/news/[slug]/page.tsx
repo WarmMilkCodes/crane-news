@@ -63,7 +63,7 @@ export default async function Article({
 
       <h1 className="h-serif text-3xl mt-2">{p.title}</h1>
 
-      <div className="relative w-full aspect-[16/9] mt-4 rounded-[var(--radius)] overflow-hidden">
+      <div className="relative w-full aspect-[4/3] md:aspect-[3/2] mt-4 rounded-[var(--radius)] overflow-hidden max-h-64">
         <Image src={hero} alt={p.title} fill className="object-cover" priority />
       </div>
 
