@@ -1,4 +1,5 @@
 // src/app/sports/previews/page.tsx
+import type { PageProps } from "next";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -64,17 +65,15 @@ function cap(s: string) {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
-// NOTE: searchParams is a Promise on Next.js 15
-export default async function PreviewsIndex({
-  searchParams,
-}: {
-  searchParams?: Promise<{ sport?: string; season?: string; year?: string }>;
-}) {
-  const sp = (await searchParams) ?? {};
+// Next.js 15: searchParams is a Promise on PageProps
+export default async function PreviewsIndex({ searchParams }: PageProps) {
+  const sp = (await searchParams) as Record<string, string | string[] | undefined>;
+
+  // Coerce to strings (ignore arrays for now)
   const params = {
-    sport: sp.sport,
-    season: sp.season,
-    year: sp.year,
+    sport: typeof sp.sport === "string" ? sp.sport : undefined,
+    season: typeof sp.season === "string" ? sp.season : undefined,
+    year: typeof sp.year === "string" ? sp.year : undefined,
   };
 
   // facets
@@ -223,7 +222,6 @@ export default async function PreviewsIndex({
                     </div>
 
                     <h3 className="text-neutral-900 text-base font-semibold leading-snug">{p.title}</h3>
-
                     <p className="text-neutral-700 text-sm line-clamp-3">{p.excerpt}</p>
 
                     <div className="pt-1">
