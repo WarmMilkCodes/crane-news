@@ -19,8 +19,7 @@ export const media: MediaItem[] = [
     kind: "Movie",
     source: "Internet Archive",
     poster: "/detour.jpg",
-    url: "https://archive.org/download/Detour/Detour_512kb.mp4",
-    notes: "Commonly treated as public domain; verify per your risk tolerance."
+    url: "https://archive.org/download/Detour/Detour_512kb.mp4"
   },
   {
     id: "plan9-1959",
@@ -29,7 +28,6 @@ export const media: MediaItem[] = [
     kind: "Movie",
     source: "Internet Archive",
     poster: "/plan-9.jpg",
-    url: "https://archive.org/download/Plan_9_from_Outer_Space_1959/Plan_9_from_Outer_Space_1959_512kb.mp4",
-    notes: "Widely circulated as public domain; verify preferred source."
+    url: "https://archive.org/download/Plan_9_from_Outer_Space_1959/Plan_9_from_Outer_Space_1959_512kb.mp4"
   }
 ];
