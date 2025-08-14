@@ -29,5 +29,14 @@ export const media: MediaItem[] = [
     source: "Internet Archive",
     poster: "/plan-9.jpg",
     url: "https://archive.org/download/Plan_9_from_Outer_Space_1959/Plan_9_from_Outer_Space_1959_512kb.mp4"
+  },
+  {
+    id: "20000leagues-1916",
+    title: "20,000 Leagues Under the Sea",
+    year: 1916,
+    kind: "Movie",
+    source: "Internet Archive",
+    poster: "/20000-leagues.jpg",
+    url: "https://archive.org/download/20000LeaguesUndertheSea/20000_Leagues_Under_the_Sea_512kb.mp4"
   }
 ];
