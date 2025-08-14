@@ -121,6 +121,7 @@ export const media: MediaItem[] = [
             title: "The Clampetts Strike Oil",
             season: 1, episode: 1, year: 1962,
             url: "https://archive.org/download/Beverly_Hillbillies_Ep01_The_Clampetts_Strike_Oil/BH01_The_Clampetts_Strike_Oil_512kb.mp4",
+            notes: "Jed Clampett's cousin Pearl convinces him to move his entire family and her son Jethro to Beverly Hills after he strikes oil and hits it rich. But when they get to Beverly Hills, big city life proves to be more than they ever expected."
         }
     ]
   }
