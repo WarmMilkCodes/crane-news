@@ -56,5 +56,14 @@ export const media: MediaItem[] = [
     source: "Internet Archive",
     poster: "/mohicans.jpg",
     url: "https://archive.org/download/last-of-the-mohicans-1936-colorized/Last%20of%20the%20Mohicans%201936%20colorized.mp4"
+  },
+  {
+    id: "night-of-the-living-dead-1968",
+    title: "Night of the Living Dead",
+    year: 1968,
+    kind: "Movie",
+    source: "Internet Archive",
+    poster: "/livingdead.jpg",
+    url: "https://archive.org/download/Night.Of.The.Living.Dead_1080p/NightOfTheLivingDead_DVD9_512kb.mp4"
   }
 ];
