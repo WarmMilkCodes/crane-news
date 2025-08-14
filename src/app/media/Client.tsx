@@ -3,7 +3,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import type { MediaItem } from "@/data/media";
+import { media, type MediaItem, type Series } from "@/data/media";
+
 
 export default function MediaClient({ items }: { items: MediaItem[] }) {
   const [hideMature, setHideMature] = useState(true);

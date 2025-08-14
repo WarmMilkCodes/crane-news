@@ -1,5 +1,5 @@
 // src/app/media/page.tsx (server)
-import { media } from "@/data/media";
+import { media, type MediaItem, type Series } from "@/data/media";
 import MediaClient from "./Client";
 
 export const metadata = {

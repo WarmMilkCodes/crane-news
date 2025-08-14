@@ -1,4 +1,4 @@
-import { media } from "@/data/media";
+import { media, type MediaItem, type Series } from "@/data/media";
 import Player from "./player";
 import { redirect } from "next/navigation";
 
