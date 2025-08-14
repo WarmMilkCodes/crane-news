@@ -1,18 +1,42 @@
-export const metadata = { 
+import { media } from "@/data/media";
+
+export const metadata = {
   title: "Media — Crane.news",
-  description: "Podcasts, videos, and other media from Crane.news."
+  description: "A curated selection of public-domain movies and shorts.",
 };
 
 export default function MediaPage() {
   return (
     <section className="space-y-4">
       <h1 className="h-serif text-2xl">Media</h1>
+      <p className="text-sm text-[var(--color-muted)]">
+        Public-domain films and shorts, streamed for the community. Sources include Internet Archive, Library of Congress, and NASA.
+      </p>
 
-      <div className="grid md:grid-cols-2 gap-4">
-        {/* Empty State — replace with real mapped content */}
-        <div className="col-span-full card p-6 text-center text-sm text-[var(--color-muted)]">
-          Podcasts, videos, and special features will be published here soon.
-        </div>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {media.map((m) => (
+          <a key={m.id} href={`/media/watch/${m.id}`} className="card p-0 overflow-hidden block">
+            <div className="aspect-video bg-[var(--panel)] relative">
+              {m.poster ? (
+                <img src={m.poster} alt="" className="w-full h-full object-cover" />
+              ) : (
+                <div className="w-full h-full grid place-items-center text-sm text-[var(--color-muted)]">
+                  {m.title}
+                </div>
+              )}
+            </div>
+            <div className="p-3">
+              <div className="font-semibold">{m.title}</div>
+              <div className="text-xs text-[var(--color-muted)]">
+                {m.year ? `${m.year} • ` : ""}{m.kind} • {m.source}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div className="panel p-3 text-xs text-[var(--color-muted)]">
+        Note: We curate works believed to be in the U.S. public domain or U.S. government works. If you are a rights holder and have a concern, contact us for review.
       </div>
     </section>
   );
