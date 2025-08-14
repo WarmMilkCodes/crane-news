@@ -1,16 +1,40 @@
 // src/data/media.ts
-export type MediaItem = {
+export type MediaItemBase = {
   id: string;
   title: string;
   year?: number;
-  kind: "Movie" | "Show" | "Other";
-  source: "Internet Archive" | "Library of Congress" | "NASA" | "PublicDomainMovies.net" | "Other";
+  source: "Internet Archive" | "Library of Congress" | "NASA" | "Other";
   poster?: string;                 // /media/*.jpg (optional)
-  url: string;                     // direct mp4 or HLS master.m3u8
-  captions?: string;               // WebVTT
   notes?: string;                  // licensing/source notes
-  mature: boolean;
+  mature?: boolean;                 // Applies to full movie or entire series (default)
+  tags?: string[];                 // Horror, B&W, etc
 };
+
+export type MovieOrShort = MediaItemBase & {
+    kind: "Movie" | "Short" | "PSA";
+    url: string;        // direct MP4 or HLS master
+    captions?: string;
+};
+
+export type Episode = {
+    id: string;     // unique within the series
+    title: string;
+    season?: number;
+    episode?: number;
+    year?: number;
+    url: string;
+    captions?: string;
+    notes?: string;
+    mature?: boolean;       // overrides series.mature per-episode
+    source?: string;        // optional override if different IA item
+};
+
+export type Series = MediaItemBase & {
+    kind: "Series";
+    episodes: Episode[];    // at least one PD episode
+};
+
+export type MediaItem = MovieOrShort | Series;
 
 export const media: MediaItem[] = [
   {
@@ -78,9 +102,26 @@ export const media: MediaItem[] = [
     title: "McLintock",
     year: 1963,
     kind: "Movie",
-    source: "PublicDomainMovies.net",
+    source: "Other",
     poster: "/mclintock.jpg",
     url: "https://publicdomainmovie.net/movie.php?id=Mclintock.avi&type=.mp4",
     mature: false
+  },
+  {
+    id: "the-beverly-hillbillies-1962",
+    title: "The Beverly Hillbillies (TV, 1962)",
+    year: 1962,
+    kind: "Series",
+    source: "Internet Archive",
+    poster: "/the-beverly-hillbillies.jpg",
+    notes: "Only certain episodes are public domain. We list verified items.",
+    episodes: [
+        {
+            id: "s01e01",
+            title: "The Clampetts Strike Oil",
+            season: 1, episode: 1, year: 1962,
+            url: "https://archive.org/download/Beverly_Hillbillies_Ep01_The_Clampetts_Strike_Oil/BH01_The_Clampetts_Strike_Oil_512kb.mp4",
+        }
+    ]
   }
 ];
