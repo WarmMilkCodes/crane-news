@@ -49,7 +49,10 @@ function uniq<T>(arr: T[]) {
   return Array.from(new Set(arr));
 }
 
-function qs(params: Record<string, string | undefined>, overrides: Record<string, string | undefined>) {
+function qs(
+  params: Record<string, string | undefined>,
+  overrides: Record<string, string | undefined>
+) {
   const next = { ...params, ...overrides };
   const search = new URLSearchParams();
   Object.entries(next).forEach(([k, v]) => {
@@ -59,15 +62,17 @@ function qs(params: Record<string, string | undefined>, overrides: Record<string
   return s ? `?${s}` : "";
 }
 
-export default function PreviewsIndex({
-  searchParams,
-}: {
-  searchParams?: { sport?: string; season?: string; year?: string };
-}) {
+// ✅ Next.js 15: searchParams is a Promise
+export default async function PreviewsIndex(
+  props: {
+    searchParams?: Promise<{ sport?: string | string[]; season?: string | string[]; year?: string | string[] }>;
+  }
+) {
+  const sp = (await props.searchParams) ?? {};
   const params = {
-    sport: searchParams?.sport,
-    season: searchParams?.season,
-    year: searchParams?.year,
+    sport: typeof sp.sport === "string" ? sp.sport : undefined,
+    season: typeof sp.season === "string" ? sp.season : undefined,
+    year: typeof sp.year === "string" ? sp.year : undefined,
   };
 
   // derived facets
