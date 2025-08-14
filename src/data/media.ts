@@ -122,6 +122,41 @@ export const media: MediaItem[] = [
             season: 1, episode: 1, year: 1962,
             url: "https://archive.org/download/Beverly_Hillbillies_Ep01_The_Clampetts_Strike_Oil/BH01_The_Clampetts_Strike_Oil_512kb.mp4",
             notes: "Jed Clampett's cousin Pearl convinces him to move his entire family and her son Jethro to Beverly Hills after he strikes oil and hits it rich. But when they get to Beverly Hills, big city life proves to be more than they ever expected."
+        },
+        {
+            id: "s01e02",
+            title: "Getting Settled",
+            season: 1, episode: 2, year: 1962,
+            url: "https://archive.org/download/Beverly_Hillbillies_Ep02_Getting_Settled/BH02_Getting_Settled_512kb.mp4",
+            notes: "Miss Hathaway accidentally believes that the Clampetts are a group of incompetent backwoods hillbillies instead of the millionaires that they really are."
+        },
+        {
+            id: "s01e03",
+            title: "Meanwhile, Back at the Cabin",
+            season: 1, episode: 3, year: 1962,
+            url: "https://archive.org/download/Beverly_Hillbillies_Ep03_Meanwhile_Back_At_The_Cabin/BH03_Meanwhile_Back_At_The_Cabin_512kb.mp4",
+            notes: "While at their brand new mansion, the Clampetts start to notice that all of the fancy amenities just can't match up to life in the country."
+        },
+        {
+            id: "s01e04",
+            title: "The Clampetts Meet Mrs. Drysdale",
+            season: 1, episode: 4, year: 1962,
+            url: "https://archive.org/download/Beverly_Hillbillies_Ep04_The_Clampetts_Meet_Mrs_Drysdale/BH04_The_Clampetts_Meet_Mrs_Drysdale_512kb.mp4",
+            notes: "The Clampetts believe that Mrs. Drysdale has a serious drinking problem after the way that Mr. Drysdale describes her to them and they try to help her."
+        },
+        {
+            id: "s01e05",
+            title: "Jed Buys Stock",
+            season: 1, episode: 5, year: 1962,
+            url: "https://archive.org/download/TheBeverlyHillbillies-JedBuysStock-Ep.1x05/TheBeverlyHillbillies105-JedBuysStock_512kb.mp4",
+            notes: "Jed invests in some cows, pigs, chickens, and other animals after Mr. Drysdale suggests that they invest some of their money in stock."
+        },
+        {
+            id: "s01e06",
+            title: "Trick or Treat",
+            season: 1, episode: 6, year: 1962,
+            url: "https://archive.org/download/Beverly_Hillbillies_Ep06_Trick_Or_Treat/BH06_Trick_Or_Treat_512kb.mp4",
+            notes: "The Clampetts get a big surprise when they go out to meet their new neighbors in Beverly Hills, not realizing that it's Halloween."
         }
     ]
   }
