@@ -218,6 +218,76 @@ export const media: MediaItem[] = [
             url: "https://archive.org/download/Dragnet1951/Dragnet/Season%202/Dragnet%20%281951%29%20-%20S02E01%20-%20The%20Big%20Jump.mp4"
         }
     ]
-  }
-
+  },
+  {
+        id: "farscape-1999",
+        title: "Farscape (TV, 1999)",
+        year: 1999,
+        kind: "Series",
+        source: "Internet Archive",
+        poster: "/farscape.jpg",
+        notes: "Only certain episodes are public domain. We list verified items.",
+        episodes: [
+            {
+                id: "s01e01",
+                title: "Premiere",
+                season: 1, episode: 1, year: 1999,
+                url: "https://archive.org/download/farscape-s-01/Farscape%20S01E01%20Premiere.mp4"
+            },
+            {
+                id: "s01e02",
+                title: "Exodus from Genesis",
+                season: 1, episode: 2, year: 1999,
+                url: "https://archive.org/download/farscape-s-01/Farscape%20S01E02%20Exodus%20from%20Genesis.mp4"
+            },
+            {
+                id: "s01e03",
+                title: "Back and Back and Back to the Future",
+                season: 1, episode: 3, year: 1999,
+                url: "https://archive.org/download/farscape-s-01/Farscape%20S01E03%20Back%20and%20Back%20and%20Back%20to%20the%20Future.mp4"
+            },
+            {
+                id: "s01e04",
+                title: "Throne for a Loss",
+                season: 1, episode: 4, year: 1999,
+                url: "https://archive.org/download/farscape-s-01/Farscape%20S01E04%20Throne%20for%20a%20Loss.mp4"
+            },
+            {
+                id: "s01e05",
+                title: "PK Tech Girl",
+                season: 1, episode: 5, year: 1999,
+                url: "https://archive.org/download/farscape-s-01/Farscape%20S01E05%20PK%20Tech%20Girl.mp4"
+            },
+            {
+                id: "s01e06",
+                title: "Thank God It's Friday, Again",
+                season: 1, episode: 6, year: 1999,
+                url: "https://archive.org/download/farscape-s-01/Farscape%20S01E06%20Thank%20God%20it%27s%20Friday%2C%20Again..mp4"
+            },
+            {
+                id: "s01e07",
+                title: "I, E.T.",
+                season: 1, episode: 7, year: 1999,
+                url: "https://archive.org/download/farscape-s-01/Farscape%20S01E07%20I%2C%20E.T..mp4"
+            },
+            {
+                id: "s01e08",
+                title: "That Old Black Magic",
+                season: 1, episode: 8, year: 1999,
+                url: "https://archive.org/download/farscape-s-01/Farscape%20S01E08%20That%20Old%20Black%20Magic.mp4"
+            },
+            {
+                id: "s01e09",
+                title: "DNA Mad Scientist",
+                season: 1, episode: 9, year: 1999,
+                url: "https://archive.org/download/farscape-s-01/Farscape%20S01E09%20DNA%20Mad%20Scientist.mp4"
+            },
+            {
+                id: "s01e10",
+                title: "They've Got a Secret",
+                season: 1, episode: 10, year: 1999,
+                url: "https://archive.org/download/farscape-s-01/Farscape%20S01E10%20They%27ve%20Got%20a%20Secret.mp4"
+            }
+        ]
+    }
 ];
