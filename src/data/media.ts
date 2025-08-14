@@ -4,7 +4,7 @@ export type MediaItem = {
   title: string;
   year?: number;
   kind: "Movie" | "Show" | "Other";
-  source: "Internet Archive" | "Library of Congress" | "NASA" | "Other";
+  source: "Internet Archive" | "Library of Congress" | "NASA" | "PublicDomainMovies.net" | "Other";
   poster?: string;                 // /media/*.jpg (optional)
   url: string;                     // direct mp4 or HLS master.m3u8
   captions?: string;               // WebVTT
@@ -72,5 +72,15 @@ export const media: MediaItem[] = [
     poster: "/livingdead.jpg",
     url: "https://archive.org/download/Night.Of.The.Living.Dead_1080p/NightOfTheLivingDead_DVD9_512kb.mp4",
     mature: true
+  },
+  {
+    id: "mclintock-1963",
+    title: "McLintock",
+    year: 1963,
+    kind: "Movie",
+    source: "PublicDomainMovies.net",
+    poster: "/mclintock.jpg",
+    url: "https://publicdomainmovie.net/movie.php?id=Mclintock.avi&type=.mp4",
+    mature: false
   }
 ];
