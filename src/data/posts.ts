@@ -11,29 +11,68 @@ export type Post = {
   comments?: number;
   body: string[];
   links?: PostLink[];  // source URLs
+  death?: {
+    name: string;
+    age?: number;
+    city?: string;
+    dateOfDeath?: string;  // ISO
+    services?: {
+      visitation?: { at: string, when: string }; // readable place names
+      funeral?: { at: string, when: string };
+      burial?: { at: string, when: string };
+    };
+    source?: { label: string, href: string };
+  };
 };
 
 export const posts: Post[] = [
-    {
-      slug: "broiler-fest-2025",
-      title: "Crane Broiler Festival Welcomes Kenny's Funland for Rides",
-      summary: "The 2025 Crane Broiler Festival runs Aug. 21-24 at Crane City Park, with Kenny’s Funland providing the carnival rides for the first time.",
-      date: "2025-08-12",
-      category: "Events",
-      image: "/kennys-funland.jpg",
-      body: [
-        "Crane’s annual Broiler Festival is right around the corner and everybody is eagerly awaiting the delicious chicken, craft booths, fair rides, and all the summer vibes.",
-        "This year, the festival has partnered with a new ride provider, Kenny’s Funland, to bring a fresh lineup of amusement rides to Crane City Park. The event runs from Thursday, August 21, through Sunday, August 24, 2025.",
-        "Kenny’s Funland will set up and start offering rides on Wednesday evening, continuing through Saturday night. Rides will operate during the following times:",
-        "- **Wednesday & Thursday:** 6:00 – 10:00 p.m. ($28 armband)",
-        "- **Friday:** 5:00 – 10:00 p.m. ($30 armband)",
-        "- **Saturday:** 12:00 – 10:00 p.m. ($35 armband)",
-        "Ride armbands can be purchased in advance at several local businesses, including Shelter Insurance, Sunfest Market, Simmons Bank, Stockmens Bank, and Table Rock Community Bank. Riders must be at least 32 inches tall to participate.",
-        "In addition to the rides, festivalgoers can enjoy classic Broiler Festival chicken dinners, live entertainment, vendor booths, and the welcoming community atmosphere that has made this event a local favorite for decades."
-      ],
-      links: [
-        { label: "Crane Broiler Festival Facebook", href: "https://www.facebook.com/CraneMoBroilerFestival"}
-      ]
+  {
+    slug: "obit-carol-maples-84-crane",
+    title: "Carol Lee Maples, 84, of Crane",
+    summary: "Celebration of life Friday, August 15, 10-11 AM at Reavisville Baptist Church",
+    date: "2025-08-13",
+    category: "Death Notices",
+    image: "/death-notice.png",
+    body: [
+      "Carol Lee Maples, 84, of Crane, passed away on August 7, 2025",
+      "A celebration of life will be held Friday, August 15 with visitation starting at 10:00 AM and services at 11:00 AM",
+      "Final disposition will be cremation under the care of Westrip Funeral Home"
+    ],
+    links: [
+      { label: "Westrip Funeral Home Obituaries", href: "http://www.westripfuneralhome.com/carol-lee-maples-08072025.html" }
+    ],
+    death: {
+      name: "Carol Lee Maples",
+      age: 84,
+      city: "Crane",
+      dateOfDeath: "2025-08-07",
+      services: {
+        visitation: { at: "Reavisville Baptist Church", when: "Fri, Aug 15, 10-11 AM" },
+        funeral: { at: "Reavisville Baptist Church", when: "Fri, Aug 15, 11 AM" }
+      },
+      source: { label: "Westrip Funeral Home", href: "http://www.westripfuneralhome.com/carol-lee-maples-08072025.html" }
+    }
+  },
+  {
+    slug: "broiler-fest-2025",
+    title: "Crane Broiler Festival Welcomes Kenny's Funland for Rides",
+    summary: "The 2025 Crane Broiler Festival runs Aug. 21-24 at Crane City Park, with Kenny’s Funland providing the carnival rides for the first time.",
+    date: "2025-08-12",
+    category: "Events",
+    image: "/kennys-funland.jpg",
+    body: [
+      "Crane’s annual Broiler Festival is right around the corner and everybody is eagerly awaiting the delicious chicken, craft booths, fair rides, and all the summer vibes.",
+      "This year, the festival has partnered with a new ride provider, Kenny’s Funland, to bring a fresh lineup of amusement rides to Crane City Park. The event runs from Thursday, August 21, through Sunday, August 24, 2025.",
+      "Kenny’s Funland will set up and start offering rides on Wednesday evening, continuing through Saturday night. Rides will operate during the following times:",
+      "- **Wednesday & Thursday:** 6:00 – 10:00 p.m. ($28 armband)",
+      "- **Friday:** 5:00 – 10:00 p.m. ($30 armband)",
+      "- **Saturday:** 12:00 – 10:00 p.m. ($35 armband)",
+      "Ride armbands can be purchased in advance at several local businesses, including Shelter Insurance, Sunfest Market, Simmons Bank, Stockmens Bank, and Table Rock Community Bank. Riders must be at least 32 inches tall to participate.",
+      "In addition to the rides, festivalgoers can enjoy classic Broiler Festival chicken dinners, live entertainment, vendor booths, and the welcoming community atmosphere that has made this event a local favorite for decades."
+    ],
+    links: [
+      { label: "Crane Broiler Festival Facebook", href: "https://www.facebook.com/CraneMoBroilerFestival"}
+    ]
     },
     {
         slug: "school-open-house",
@@ -82,3 +121,10 @@ export function getLatest(n = 6) {
   return [...posts].sort((a,b)=>+new Date(b.date)-+new Date(a.date)).slice(0,n);
 }
 export function getPost(slug: string) { return posts.find(p => p.slug === slug); }
+
+export function getDeathNotices(n?: number) {
+  const all = posts
+    .filter(p => p.category === "Death Notices")
+    .sort((a,b)=> +new Date(b.date) - +new Date(a.date));
+  return typeof n === "number" ? all.slice(0, n) : all;
+}
