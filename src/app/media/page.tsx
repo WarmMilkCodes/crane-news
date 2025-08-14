@@ -26,11 +26,11 @@ export default function MediaPage() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {media.map((m) => (
           <a key={m.id} href={`/media/watch/${m.id}`} className="card p-0 overflow-hidden block">
-            <div className="aspect-video bg-[var(--panel)] relative">
+            <div className="relative w-full aspect-[2/3] bg-[var(--panel)]">
               {m.poster ? (
-                <img src={m.poster} alt="" className="w-full h-full object-cover" />
+                <img src={m.poster} alt="{m.title}" className="absolute inset-0 w-full h-full object-cover" />
               ) : (
-                <div className="w-full h-full grid place-items-center text-sm text-[var(--color-muted)]">
+                <div className="absolute inset-0 grid place-items-center text-sm text-[var(--color-muted)]">
                   {m.title}
                 </div>
               )}
