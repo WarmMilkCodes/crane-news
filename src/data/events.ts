@@ -14,7 +14,7 @@ export const events: Event[] = [
   {
     id: "open-house-2025",
     title: "School Open House",
-    when: "2025-08-15T16:30:00-05:00",
+    when: "2025-08-14T16:30:00-05:00",
     location: "Crane Elementary & High School",
     description: "Open house will run from 4:30 PM to 6:30 PM for all grade levels and buildings. Allow extra time for parking and bringing class supplies if you have them ready.",
     link: "https://www.crane.k12.mo.us/",
