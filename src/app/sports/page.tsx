@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import { getUpcomingGames, getRecentResults, standings, type Game } from "@/data/sports";
 
 const latestPreviews = [
@@ -55,7 +57,7 @@ export default function SportsPage() {
         <h1 className="h-serif text-2xl">Crane Sports</h1>
         <p className="text-sm text-[var(--color-muted)]">Junior High & High School schedules, scores, and standings.</p>
         <div className="panel p-3 text-xs text-[var(--color-muted)]">
-          Tip? Score correction? <a href="/submit" className="underline">Send an update</a>.
+          Tip? Score correction? <Link href="/submit" className="underline">Send an update</Link>.
         </div>
       </header>
 
@@ -79,24 +81,25 @@ export default function SportsPage() {
       <section className="space-y-3">
         <div className="flex items-center justify-between">
           <div className="h-serif text-xl">Pirate Preview</div>
-          <a href="/sports/previews" className="text-sm text-cyan-600 hover:underline">
+          <Link href="/sports/previews" className="text-sm text-cyan-600 hover:underline">
             View all →
-          </a>
+          </Link>
         </div>
 
         {latestPreviews.length ? (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {latestPreviews.map((p) => (
-              <a
+              <Link
                 key={p.slug}
                 href={`/sports/previews/${p.slug}`}
                 className="group card overflow-hidden p-0 hover:shadow-md transition"
               >
                 <div className="relative aspect-[16/9] w-full bg-[var(--color-muted)]">
-                  <img
+                  <Image
                     src={p.coverImage}
                     alt=""
-                    className="absolute inset-0 h-full w-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                    fill
+                    className="object-cover group-hover:scale-[1.02] transition-transform duration-300"
                   />
                 </div>
                 <div className="p-3 space-y-1">
@@ -105,7 +108,7 @@ export default function SportsPage() {
                     {p.excerpt}
                   </p>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         ) : (
