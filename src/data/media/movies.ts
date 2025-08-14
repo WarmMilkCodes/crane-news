@@ -57,7 +57,6 @@ export const movies: MediaItem[] = [
     mature: true,
   }),
 
-  // Non-IA source
   movie({
     id: "mclintock-1963",
     title: "McLintock",
@@ -66,4 +65,12 @@ export const movies: MediaItem[] = [
     url: ia("mclintok_widescreen", "McLintock.mp4"),
     mature: false,
   }),
+
+  movie({
+    id: "gun-pulpit-1974",
+    title: "The Gun and the Pulpit",
+    year: 1974,
+    poster: "/gun-pulpit.jpg",
+    url: ia("cco_thegunandthepulpit", "ccoPublicDomainThe_Gun_and_the_Pulpit.mp4")
+  })
 ];
