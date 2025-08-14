@@ -27,6 +27,22 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "kenny-vaught-commissioner-application",
+    title: "Stone County Presiding Commissioner Steps Down; Replacement Process Underway",
+    summary: "An unexpected resignation has a left a vacancy on the Stone County Commission, and at least one Crane resident is stepping forward to seek the role.",
+    date: "2025-08-13",
+    category: "News",
+    image: "/kenny-vaught.jpg",
+    body: [
+      "An unexpected resignation has left a vacancy on the Stone County Commission, and at least one local resident is stepping forward to seek the role.",
+      "At the commission’s meeting on Tuesday, July 15, 2025, Presiding Commissioner Mark Maples announced he would be resigning and handed the meeting over to Presiding Commissioner Pro Tempore Hank Smythe. The position is now open, and Governor Mike Kehoe’s office will be accepting applications for the appointment.",
+      "Crane resident Kenny Vaught has already declared his intent to apply. In a statement on social media, Vaught shared that he has worked in road construction and consulting since 1980, serving multiple counties and assisting with FEMA disaster response efforts. A lifelong Stone County resident, Vaught said he is committed to the community’s growth and wants to ensure citizens’ voices are heard.",
+      "Stone County Clerk Denise Dickens explained that anyone interested in applying must go through the Missouri Governor’s “Boards and Commissions” office. “When the position is posted there, applicants can submit their information through the Governor’s application process,” Dickens said.",
+      "Following his announcement, Maples provided a resignation letter to the Stone County Republican, stating his departure would be effective July 31, 2025. In the letter, Maples reflected on his service since first running for Northern Commissioner in 2011, describing the role as “one of the greatest honors” of his professional life. He thanked county employees, fellow officials, and residents for their trust, writing that it was time “to step aside and allow for other leadership.”",
+      "Until the governor names a replacement, Smythe will continue presiding over commission meetings."
+    ]
+  },
+  {
     slug: "obit-carol-maples-84-crane",
     title: "Carol Lee Maples, 84, of Crane",
     summary: "Celebration of life Friday, August 15, 10-11 AM at Reavisville Baptist Church",
