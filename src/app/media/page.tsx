@@ -49,6 +49,14 @@ export default function MediaPage() {
               </div>
             )}
 
+            {/* Mature Badge */}
+            {m.mature && (
+              <span className="absolute top-2 right-2 bg-red-600 text-white text-[10px] font-semibold px-2 py-1 rounded shadow-lg">
+                Mature
+              </span>
+            )}
+
+            
             <div
               className="
               pointer-events-none absolute inset-0

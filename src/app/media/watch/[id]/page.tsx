@@ -29,7 +29,16 @@ export default async function Watch({
         {item.year ? `${item.year} • ` : ""}
         {item.kind} • Source: {item.source}
       </div>
+
+        {/* Mature Content Warning */}
+        {item.mature && (
+            <div className="p-3 bg-red-900/40 border border-red-600 rounded text-sm text-red-100">
+                This film may contain content not suitable for young viewers.
+            </div>
+        )}
+
       <Player src={item.url} captions={item.captions} />
+      
       {item.notes && (
         <p className="text-xs text-[var(--color-muted)]">{item.notes}</p>
       )}
