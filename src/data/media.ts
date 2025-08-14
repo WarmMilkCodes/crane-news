@@ -159,5 +159,65 @@ export const media: MediaItem[] = [
             notes: "The Clampetts get a big surprise when they go out to meet their new neighbors in Beverly Hills, not realizing that it's Halloween."
         }
     ]
+  },
+  {
+    id: "dragnet-1951",
+    title: "Dragnet (TV, 1951)",
+    year: 1951,
+    kind: "Series",
+    source: "Internet Archive",
+    poster: "/dragnet.jpg",
+    notes: "Only certain episodes are public domain. We list verified items.",
+    episodes: [
+        {
+            id: "s01e01",
+            title: "The Human Bomb",
+            season: 1, episode: 1, year: 1951,
+            url: "https://archive.org/download/Dragnet1951/Dragnet/Season%201/Dragnet%20%281951%29%20-%20S01E01%20-%20The%20Human%20Bomb.mp4"
+        },
+        {
+            id: "s01e02",
+            title: "The Big Actor",
+            season: 1, episode: 2, year: 1951,
+            url: "https://archive.org/download/Dragnet1951/Dragnet/Season%201/Dragnet%20%281951%29%20-%20S01E02%20-%20The%20Big%20Actor.mp4"
+        },
+        {
+            id: "s01e05",
+            title: "The Big Cast",
+            season: 1, episode: 5, year: 1951,
+            url: "https://archive.org/download/Dragnet1951/Dragnet/Season%201/Dragnet%20%281951%29%20-%20S01E05%20-%20The%20Big%20Cast.mp4"
+        },
+        {
+            id: "s01e11",
+            title: "The Big September Man",
+            season: 1, episode: 11, year: 1951,
+            url: "https://archive.org/download/Dragnet1951/Dragnet/Season%201/Dragnet%20%281951%29%20-%20S01E11%20-%20The%20Big%20September%20Man.mp4"
+        },
+        {
+            id: "s01e12",
+            title: "The Big Phone Call",
+            season: 1, episode: 12, year: 1951,
+            url: "https://archive.org/download/Dragnet1951/Dragnet/Season%201/Dragnet%20%281951%29%20-%20S01E12%20-%20The%20Big%20Phone%20Call.mp4"
+        },
+        {
+            id: "s01e13",
+            title: "The Big Chasing",
+            season: 1, episode: 13, year: 1951,
+            url: "https://archive.org/download/Dragnet1951/Dragnet/Season%201/Dragnet%20%281951%29%20-%20S01E13%20-%20The%20Big%20Chasing.mp4"
+        },
+        {
+            id: "s01e14",
+            title: "The Big Lamp",
+            season: 1, episode: 14, year: 1951,
+            url: "https://archive.org/download/Dragnet1951/Dragnet/Season%201/Dragnet%20%281951%29%20-%20S01E14%20-%20The%20Big%20Lamp.mp4"
+        },
+        {
+            id: "s02e01",
+            title: "The Big Jump",
+            season: 2, episode: 1, year: 1951,
+            url: "https://archive.org/download/Dragnet1951/Dragnet/Season%202/Dragnet%20%281951%29%20-%20S02E01%20-%20The%20Big%20Jump.mp4"
+        }
+    ]
   }
+
 ];
