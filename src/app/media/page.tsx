@@ -16,7 +16,7 @@ export default function MediaPage() {
         <div className="font-semibold text-lg">Coming Soon: Live TV-Style Broadcast</div>
         <p className="text-sm text-[var(--color-muted)] mt-1">
           We’re working on a continuous, scheduled live channel with local news, events,
-          and curated classics. Stay tuned — and enjoy our on-demand library.
+          and curated classics. Stay tuned — and enjoy our on-demand library (new media added daily!).
         </p>
       </div>
 
