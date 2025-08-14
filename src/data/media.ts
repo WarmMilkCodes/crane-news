@@ -38,5 +38,14 @@ export const media: MediaItem[] = [
     source: "Internet Archive",
     poster: "/20000-leagues.jpg",
     url: "https://archive.org/download/20000LeaguesUndertheSea/20000_Leagues_Under_the_Sea_512kb.mp4"
+  },
+  {
+    id: "sahara-1943",
+    title: "Sahara",
+    year: 1943,
+    kind: "Movie",
+    source: "Internet Archive",
+    poster: "/sahara.jpg",
+    url: "https://archive.org/download/sahara-colorized/Sahara%201943.mp4"
   }
 ];
