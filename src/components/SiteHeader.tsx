@@ -200,7 +200,7 @@ export default function SiteHeader() {
           {NAV.map((g) =>
             g.children ? (
               <details key={g.label} className="border-b border-white/10 py-1">
-                <summary className="list-none cursor-pointer py-3 px-1 font-medium">
+                <summary className="list-none cursor-pointer py-3 px-1 font-medium text-white/90 hover:bg-white/10 rounded-md">
                   {g.label}
                 </summary>
                 <div className="pb-2">
@@ -210,7 +210,7 @@ export default function SiteHeader() {
                       href={c.href}
                       onClick={() => setOpenMobile(false)}
                       className={clsx(
-                        "block py-2 pl-4 pr-2 rounded-md hover:bg-white/10 text-white/90",
+                        "block py-2 pl-4 pr-2 rounded-md text-white/90 hover:bg-white/10",
                         pathname === c.href && "bg-white/10"
                       )}
                     >
@@ -225,7 +225,7 @@ export default function SiteHeader() {
                 href={g.href}
                 onClick={() => setOpenMobile(false)}
                 className={clsx(
-                  "block py-3 px-1 border-b border-white/10",
+                  "block py-3 px-1 border-b border-white/10 text-white/90 hover:bg-white/10",
                   pathname.startsWith(g.href) && "text-yellow-400"
                 )}
               >
@@ -235,6 +235,7 @@ export default function SiteHeader() {
           )}
         </div>
       </div>
+
     </header>
   );
 }
