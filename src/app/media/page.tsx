@@ -9,6 +9,16 @@ export default function MediaPage() {
   return (
     <section className="space-y-4">
       <h1 className="h-serif text-2xl">Media</h1>
+
+      <div className="panel p-4 bg-[var(--color-surface2)] border-l-4 border-[var(--color-accent)]">
+        <div className="font-semibold text-lg">Coming Soon: Live TV-Style Broadcast</div>
+        <p className="text-sm text-[var(--color-muted)] mt-1">
+          We’re working on adding a continuous, scheduled live channel with local
+          news, events, and curated classic programming — just like a real TV
+          station. Stay tuned for the launch and in the meantime enjoy our on-demand videos.
+        </p>
+      </div>
+
       <p className="text-sm text-[var(--color-muted)]">
         Public-domain films and shorts, streamed for the community. Sources include Internet Archive, Library of Congress, and NASA.
       </p>
