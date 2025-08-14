@@ -63,9 +63,18 @@ export default async function Article({
 
       <h1 className="h-serif text-3xl mt-2">{p.title}</h1>
 
-      <div className="relative w-full aspect-[4/3] md:aspect-[3/2] mt-4 rounded-[var(--radius)] overflow-hidden max-h-64">
-        <Image src={hero} alt={p.title} fill className="object-cover" priority />
-      </div>
+      <div className="mt-4">
+      <Image
+        src={hero}
+        alt={p.title}
+        width={1200}                 // intrinsic size (any reasonable values)
+        height={675}
+        sizes="(min-width: 1024px) 800px, (min-width: 640px) 600px, 100vw"
+        className="w-full h-auto max-w-3xl mx-auto rounded-[var(--radius)] shadow"
+        priority
+      />
+    </div>
+
 
       <div className="prose mt-4">
         {p.body.map((para, i) => (
