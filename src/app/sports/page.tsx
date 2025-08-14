@@ -1,5 +1,4 @@
 // src/app/sports/previews/page.tsx
-import type { PageProps } from "next";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -65,11 +64,10 @@ function cap(s: string) {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
-// Next.js 15: searchParams is a Promise on PageProps
-export default async function PreviewsIndex({ searchParams }: PageProps) {
-  const sp = (await searchParams) as Record<string, string | string[] | undefined>;
-
-  // Coerce to strings (ignore arrays for now)
+export default async function PreviewsIndex(
+  props: { searchParams?: Promise<{ sport?: string | string[]; season?: string | string[]; year?: string | string[] }> }
+) {
+  const sp = (await props.searchParams) ?? {};
   const params = {
     sport: typeof sp.sport === "string" ? sp.sport : undefined,
     season: typeof sp.season === "string" ? sp.season : undefined,
