@@ -63,17 +63,16 @@ export default async function Article({
 
       <h1 className="h-serif text-3xl mt-2">{p.title}</h1>
 
-      <div className="mt-4">
+      <div className="mt-4 bg-[var(--panel)] rounded-[var(--radius)] overflow-hidden">
       <Image
         src={hero}
         alt={p.title}
-        width={1200}                 // intrinsic size (any reasonable values)
+        width={1200}
         height={675}
         sizes="(min-width: 1024px) 800px, (min-width: 640px) 600px, 100vw"
-        className="w-full h-auto max-w-3xl mx-auto rounded-[var(--radius)] shadow"
+        className="w-full h-auto max-h-72 mx-auto object-contain"
         priority
       />
-    </div>
 
 
       <div className="prose mt-4">
