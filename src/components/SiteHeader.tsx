@@ -126,11 +126,14 @@ export default function SiteHeader() {
                   )}
                   role="button"
                   onClick={(e) => {
-                    // keep only one open at a time
-                    document
-                      .querySelectorAll<HTMLDetailsElement>("nav details[open]")
-                      .forEach((d) => d !== (e.currentTarget as any).parentElement && (d.open = false));
+                    const parentDetails = (e.currentTarget as HTMLElement).parentElement as HTMLDetailsElement | null;
+                    if (parentDetails) {
+                      document
+                        .querySelectorAll<HTMLDetailsElement>("nav details[open]")
+                        .forEach((d) => d !== parentDetails && (d.open = false));
+                    }
                   }}
+
                 >
                   {g.label}
                 </summary>
