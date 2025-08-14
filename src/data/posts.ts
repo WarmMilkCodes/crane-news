@@ -27,6 +27,22 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "brightspeed-fiber-coming-to-crane",
+    title: "Brightspeed Fiber Coming to Crane",
+    summary: "Mayor Collin Brannan says construction is expected to begin soon, bringing a new high-speed internet option to Crane with symmetrical upload and download speeds.",
+    date: "2025-08-14",
+    category: "News",
+    image: "/brightspeed-logo.png",
+    body: [
+      "Crane residents may soon have a new choice for high-speed internet. Mayor Collin Brannan confirmed that the city has received several utility locates, which he says is a strong sign that Brightspeed Fiber construction will begin in the near future.",
+      "Brightspeed — formerly known as CenturyLink — has provided basic DSL internet and phone service in Crane for decades. Following the buyout of CenturyLink, Brightspeed has been rolling out fiber upgrades to more rural communities across the region.",
+      "Currently, Mediacom is the only wired internet service provider in town — excluding satellite services — delivering internet over coaxial cable. While Mediacom advertises download speeds up to 1 gigabit per second (Gbps), upload speeds top out around 50 megabits per second (Mbps). Although the company’s MoCA technology could theoretically allow for faster speeds, Mediacom has not made those options available locally.",
+      "Fiber internet, by contrast, can support speeds up to 10 Gbps. Brightspeed’s website lists plans up to 2 Gbps for certain areas, with the advantage of symmetrical speeds — meaning the upload speed matches the download speed — which is especially beneficial for video calls, online learning, cloud backups, and content creation.",
+      "The arrival of Brightspeed Fiber would mark a significant upgrade to Crane’s internet infrastructure, offering faster and more balanced connectivity for homes and businesses alike.",
+      "We'll continue to follow this story as construction begins."
+    ]
+  },
+  {
     slug: "kenny-vaught-commissioner-application",
     title: "Stone County Presiding Commissioner Steps Down; Replacement Process Underway",
     summary: "An unexpected resignation has a left a vacancy on the Stone County Commission, and at least one Crane resident is stepping forward to seek the role.",
