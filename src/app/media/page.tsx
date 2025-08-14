@@ -25,7 +25,17 @@ export default function MediaPage() {
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {media.map((m) => (
-        <a key={m.id} href={`/media/watch/${m.id}`} className="card p-0 overflow-hidden block group">
+        <a key={m.id} 
+        href={`/media/watch/${m.id}`} 
+        className="
+          card p-0 overflow-hidden block group relative
+          transition-all duration-200 ease-out
+          shadow-md hover:shadow-2xl
+          hover:-translate-y-0.5 hover:scale-[1.02]
+          will-change-transform transform-gpu
+          focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]
+          "
+        >
           <div className="relative w-full aspect-[2/3] bg-[var(--panel)]">
             {m.poster ? (
               <img
@@ -39,15 +49,31 @@ export default function MediaPage() {
               </div>
             )}
 
+            <div
+              className="
+              pointer-events-none absolute inset-0
+              ring-0 ring-[var(--color-accent)]/40 rounded
+              transition-all duration-200
+              group-hover:ring-[3px]
+              "
+            />
+
             {/* Fade overlay */}
-            <div className="pointer-events-none absolute inset-0
-                            bg-gradient-to-t from-black/95 via-black/15 to-transparent
-                            opacity-100 transition-opacity duration-200
-                            group-hover:opacity-50" />
+            <div className="
+              pointer-events-none absolute inset-0
+              bg-gradient-to-t from-black/90 via-black/40 to-transparent
+              opacity-950 transition-opacity duration-200
+              group-hover:opacity-100" 
+            />
 
             {/* Title inside fade */}
-            <div className="absolute bottom-0 left-0 right-0 p-3">
-              <div className="font-semibold text-white drop-shadow-sm line-clamp-2">
+            <div className="
+              absolute bottom-0 left-0 right-0 p-3
+              translate-y-0 group-hover:translate-y-[-2px]
+              transition-transform duration-200
+              "
+            >
+              <div className="font-semibold text-white drop-shadow-md line-clamp-2">
                 {m.title}
               </div>
               <div className="text-xs text-white/80">
