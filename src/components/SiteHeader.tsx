@@ -19,13 +19,7 @@ const NAV: Group[] = [
     ],
   },
   {
-    label: "Media",
-    href: "/media",
-    children: [
-      { label: "Media Home", href: "/media" },
-      { label: "Movies", href: "/media/movies" },
-      { label: "Series", href: "/media/series" },
-    ],
+    label: "Media", href: "/media"
   },
   {
     label: "Community",

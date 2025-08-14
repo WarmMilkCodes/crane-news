@@ -1,5 +1,14 @@
 import { getUpcomingGames, getRecentResults, standings, type Game } from "@/data/sports";
 
+const latestPreviews = [
+  {
+    slug: "25-26-spring-softball",
+    title: "Pirate Preview: 25-26 Spring Softball",
+    excerpt: "Lady Pirates blend experience and new energy for an exciting fall on the diamond.",
+    coverImage: "/pirates-softball.jpg",
+  },
+];
+
 export const metadata = {
   title: "Sports — Crane.news",
   description: "Schedules, scores, and standings for Crane JH & HS athletics.",
@@ -65,6 +74,44 @@ export default function SportsPage() {
           )}
         </section>
       </div>
+
+      {/* Previews mention */}
+      <section className="space-y-3">
+        <div className="flex items-center justify-between">
+          <div className="h-serif text-xl">Pirate Preview</div>
+          <a href="/sports/previews" className="text-sm text-cyan-600 hover:underline">
+            View all →
+          </a>
+        </div>
+
+        {latestPreviews.length ? (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {latestPreviews.map((p) => (
+              <a
+                key={p.slug}
+                href={`/sports/previews/${p.slug}`}
+                className="group card overflow-hidden p-0 hover:shadow-md transition"
+              >
+                <div className="relative aspect-[16/9] w-full bg-[var(--color-muted)]">
+                  <img
+                    src={p.coverImage}
+                    alt=""
+                    className="absolute inset-0 h-full w-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-3 space-y-1">
+                  <h3 className="font-semibold text-sm">{p.title}</h3>
+                  <p className="text-xs text-[var(--color-muted)] line-clamp-2">
+                    {p.excerpt}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <div className="panel p-3 text-sm">No previews posted yet.</div>
+        )}
+      </section>
 
       <section className="space-y-3">
         <div className="h-serif text-xl">Standings (Unofficial)</div>
