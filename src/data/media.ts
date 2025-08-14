@@ -47,5 +47,14 @@ export const media: MediaItem[] = [
     source: "Internet Archive",
     poster: "/sahara.jpg",
     url: "https://archive.org/download/sahara-colorized/Sahara%201943.mp4"
+  },
+  {
+    id: "mohicans-1936",
+    title: "Last of the Mohicans",
+    year: 1936,
+    kind: "Movie",
+    source: "Internet Archive",
+    poster: "/mohicans.jpg",
+    url: "https://archive.org/download/last-of-the-mohicans-1936-colorized/Last%20of%20the%20Mohicans%201936%20colorized.mp4"
   }
 ];
