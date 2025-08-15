@@ -113,10 +113,6 @@ export default async function Article({
           </ul>
         </div>
       )}
-
-      <div className="mt-6 text-sm text-[var(--color-muted)]">
-        ❤️ {p.likes ?? 0} • 💬 {p.comments ?? 0} (interactions coming soon)
-      </div>
     </article>
   );
 }

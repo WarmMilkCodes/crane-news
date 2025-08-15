@@ -31,7 +31,6 @@ export function PostCard({
         </h3>
         <p className="text-sm text-[var(--color-muted)] mt-1">{summary}</p>
         <div className="flex items-center justify-between text-xs text-[var(--color-muted)] mt-3">
-          <span>❤️ {likes} • 💬 {comments}</span>
           <Link href={`/news/${slug}`} className="btn-plain">Read</Link>
         </div>
       </div>
