@@ -1,6 +1,9 @@
 // src/data/media/series.ts
 import { ia, series, ep } from "./builders";
 import type { MediaItem } from "./types";
+import bhb from "@/app/media/images/the-beverly-hillbillies.jpg"
+import dragnet from "@/app/media/images/dragnet.jpg"
+import farscape from "@/app/media/images/farscape.jpg"
 
 export const seriesList: MediaItem[] = [
   // ——————————————————————————————————————————
@@ -10,7 +13,7 @@ export const seriesList: MediaItem[] = [
     id: "the-beverly-hillbillies-1962",
     title: "The Beverly Hillbillies (TV, 1962)",
     year: 1962,
-    poster: "/the-beverly-hillbillies.jpg",
+    poster: bhb.src,
     notes: "Only certain episodes are public domain. We list verified items.",
     episodes: [
       ep({ season: 1, year: 1962 })({
@@ -89,7 +92,7 @@ export const seriesList: MediaItem[] = [
     id: "dragnet-1951",
     title: "Dragnet (TV, 1951)",
     year: 1951,
-    poster: "/dragnet.jpg",
+    poster: dragnet.src,
     notes: "Only certain episodes are public domain. We list verified items.",
     episodes: [
       ep({ season: 1, year: 1951 })({
@@ -174,7 +177,7 @@ export const seriesList: MediaItem[] = [
     id: "farscape-1999",
     title: "Farscape (TV, 1999)",
     year: 1999,
-    poster: "/farscape.jpg",
+    poster: farscape.src,
     notes:
       "Only certain episodes are public domain. We list verified items as discovered.",
     episodes: [
