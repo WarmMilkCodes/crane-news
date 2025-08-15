@@ -63,7 +63,8 @@ export default async function Article({
 
       <h1 className="h-serif text-3xl mt-2">{p.title}</h1>
 
-      <div className="mt-4 bg-[var(--panel)] rounded-[var(--radius)] overflow-hidden">
+      {/* Hero image with attribution overlay */}
+      <div className="relative mt-4 bg-[var(--panel)] rounded-[var(--radius)] overflow-hidden">
         <Image
           src={hero}
           alt={p.title}
@@ -73,8 +74,13 @@ export default async function Article({
           className="w-full h-auto max-h-72 mx-auto object-contain"
           priority
         />
-      </div>
 
+        {p.attribution && (
+          <span className="absolute bottom-2 right-2 z-10 text-[10px] leading-none text-white/85 bg-black/50 px-2 py-0.5 rounded">
+            {p.attribution}
+          </span>
+        )}
+      </div>
 
       <div className="prose mt-4">
         {p.body.map((para, i) => (

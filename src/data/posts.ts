@@ -6,6 +6,7 @@ export type Post = {
   summary: string;
   date: string;         // ISO
   image?: string;       // /news/*.jpg
+  attribution?: string; // e.g. "Photo @ 417 Magazine"
   category?: string;    // "News" | "Events" | "School" | ...
   likes?: number;
   comments?: number;
@@ -33,6 +34,7 @@ export const posts: Post[] = [
     date: "2025-08-14",
     category: "News",
     image: "/brightspeed-logo.png",
+    attribution: "Photo @ Brightspeed",
     body: [
       "Crane residents may soon have a new choice for high-speed internet. Mayor Collin Brannan confirmed that the city has received several utility locates, which he says is a strong sign that Brightspeed Fiber construction will begin in the near future.",
       "Brightspeed — formerly known as CenturyLink — has provided basic DSL internet and phone service in Crane for decades. Following the buyout of CenturyLink, Brightspeed has been rolling out fiber upgrades to more rural communities across the region.",
@@ -49,6 +51,7 @@ export const posts: Post[] = [
     date: "2025-08-13",
     category: "News",
     image: "/kenny-vaught.jpg",
+    attribution: "Photo @ Kenny Vaught",
     body: [
       "An unexpected resignation has left a vacancy on the Stone County Commission, and at least one local resident is stepping forward to seek the role.",
       "At the commission’s meeting on Tuesday, July 15, 2025, Presiding Commissioner Mark Maples announced he would be resigning and handed the meeting over to Presiding Commissioner Pro Tempore Hank Smythe. The position is now open, and Governor Mike Kehoe’s office will be accepting applications for the appointment.",
@@ -92,6 +95,7 @@ export const posts: Post[] = [
     date: "2025-08-12",
     category: "Events",
     image: "/kennys-funland.jpg",
+    attribution: "Photo @ Kenny's Funland",
     body: [
       "Crane’s annual Broiler Festival is right around the corner and everybody is eagerly awaiting the delicious chicken, craft booths, fair rides, and all the summer vibes.",
       "This year, the festival has partnered with a new ride provider, Kenny’s Funland, to bring a fresh lineup of amusement rides to Crane City Park. The event runs from Thursday, August 21, through Sunday, August 24, 2025.",
@@ -113,6 +117,7 @@ export const posts: Post[] = [
         date: "2025-08-12",
         category: "School",
         image: "/crane-pirate-logo.jpg",
+        attribution: "Photo @ Crane School District",
         body: [
             "Crane Schools will host an all-buildings Open House on Wednesday, August 14 from 4:30–6:30 PM. Families can meet teachers, find classrooms, and drop off supplies before the first day, Tuesday, August 19th.",
             "Who should attend: All grade levels (Elementary, Junior High, and High School). New families are especially encouraged to come early to allow time for schedules and bus information.",
