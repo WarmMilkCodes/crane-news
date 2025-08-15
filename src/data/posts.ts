@@ -3,6 +3,7 @@ export type PostLink = { label: string; href: string }
 export type Post = {
   slug: string;
   title: string;
+  author?: string;
   summary: string;
   date: string;         // ISO
   image?: string;       // /news/*.jpg
