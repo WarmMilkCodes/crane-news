@@ -10,14 +10,12 @@ export type Event = {
 };
 
 export const events: Event[] = [
-  // Example:
   {
-    id: "open-house-2025",
-    title: "School Open House",
-    when: "2025-08-14T16:30:00-05:00",
-    location: "Crane Elementary & High School",
-    description: "Open house will run from 4:30 PM to 6:30 PM for all grade levels and buildings. Allow extra time for parking and bringing class supplies if you have them ready.",
-    link: "https://www.crane.k12.mo.us/",
+    id: "broiler-festival-2025",
+    title: "2025 Broiler Festival",
+    when: "2025-08-21T17:00",
+    location: "Crane City Park",
+    link: "https://cranebroilerfestival.org/"
   },
   {
     id: "chicken-chase-2025",
@@ -27,6 +25,14 @@ export const events: Event[] = [
     description: "Run / Walk 5K",
     link: "https://facebook.com/events/s/crane-chicken-chase-5k/3705684569729412/"
   },
+  {
+    id: "open-house-2025",
+    title: "School Open House",
+    when: "2025-08-14T16:30:00-05:00",
+    location: "Crane Elementary & High School",
+    description: "Open house will run from 4:30 PM to 6:30 PM for all grade levels and buildings. Allow extra time for parking and bringing class supplies if you have them ready.",
+    link: "https://www.crane.k12.mo.us/",
+  }
 ];
 
 // ---------------------- Helpers ----------------------
