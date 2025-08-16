@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { posts, getPost } from "@/data/posts";
 import Link from "next/link";
 import Image from "next/image";
+import PostNotes from "@/components/PostNotes";
 
 type SlugParams = { slug: string };
 
@@ -35,6 +36,8 @@ export async function generateMetadata({
       description: p.summary,
       images: [img],
     },
+    // Optional: let crawlers know the page was updated if you set updatedAt
+    ...(p.updatedAt ? { other: { lastModified: p.updatedAt } } : {}),
   };
 }
 
@@ -58,7 +61,15 @@ export default async function Article({
 
       <div className="flex items-center justify-between text-xs text-[var(--color-muted)]">
         <span className="tag tag--gold">{p.category ?? "News"}</span>
-        <span>{new Date(p.date).toLocaleDateString()}</span>
+        <div className="flex items-center gap-2">
+          <span>Published {new Date(p.date).toLocaleDateString()}</span>
+          {p.updatedAt && (
+            <>
+              <span aria-hidden>•</span>
+              <span>Updated {new Date(p.updatedAt).toLocaleDateString()}</span>
+            </>
+          )}
+        </div>
       </div>
 
       <h1 className="h-serif text-3xl mt-2">{p.title}</h1>
@@ -82,6 +93,10 @@ export default async function Article({
         )}
       </div>
 
+      {/* NEW: Updates / Corrections */}
+      <PostNotes post={p} />
+
+      {/* Body */}
       <div className="prose mt-4">
         {p.body.map((para, i) => (
           <p key={i}>{para}</p>
