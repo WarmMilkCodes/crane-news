@@ -17,45 +17,79 @@ function labelFor(code?: number) {
   return "Severe weather";
 }
 
+// local YYYY-MM-DD (avoids UTC shifting the day)
+function todayLocalYMD() {
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
 export default function SevereWeatherAlert() {
   const [text, setText] = useState<string | null>(null);
+  const [variant, setVariant] = useState<"red" | "blue">("red");
 
   useEffect(() => {
     let alive = true;
-    (async () => {
+
+    async function check() {
       try {
         const res = await fetch("/api/weather", { cache: "no-store" });
-        if (!res.ok) return;
+        if (!res.ok) {
+          if (alive) {
+            setText(null);
+          }
+          return;
+        }
 
         const data: WeatherAPI = await res.json();
 
-        // Check current condition
-        const cur = data.current?.weather_code;
-        if (cur != null && SEVERE_CODES.has(cur)) {
+        // 1) Check current condition (immediate risk)
+        const curCode = data.current?.weather_code;
+        if (curCode != null && SEVERE_CODES.has(curCode)) {
           if (!alive) return;
-          setText(`${labelFor(cur)} in the area. Use caution and check local alerts.`);
+          setText(`${labelFor(curCode)} in the area. Use caution and check local alerts.`);
+          setVariant(curCode >= 96 ? "red" : "blue");
           return;
         }
 
-        // Check today's daily code (index 0)
-        const todayCode = data.daily?.weather_code?.[0];
+        // 2) Check today’s forecast using local date (not just index 0)
+        const ymd = todayLocalYMD();
+        const idx =
+          data.daily?.time?.findIndex((t) => t === ymd) ??
+          -1; // may be -1 near midnight if provider rolled over
+        const dailyIdx = idx >= 0 ? idx : 0; // fallback to first entry
+
+        const todayCode = data.daily?.weather_code?.[dailyIdx];
         if (todayCode != null && SEVERE_CODES.has(todayCode)) {
           if (!alive) return;
-          setText(`${labelFor(todayCode)} possible today. Monitor the forecast and plan accordingly.`);
+          setText(
+            `${labelFor(todayCode)} possible today. Monitor the forecast and plan accordingly.`
+          );
+          setVariant(todayCode >= 96 ? "red" : "blue");
           return;
         }
 
-        if (alive) setText(null);
+        // 3) Otherwise, clear banner
+        if (alive) {
+          setText(null);
+        }
       } catch {
-        // Fail quietly; no banner if we can't fetch
         if (alive) setText(null);
       }
-    })();
+    }
+
+    // initial + poll every 15 minutes
+    check();
+    const id = setInterval(check, 15 * 60 * 1000);
+
     return () => {
       alive = false;
+      clearInterval(id);
     };
   }, []);
 
   if (!text) return null;
-  return <AlertBar variant="red" text={text} />;
+  return <AlertBar variant={variant} text={text} />;
 }
