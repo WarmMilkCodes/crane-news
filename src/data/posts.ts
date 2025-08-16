@@ -54,7 +54,7 @@ export const posts: Post[] = [
     "For more details, watch the district’s video tutorial linked below and follow the prompts to get started."
   ],
   links: [
-      { label: "Paywat Instruction Video", href: "https://drive.google.com/file/d/1bJu22asqlDnW2JLY2Qb.../view" }
+      { label: "Paywat Instruction Video", href: "https://drive.google.com/file/d/1bJu22asqlDnW2JLY2QbJCXA3fg94HZwp/view?fbclid=IwY2xjawMNmzNleHRuA2FlbQIxMABicmlkETFmMTcyb2d2SGtua3BJcERFAR7gIzzbEXYbZX5jNutg8N2r5NfEClkYFdgKaqWXD02bK1m8YS6UzO-9_9L9rQ_aem_A_FywkpYyqDwjPl6p3J5eA" }
     ]
   },
   {
