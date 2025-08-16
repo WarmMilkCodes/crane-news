@@ -1,18 +1,28 @@
 export type PostLink = { label: string; href: string }
 
+export type PostNoteType = "update" | "correction" | "editor_note";
+
+export type PostNote = {
+  type: PostNoteType;
+  date: string;       // ISO
+  text: string;       // brief, mark-down friedly
+  byline?: string;    // e.g. "Editor: name"
+  links?: PostLink[]; // Optional sources
+};
+
 export type Post = {
   slug: string;
   title: string;
   author?: string;
   summary: string;
-  date: string;         // ISO
+  date: string;         // original publish date (ISO)
+  updatedAt?: string;   // last updated date (ISO)
   image?: string;       // /news/*.jpg
   attribution?: string; // e.g. "Photo @ 417 Magazine"
   category?: string;    // "News" | "Events" | "School" | ...
-  likes?: number;
-  comments?: number;
   body: string[];
   links?: PostLink[];  // source URLs
+  notes?: PostNote[];
   death?: {
     name: string;
     age?: number;
@@ -43,6 +53,15 @@ export const posts: Post[] = [
       "Fiber internet, by contrast, can support speeds up to 10 Gbps. Brightspeed’s website lists plans up to 2 Gbps for certain areas, with the advantage of symmetrical speeds — meaning the upload speed matches the download speed — which is especially beneficial for video calls, online learning, cloud backups, and content creation.",
       "The arrival of Brightspeed Fiber would mark a significant upgrade to Crane’s internet infrastructure, offering faster and more balanced connectivity for homes and businesses alike.",
       "We'll continue to follow this story as construction begins."
+    ],
+    notes :[
+      {
+        type: "update",
+        date: "2025-08-16",
+        text:
+        "Crane News will be the **first Brightspeed fiber customer in Crane**. We'll publish side-by-side test comparing current **Mediacom 1 Gbps (≈1000/50)** versus **Brightspeed 2 Gbps (≈2000/2000)** after installation.",
+        byline: "Editor"
+      }
     ]
   },
   {
@@ -155,8 +174,12 @@ export const posts: Post[] = [
       }
 ]
 
+// ---------- helpers ----------
 export function getLatest(n = 6) {
-  return [...posts].sort((a,b)=>+new Date(b.date)-+new Date(a.date)).slice(0,n);
+  // Prefer updatedAt for recency if present
+  return [...posts]
+    .sort((a, b) => +new Date((b.updatedAt ?? b.date)) - +new Date((a.updatedAt ?? a.date)))
+    .slice(0, n);
 }
 export function getPost(slug: string) { return posts.find(p => p.slug === slug); }
 
@@ -165,4 +188,14 @@ export function getDeathNotices(n?: number) {
     .filter(p => p.category === "Death Notices")
     .sort((a,b)=> +new Date(b.date) - +new Date(a.date));
   return typeof n === "number" ? all.slice(0, n) : all;
+}
+
+export function latestNote(p: Post) {
+  if (!p.notes?.length) return null;
+  return [...p.notes].sort((a,b)=>+new Date(b.date)-+new Date(a.date))[0];
+}
+export function noteLabel(t: PostNoteType) {
+  if (t === "update") return "Update";
+  if (t === "correction") return "Correction";
+  return "Editor’s note";
 }
