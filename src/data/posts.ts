@@ -78,7 +78,7 @@ export const posts: Post[] = [
         type: "update",
         date: "2025-08-16",
         text:
-        "Crane News will be the **first Brightspeed fiber customer in Crane**. We'll publish side-by-side test comparing current **Mediacom 1 Gbps (≈1000/50)** versus **Brightspeed 2 Gbps (≈2000/2000)** after installation.",
+        "Crane News will be the **first** Brightspeed fiber customer in Crane. We'll publish side-by-side tests comparing current **Mediacom 1 Gbps (≈1000/50)** versus **Brightspeed 2 Gbps (≈2000/2000)** after installation.",
         byline: "Editor"
       }
     ]
