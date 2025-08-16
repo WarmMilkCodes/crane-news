@@ -39,6 +39,25 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "crane-school-paywat",
+    title: "Crane Schools Offering Online Meal Payment With Paywat",
+    summary: "No need to send money to school with your child, Crane Schools now offers online payments using Paywat.",
+    date: "2025-08-16",
+    category: "School",
+    image: "/crane-pirate-logo.png",
+    attribution: "Photo @ Crane School District",
+    body: [
+    "Crane families now have a more convenient way to stay on top of their children’s meal and snack milk accounts. The school district has partnered with **Paywat**, a secure online payment system, to let parents add funds anytime without having to send money with students or stop by the office.",
+    "School officials say the new system is intended to cut down on forgotten lunch money, reduce the amount of cash being handled at school, and give families an easy way to track balances. Parents can log in from a phone or computer, see their child’s current account, and make payments directly.",
+    "A short instructional video has been posted to walk families through the setup process step by step. The video shows how to access the Paywat portal, link a student’s account, and add funds in just a few clicks.",
+    "The district encourages all families to try the new tool before the school year gets underway to avoid first-day lunch line delays. Traditional payment methods will still be accepted, but staff say Paywat is designed to make things faster and easier for everyone.",
+    "For more details, watch the district’s video tutorial linked below and follow the prompts to get started."
+  ],
+  links: [
+      { label: "Paywat Instruction Video", href: "https://drive.google.com/file/d/1bJu22asqlDnW2JLY2Qb.../view" }
+    ]
+  },
+  {
     slug: "brightspeed-fiber-coming-to-crane",
     title: "Brightspeed Fiber Coming to Crane",
     summary: "Mayor Collin Brannan says construction is expected to begin soon, bringing a new high-speed internet option to Crane with symmetrical upload and download speeds.",
