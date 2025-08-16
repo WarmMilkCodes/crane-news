@@ -2,6 +2,34 @@
 
 import type { Post } from "@/data/posts";
 
+// --- helpers ---
+function escapeHtml(s: string) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+// very small inline markdown: **bold**, *italic*, `code`, [text](url), newlines -> <br>
+function mdInline(s: string) {
+  let html = escapeHtml(s);
+
+  // links [text](url)
+  html = html.replace(
+    /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer" class="underline">$1</a>'
+  );
+
+  // `code`
+  html = html.replace(/`([^`]+)`/g, '<code class="px-1 py-0.5 rounded bg-black\/5">$1</code>');
+
+  // **bold** then *italic*
+  html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+
+  // line breaks
+  html = html.replace(/\n/g, "<br />");
+
+  return html;
+}
+
 function badgeClasses(type: string) {
   if (type === "correction") return "bg-red-50 text-red-700 ring-1 ring-red-200";
   if (type === "update") return "bg-amber-50 text-amber-700 ring-1 ring-amber-200";
@@ -55,26 +83,28 @@ export default function PostNotes({ post }: { post: Post }) {
                 )}
               </div>
 
-              <div className="prose prose-sm max-w-none">
-                <p>{n.text}</p>
+              {/* Render inline markdown */}
+              <div
+                className="prose prose-sm max-w-none"
+                dangerouslySetInnerHTML={{ __html: mdInline(n.text) }}
+              />
 
-                {!!n.links?.length && (
-                  <ul className="mt-2 list-inside list-disc">
-                    {n.links.map((l, idx) => (
-                      <li key={idx}>
-                        <a
-                          className="underline"
-                          href={l.href}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          {l.label ?? l.href}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
+              {!!n.links?.length && (
+                <ul className="mt-2 list-inside list-disc">
+                  {n.links.map((l, idx) => (
+                    <li key={idx}>
+                      <a
+                        className="underline"
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {l.label ?? l.href}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ul>
