@@ -44,7 +44,7 @@ export const posts: Post[] = [
     summary: "No need to send money to school with your child, Crane Schools now offers online payments using Paywat.",
     date: "2025-08-16",
     category: "School",
-    image: "/crane-pirate-logo.jpg",
+    image: "/paywat.jpg",
     attribution: "Photo @ Crane School District",
     body: [
     "Crane families now have a more convenient way to stay on top of their children’s meal and snack milk accounts. The school district has partnered with **Paywat**, a secure online payment system, to let parents add funds anytime without having to send money with students or stop by the office.",
