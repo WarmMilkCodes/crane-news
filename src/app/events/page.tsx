@@ -1,5 +1,5 @@
 // src/app/events/page.tsx
-import { events, getEventsThisWeek } from "@/data/events";
+import { getEventsThisWeek, getEventsUpcoming } from "@/data/events";
 
 export const metadata = {
   title: "Events — Crane.news",
@@ -7,16 +7,63 @@ export const metadata = {
 };
 
 export default function EventsPage() {
-  // All upcoming events, sorted by start time
-  const allEvents = [...events].sort(
-    (a, b) => +new Date(a.when) - +new Date(b.when)
+  const now = new Date();
+
+  const thisWeek = getEventsThisWeek({ startOn: "sun", fromDate: now });
+  const allEvents = getEventsUpcoming(now);
+
+  const fmtRange = (startISO: string, endISO?: string) => {
+    const start = new Date(startISO);
+    if (!endISO) {
+      return start.toLocaleString([], { dateStyle: "medium", timeStyle: "short" });
+    }
+    const end = new Date(endISO);
+
+    const sameDay =
+      start.getFullYear() === end.getFullYear() &&
+      start.getMonth() === end.getMonth() &&
+      start.getDate() === end.getDate();
+
+    if (sameDay) {
+      // Aug 21, 5:00 PM–10:00 PM
+      return (
+        start.toLocaleDateString([], { dateStyle: "medium" }) +
+        ", " +
+        start.toLocaleTimeString([], { timeStyle: "short" }) +
+        "–" +
+        end.toLocaleTimeString([], { timeStyle: "short" })
+      );
+    }
+    // Aug 21, 5:00 PM → Aug 24, 10:00 PM
+    return (
+      start.toLocaleString([], { dateStyle: "medium", timeStyle: "short" }) +
+      " → " +
+      end.toLocaleString([], { dateStyle: "medium", timeStyle: "short" })
+    );
+  };
+
+  const Card = ({
+    id, title, when, end, location, description, link,
+  }: any) => (
+    <div key={id} className="card p-4">
+      <h3 className="font-semibold">{title}</h3>
+      <p className="text-sm text-[var(--color-muted)]">
+        {fmtRange(when, end)}{location ? ` • ${location}` : ""}
+      </p>
+      {description && <p className="text-sm mt-2">{description}</p>}
+
+      {link && (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-plain inline-flex mt-3"
+        >
+          More info →
+        </a>
+      )}
+    </div>
   );
-
-  // Auto “This Week in Crane” (week starts Sunday; change to "mon" if you prefer)
-  const thisWeek = getEventsThisWeek({ startOn: "sun" });
-
-  const fmt = (iso: string) =>
-    new Date(iso).toLocaleString([], { dateStyle: "medium", timeStyle: "short" });
 
   return (
     <div className="space-y-8">
@@ -24,26 +71,7 @@ export default function EventsPage() {
         <section className="space-y-3">
           <h2 className="h-serif text-xl">This Week in Crane</h2>
           <div className="mt-1 grid gap-4 sm:grid-cols-2">
-            {thisWeek.map((e) => (
-              <div key={e.id} className="card p-4">
-                <h3 className="font-semibold">{e.title}</h3>
-                <p className="text-sm text-[var(--color-muted)]">
-                  {fmt(e.when)}{e.location ? ` • ${e.location}` : ""}
-                </p>
-                {e.description && <p className="text-sm mt-2">{e.description}</p>}
-
-                {e.link && (
-                  <a
-                    href={e.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-plain inline-flex mt-3"
-                  >
-                    More info →
-                  </a>
-                )}
-              </div>
-            ))}
+            {thisWeek.map(Card)}
           </div>
         </section>
       )}
@@ -51,26 +79,7 @@ export default function EventsPage() {
       <section className="space-y-3">
         <h2 className="h-serif text-xl">All Upcoming Events</h2>
         <div className="mt-1 grid gap-4 sm:grid-cols-2">
-          {allEvents.map((e) => (
-            <div key={e.id} className="card p-4">
-              <h3 className="font-semibold">{e.title}</h3>
-              <p className="text-sm text-[var(--color-muted)]">
-                {fmt(e.when)}{e.location ? ` • ${e.location}` : ""}
-              </p>
-              {e.description && <p className="text-sm mt-2">{e.description}</p>}
-
-              {e.link && (
-                <a
-                  href={e.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-plain inline-flex mt-3"
-                >
-                  More info →
-                </a>
-              )}
-            </div>
-          ))}
+          {allEvents.map(Card)}
         </div>
       </section>
     </div>
