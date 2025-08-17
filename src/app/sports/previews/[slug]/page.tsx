@@ -47,16 +47,16 @@ const PREVIEWS: PreviewFull[] = [
     coverImage: "/pirates-softball.jpg",
     content: (
       <>
-        <h3>Looking Back</h3>
+        <strong>Looking Back</strong>
         <p>
-          The Lady Pirates closed out last season at <strong>10–9</strong>, earning a{" "}
-          <strong>+28 run differential</strong> and a Class 1 District 5 win over Billings before
+          The Lady Pirates closed out last season at 10–9, earning a{" "}
+          +28 run differential and a Class 1 District 5 win over Billings before
           exiting to Exeter. They mixed explosive offense—like 20–1 over Hollister and 16–0 over
           Mansfield—with clutch 1-run victories over Reeds Spring and Billings. A five-game win
           streak late in the year gave the team momentum heading into the offseason.
         </p>
 
-        <h3>Looking Ahead</h3>
+        <strong>Looking Ahead</strong>
         <p>
           The 2025–26 schedule will test Crane early and often. The Lady Pirates open on the road at
           Hollister (Mar 19) before returning home to host Pleasant Hope (Mar 23). March also brings a
@@ -81,8 +81,10 @@ const PREVIEWS: PreviewFull[] = [
             (May 1), at Verona (May 5)
           </li>
         </ul>
+        
+        <br />
 
-        <h3>What to Watch</h3>
+        <strong>What to Watch</strong>
         <p>
           Returning varsity players bring leadership and familiarity with big-game situations, while
           newcomers look to make an immediate impact. Expect aggressive baserunning, steady infield
