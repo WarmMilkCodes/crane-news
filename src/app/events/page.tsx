@@ -1,5 +1,6 @@
 // src/app/events/page.tsx
 import { getEventsThisWeek, getEventsUpcoming } from "@/data/events";
+import { Event } from "@/data/events";
 
 export const metadata = {
   title: "Events — Crane.news",
@@ -42,28 +43,27 @@ export default function EventsPage() {
     );
   };
 
-  const Card = ({
-    id, title, when, end, location, description, link,
-  }: any) => (
-    <div key={id} className="card p-4">
-      <h3 className="font-semibold">{title}</h3>
-      <p className="text-sm text-[var(--color-muted)]">
-        {fmtRange(when, end)}{location ? ` • ${location}` : ""}
-      </p>
-      {description && <p className="text-sm mt-2">{description}</p>}
+  const Card = ({ id, title, when, end, location, description, link }: Event) => (
+  <div key={id} className="card p-4">
+    <h3 className="font-semibold">{title}</h3>
+    <p className="text-sm text-[var(--color-muted)]">
+      {fmtRange(when, end)}{location ? ` • ${location}` : ""}
+    </p>
+    {description && <p className="text-sm mt-2">{description}</p>}
 
-      {link && (
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-plain inline-flex mt-3"
-        >
-          More info →
-        </a>
-      )}
-    </div>
-  );
+    {link && (
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn-plain inline-flex mt-3"
+      >
+        More info →
+      </a>
+    )}
+  </div>
+);
+
 
   return (
     <div className="space-y-8">
