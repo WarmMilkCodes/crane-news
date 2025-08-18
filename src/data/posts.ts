@@ -52,7 +52,8 @@ export const posts: Post[] = [
     "Afternoon pick-up: Preschoolers are picked up at the front. Students in grades K–6 should be picked up in the Parent Pick-Up Line behind the school.",
     "Traffic notice: The district expects heavy traffic and long car lines during the first few days. To help reduce congestion, older Elementary students who eat breakfast may be dropped off at the High School doors.",
     "First-day exception: Parents of Preschool and Kindergarten students may walk their child into the building to the JH Gym on the first day only.",
-    "The district adds: “We can’t wait to see you all on Tuesday!”"
+    "The district adds: “We can’t wait to see you all on Tuesday!”",
+    "![Drop-off map](/crane-school-map.jpg \"Traffic flow for the first week\")"
   ],
   links: [
     {label: "Crane R-III Schools Facebook", href: "https://www.facebook.com/profile.php?id=100063582670446"}
