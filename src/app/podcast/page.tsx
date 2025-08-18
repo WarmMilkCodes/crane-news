@@ -33,7 +33,8 @@ export default function PodcastPage() {
         {episodes.map((ep) => (
           <div
             key={ep.slug}
-            className="border rounded-lg p-4 shadow bg-blue-900 text-white"
+            className="border rounded-lg p-4 shadow bg-[#1d2a3a] text-[#ffffff]"
+
             >
             <h2 className="text-xl font-semibold">{ep.title}</h2>
             <p className="text-sm opacity-80 mb-2">
