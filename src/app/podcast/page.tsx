@@ -33,27 +33,24 @@ export default function PodcastPage() {
         {episodes.map((ep) => (
           <div
             key={ep.slug}
-            className="border rounded-lg p-4 shadow bg-white dark:bg-gray-900"
-          >
+            className="border rounded-lg p-4 shadow bg-blue-900 text-white"
+            >
             <h2 className="text-xl font-semibold">{ep.title}</h2>
-            <p className="text-sm text-gray-500 mb-2">
-              {new Date(ep.date).toLocaleDateString()}
+            <p className="text-sm opacity-80 mb-2">
+                {new Date(ep.date).toLocaleDateString()}
             </p>
             <p className="mb-4">{ep.description}</p>
 
-            <audio controls className="w-full mb-2">
-              <source src={ep.audio} type="audio/mpeg" />
-              Your browser does not support the audio element.
-            </audio>
-
+            <audio controls className="w-full mb-2" />
             <Link
-              href={ep.audio}
-              className="text-blue-600 hover:underline text-sm"
-              download
+                href={ep.audio}
+                className="text-yellow-300 hover:underline text-sm"
+                download
             >
-              Download MP3
+                Download MP3
             </Link>
-          </div>
+            </div>
+
         ))}
       </div>
     </div>
