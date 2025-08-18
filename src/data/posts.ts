@@ -39,6 +39,25 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "crane-elementary-dropoff-pickup-2025",
+    title: "Crane Elementary Drop-Off & Pick-Up Procedures Announced",
+    summary: "Crane School District outlines morning drop-off at the elementary front and K-6 afternoon pick-up around back. Except heavy traffic the first few days.",
+    date: "2025-08-18",
+    category: "School",
+    image: "/crane-school-map.jpg",
+    body: [
+    "As the new school year begins, Crane R-III Schools have released updated procedures for Elementary drop-off and pick-up.",
+    "Morning drop-off: All Elementary students (including Preschoolers) should be dropped off at the front of the Elementary using the marked traffic arrows.",
+    "Afternoon pick-up: Preschoolers are picked up at the front. Students in grades K–6 should be picked up in the Parent Pick-Up Line behind the school.",
+    "Traffic notice: The district expects heavy traffic and long car lines during the first few days. To help reduce congestion, older Elementary students who eat breakfast may be dropped off at the High School doors.",
+    "First-day exception: Parents of Preschool and Kindergarten students may walk their child into the building to the JH Gym on the first day only.",
+    "The district adds: “We can’t wait to see you all on Tuesday!”"
+  ],
+  links: [
+    {label: "Crane R-III Schools Facebook", href: "https://www.facebook.com/profile.php?id=100063582670446"}
+  ]
+  },
+  {
     slug: "crane-school-paywat",
     title: "Crane Schools Offering Online Meal Payment With Paywat",
     summary: "No need to send money to school with your child, Crane Schools now offers online payments using Paywat.",
