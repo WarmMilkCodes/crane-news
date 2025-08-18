@@ -2,7 +2,7 @@ export default function Submit() {
   return (
     <section className="card p-6 md:p-8">
       <h1 className="h-serif text-2xl">Submit news, events, or photos</h1>
-      <form action="mailto:hello@crane.news" method="POST" encType="text/plain" className="mt-4 grid gap-3">
+      <form action="mailto:support@crane.news" method="POST" encType="text/plain" className="mt-4 grid gap-3">
         <input name="name" placeholder="Your name" className="panel p-3" required />
         <input name="email" placeholder="Email" className="panel p-3" required />
         <input name="title" placeholder="Title" className="panel p-3" required />
