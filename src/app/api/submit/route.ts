@@ -7,10 +7,10 @@ export async function POST(req: Request) {
   try {
     const form = await req.formData();
 
-    // Honeypot (simple spam filter)
+    // Honeypot
     const website = (form.get("website") || "").toString();
     if (website) {
-      return new Response(JSON.stringify({ ok: true }), { status: 200 });
+      return redirect303("/submit/thanks"); // silently succeed for bots
     }
 
     const name = (form.get("name") || "").toString().trim();
@@ -19,13 +19,11 @@ export async function POST(req: Request) {
     const details = (form.get("details") || "").toString().trim();
 
     if (!name || !email || !title) {
-      return new Response(JSON.stringify({ ok: false, error: "Missing fields" }), { status: 400 });
+      return json(400, { ok: false, error: "Missing fields" });
     }
-
-    // Basic email sanity check
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     if (!emailOk) {
-      return new Response(JSON.stringify({ ok: false, error: "Invalid email" }), { status: 400 });
+      return json(400, { ok: false, error: "Invalid email" });
     }
 
     const html = `
@@ -36,25 +34,42 @@ export async function POST(req: Request) {
       <p><strong>Details:</strong><br/>${escapeHtml(details).replace(/\n/g, "<br/>")}</p>
     `;
 
-    await resend.emails.send({
-      from: "Crane News <noreply@crane.news>", // set up domain & DKIM in Resend
+    // ✅ Use Resend’s { data, error } pattern
+    const { data, error } = await resend.emails.send({
+      from: "Crane News <submit@crane.news>", // must be on your verified domain
       to: ["support@crane.news"],
-      replyTo: email, // so you can reply straight to the submitter
+      replyTo: email,                          // correct casing
       subject: `New submission: ${title}`,
       html,
     });
 
-    return new Response(JSON.stringify({ ok: true }), { status: 200 });
+    if (error) {
+      console.error("Resend error:", error);
+      return json(502, { ok: false, error: "Email not accepted by provider." });
+    }
+
+    console.log("Resend accepted, id:", data?.id);
+    return redirect303("/submit/thanks");
   } catch (err) {
     console.error(err);
-    return new Response(JSON.stringify({ ok: false, error: "Server error" }), { status: 500 });
+    return json(500, { ok: false, error: "Server error" });
   }
 }
 
 function escapeHtml(s: string) {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+  return s.replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+}
+
+function json(status: number, body: unknown) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { "Content-Type": "application/json" },
+  });
+}
+
+function redirect303(location: string) {
+  return new Response(null, { status: 303, headers: { Location: location } });
 }
