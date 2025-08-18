@@ -6,11 +6,45 @@ import PostNotes from "@/components/PostNotes";
 
 type SlugParams = { slug: string };
 
+/** Detect a single-line Markdown image: ![alt](src "title") */
+function parseImageMd(s: string) {
+  // ![alt text](/path/to.jpg "optional title")
+  const m = s.match(/^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]+)")?\)$/);
+  if (!m) return null;
+  const [, alt, src, title] = m;
+  return { alt: alt?.trim() ?? "", src: src.trim(), title: title?.trim() };
+}
+
+function BodyBlock({ text }: { text: string }) {
+  const img = parseImageMd(text);
+  if (img) {
+    return (
+      <figure className="my-4">
+        <Image
+          src={img.src}
+          alt={img.alt || img.title || ""}
+          width={1200}
+          height={675}
+          className="w-full h-auto rounded-lg bg-[var(--panel)] object-contain"
+        />
+        {(img.title || img.alt) && (
+          <figcaption className="mt-2 text-xs text-[var(--color-muted)]">
+            {img.title || img.alt}
+          </figcaption>
+        )}
+      </figure>
+    );
+  }
+
+  // default: regular paragraph
+  return <p>{text}</p>;
+}
+
 export async function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
 }
 
-// 👇 Next 15: params is async
+// Next 15: params is async
 export async function generateMetadata({
   params,
 }: {
@@ -36,12 +70,11 @@ export async function generateMetadata({
       description: p.summary,
       images: [img],
     },
-    // Optional: let crawlers know the page was updated if you set updatedAt
     ...(p.updatedAt ? { other: { lastModified: p.updatedAt } } : {}),
   };
 }
 
-// 👇 Next 15: params is async
+// Next 15: params is async
 export default async function Article({
   params,
 }: {
@@ -85,7 +118,6 @@ export default async function Article({
           className="w-full h-auto max-h-72 mx-auto object-contain"
           priority
         />
-
         {p.attribution && (
           <span className="absolute bottom-2 right-2 z-10 text-[10px] leading-none text-white/85 bg-black/50 px-2 py-0.5 rounded">
             {p.attribution}
@@ -93,17 +125,17 @@ export default async function Article({
         )}
       </div>
 
-      {/* NEW: Updates / Corrections */}
+      {/* Updates / Corrections */}
       <PostNotes post={p} />
 
-      {/* Body */}
+      {/* Body with image support */}
       <div className="prose mt-4">
         {p.body.map((para, i) => (
-          <p key={i}>{para}</p>
+          <BodyBlock key={i} text={para} />
         ))}
       </div>
 
-      {/* Optional links box if you added p.links */}
+      {/* Optional links box */}
       {Array.isArray(p.links) && p.links.length > 0 && (
         <div className="panel p-4 mt-6">
           <div className="h-serif text-lg mb-2">Sources &amp; official links</div>
