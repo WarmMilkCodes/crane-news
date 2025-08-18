@@ -19,10 +19,10 @@ const NAV: Group[] = [
     ],
   },
   { label: "Media",
-   href: "/media",
-  children: [
-    { label: "Media", href: "/media" },
-    { label: "Podcast", href: "/podcast" }
+    href: "/media",
+    children: [
+      { label: "Media", href: "/media" },
+      { label: "Podcast", href: "/podcast" },
     ],
   },
   {
