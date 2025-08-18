@@ -18,6 +18,9 @@ const NAV: Group[] = [
       { label: "Sports", href: "/sports" },
     ],
   },
+  {
+    label: "Podcast", href: "/podcast"
+  },
   { label: "Media", href: "/media" },
   {
     label: "Community",
