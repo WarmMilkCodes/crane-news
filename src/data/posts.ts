@@ -39,6 +39,24 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "broiler-festival-events-schedule-2025",
+    title: "Broiler Festival Schedule of Events",
+    summary: "The Crane Broiler Festival has released the schedule of events, including booth operation times, music lineup, and more.",
+    date: "2025-08-18",
+    image: "/broiler-festival-events",
+    category: "News",
+    body: [
+      "The Crane Broiler Festival is sure to have another successful year, and they have put on their schedule of events so you don't miss out any of the fun.",
+      "As a reminder the Broiler Festival serves chicken on Friday and Saturday only.",
+      "You have until Wednesday to get a discounted wristband that is good for your night of choice.",
+      "![2025 Broiler Festival Schedule of Events](/b-fest-schedule.jpg)"
+    ],
+    links: [
+      { label: "Crane Broiler Festival Facebook", href: "https://www.facebook.com/CraneMoBroilerFestival" }
+    ]
+
+  },
+  {
     slug: "crane-elementary-dropoff-pickup-2025",
     title: "Crane Elementary Drop-Off & Pick-Up Procedures Announced",
     summary: "Crane School District outlines morning drop-off at the elementary front and K-6 afternoon pick-up around back. Except heavy traffic the first few days.",
