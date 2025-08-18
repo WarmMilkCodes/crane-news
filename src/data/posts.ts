@@ -45,6 +45,7 @@ export const posts: Post[] = [
     date: "2025-08-18",
     category: "School",
     image: "/crane-school-map.jpg",
+    attribution: "Photo @ Crane School District",
     body: [
     "As the new school year begins, Crane R-III Schools have released updated procedures for Elementary drop-off and pick-up.",
     "Morning drop-off: All Elementary students (including Preschoolers) should be dropped off at the front of the Elementary using the marked traffic arrows.",
