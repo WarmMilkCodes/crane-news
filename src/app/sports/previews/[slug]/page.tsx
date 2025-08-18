@@ -36,6 +36,80 @@ type PreviewFull = {
 // --- TEMP DATA: Replace with your real data source when ready ---
 const PREVIEWS: PreviewFull[] = [
   {
+    slug: "25-26-fall-baseball",
+    title: "Pirate Preview: 25-26 Fall Baseball",
+    excerpt:
+    "Crane's bats are back for the 2025-2026 fall season, with plenty of offense, rivalry showdowns, and tournament play under second-year head coach Tucker.",
+    sport: "baseball",
+    season: "Fall",
+    year: 2025,
+    date: "2025-08-18",
+    coverImage: "/crane-baseball.jpg",
+    content: (
+    <>
+      <strong>Looking Back</strong>
+      <p>
+        The Pirates wrapped up their 2024 fall campaign with a winning record and plenty of high-scoring contests.
+        Crane notched statement wins over Billings (10–4), Blue Eye (8–2), and a dramatic road victory at Purdy (8–6).
+        Their bats exploded in games like a 21–11 rout of Hurley and a 17–4 pounding of Marion C. Early, showing they
+        could pile on runs in a hurry.
+      </p>
+      <p>
+        The team also proved battle-tested in close ones—edging Spokane 7–6 in extra innings and outlasting Galena 5–4
+        in the Seymour Wood Bat Tournament. While tough losses to Conway, Purdy, and Spokane in tournament play kept
+        them from advancing deeper, the Pirates demonstrated resilience under second-year head coach Tucker, laying a
+        foundation for continued growth.
+      </p>
+
+      <strong>Looking Ahead</strong>
+      <p>
+        The 2025–26 fall season will be another proving ground as Crane faces both familiar rivals and tournament-heavy
+        stretches. The Pirates open with back-to-back challenges against Purdy and Sparta before settling into a
+        September slate that features Exeter, Wheaton, Billings, and the annual Crane Fall Wood Bat Tournament.
+      </p>
+      <p>
+        Late September brings the Seymour Wood Bat Tournament, a gauntlet that has tested the Pirates in recent years.
+        October heats up quickly with key conference games against Southwest, Blue Eye, and Marion C. Early, plus the
+        GOC Fall Tournament to close the regular season. Expect plenty of tight contests in the back half of the
+        schedule that could set the tone for districts.
+      </p>
+
+      <ul>
+        <li>
+          <strong>Home highlights:</strong> Wheaton (Sep 5), Billings (Sep 10), Spokane (Sep 30), Blue Eye (Oct 4)
+        </li>
+        <li>
+          <strong>Marquee rivalry:</strong> Purdy — home (Aug 31), road (Oct 7)
+        </li>
+        <li>
+          <strong>Tournament gauntlet:</strong> Crane Wood Bat (Sep 16–21), Seymour Wood Bat (Sep 26–28), GOC Fall (Oct 14)
+        </li>
+      </ul>
+
+      <br />
+
+      <strong>What to Watch</strong>
+      <p>
+        The Pirates’ offensive firepower remains their calling card. Returning bats who fueled last year’s
+        double-digit outbursts will be expected to spark rallies, while the pitching staff looks to tighten up against
+        top-tier lineups after allowing big innings in a few tournament losses.
+      </p>
+      <p>
+        Defensively, Crane showed flashes of consistency and late-game grit—two traits that will be vital in one-run
+        affairs. Under Coach Tucker’s continued leadership, the Pirates are poised to sharpen fundamentals while still
+        playing an aggressive, high-energy brand of baseball.
+      </p>
+
+      <strong>How to Support</strong>
+      <p>
+        Pack the stands at the <em>Crane High School baseball field</em>, especially for rivalry nights and tournament
+        play. Pirate players thrive on the energy of their fans—blue and gold in the crowd can make the difference in
+        close games. Bring your voice, your glove for foul balls, and your school spirit all season long.
+      </p>
+    </>
+  )
+  },
+  {
     slug: "25-26-spring-softball",
     title: "Pirate Preview: 25-26 Spring Softball",
     excerpt:
