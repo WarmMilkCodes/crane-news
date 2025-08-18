@@ -63,26 +63,26 @@ const PREVIEWS: PreviewFull[] = [
 
       <strong>Looking Ahead</strong>
       <p>
-        The 2025–26 fall season will be another proving ground as Crane faces both familiar rivals and tournament-heavy
-        stretches. The Pirates open with back-to-back challenges against Purdy and Sparta before settling into a
-        September slate that features Exeter, Wheaton, Billings, and the annual Crane Fall Wood Bat Tournament.
+        The 2025–26 fall season opens with back-to-back home dates against Sparta (Sep 1) and Exeter (Sep 2) before
+        Crane hits the road at Wheaton (Sep 4), Billings (Sep 9), and Hurley (Sep 11). Galena comes to town on Sep 12
+        in a key early-season matchup, followed by the 17th Annual Crane Fall Wood Bat Tournament (Sep 15–20).
       </p>
       <p>
-        Late September brings the Seymour Wood Bat Tournament, a gauntlet that has tested the Pirates in recent years.
-        October heats up quickly with key conference games against Southwest, Blue Eye, and Marion C. Early, plus the
-        GOC Fall Tournament to close the regular season. Expect plenty of tight contests in the back half of the
-        schedule that could set the tone for districts.
+        The late-season stretch includes a trip to Spokane (Sep 29) before a home showdown with Southwest (Sep 30).
+        October brings pivotal conference action with Blue Eye on the road (Oct 3), Purdy at home (Oct 6), and the
+        regular season finale at Marion C. Early (Oct 7).
       </p>
 
       <ul>
         <li>
-          <strong>Home highlights:</strong> Wheaton (Sep 5), Billings (Sep 10), Spokane (Sep 30), Blue Eye (Oct 4)
+          <strong>Home openers:</strong> Sparta (Sep 1), Exeter (Sep 2)
         </li>
         <li>
-          <strong>Marquee rivalry:</strong> Purdy — home (Aug 31), road (Oct 7)
+          <strong>Marquee rivalry:</strong> Purdy — home (Oct 6)
         </li>
         <li>
-          <strong>Tournament gauntlet:</strong> Crane Wood Bat (Sep 16–21), Seymour Wood Bat (Sep 26–28), GOC Fall (Oct 14)
+          <strong>Closing stretch:</strong> at Spokane (Sep 29), Southwest (Sep 30), at Blue Eye (Oct 3),
+          Purdy (Oct 6), at Marion C. Early (Oct 7)
         </li>
       </ul>
 
