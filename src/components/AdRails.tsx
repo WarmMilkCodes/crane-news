@@ -1,25 +1,32 @@
-// components/ads/AdRails.tsx
-"use client";
-type LocalAdProps = { image: string; url: string; alt?: string };
+import LocalAd from "@/components/ads/LocalAd";
+// import GoogleAd from "@/components/ads/GoogleAd"; // when ready
 
-function LocalAd({ image, url, alt }: LocalAdProps) {
-  return (
-    <a href={url} target="_blank" rel="noopener noreferrer">
-      <img src={image} alt={alt || "Sponsor"} className="w-full h-auto rounded shadow" loading="lazy" />
-    </a>
-  );
-}
+const ENABLE_ADS = false; // 🔒 flip to true when you want ads live
 
 export default function AdRails() {
+  if (!ENABLE_ADS) return null;
+
   return (
     <>
       <aside className="rail rail-left space-y-4">
-        <LocalAd image="/ads/pizza-depot-300x250.jpg" url="https://example.com" alt="Pizza Depot" />
-        <LocalAd image="/ads/hardware-300x600.jpg" url="https://example.com" alt="Crane Hardware" />
+        <LocalAd
+          image="/ads/pizza-depot-300x250.jpg"
+          url="https://example.com"
+          alt="Pizza Depot"
+        />
+        <LocalAd
+          image="/ads/hardware-300x600.jpg"
+          url="https://example.com"
+          alt="Crane Hardware"
+        />
       </aside>
 
       <aside className="rail rail-right space-y-4">
-        <LocalAd image="/ads/insurance-300x250.jpg" url="https://example.com" alt="Farm & Home Insurance" />
+        <LocalAd
+          image="/ads/insurance-300x250.jpg"
+          url="https://example.com"
+          alt="Farm & Home Insurance"
+        />
       </aside>
     </>
   );
