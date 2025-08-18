@@ -12,6 +12,13 @@ export type Event = {
 
 export const events: Event[] = [
   {
+    id: "crane-first-school-2025",
+    title: "Crane First Day of School",
+    when: "2025-08-19T07:50",
+    location: "Crane Schools",
+    link: "https://crane.k12.mo.us"
+  },
+  {
     id: "broiler-festival-2025",
     title: "2025 Broiler Festival",
     when: "2025-08-21T17:00:00",     // add explicit TZ for consistency
