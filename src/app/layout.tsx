@@ -9,12 +9,14 @@ export const metadata = {
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import { Footer } from "@/components/Footer";
+import AdRails from "@/components/AdRails";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
         <SiteHeader />
+        <AdRails />
         <main className="mx-auto max-w-6xl px-4 md:px-6 py-6">{children}</main>
         <Footer />
       </body>

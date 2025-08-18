@@ -60,3 +60,30 @@ a:hover { color: var(--color-primary); }
 
 summary::-webkit-details-marker { display: none; }
 summary { appearance: none; }
+
+/* === Fixed ad rails (desktop-only) === */
+:root{
+  --content: 72rem;   /* matches max-w-6xl */
+  --rail: 300px;      /* 300x250/300x600 units */
+  --rail-gap: 16px;   /* space between content edge and rail */
+  --rail-top: 96px;   /* where rails start (below header/hero) */
+}
+
+.rail {
+  position: fixed;
+  top: var(--rail-top);
+  width: var(--rail);
+  z-index: 30;
+}
+
+.rail-left {
+  left: max(0px, calc((100vw - var(--content)) / 2 - var(--rail) - var(--rail-gap)));
+}
+.rail-right {
+  right: max(0px, calc((100vw - var(--content)) / 2 - var(--rail) - var(--rail-gap)));
+}
+
+/* Hide rails on smaller screens so layout never feels cramped */
+@media (max-width: 1400px) {
+  .rail { display: none; }
+}
