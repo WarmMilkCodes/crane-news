@@ -43,7 +43,7 @@ export const posts: Post[] = [
     title: "Broiler Festival Schedule of Events",
     summary: "The Crane Broiler Festival has released the schedule of events, including booth operation times, music lineup, and more.",
     date: "2025-08-18",
-    image: "/broiler-festival-events",
+    image: "/broiler-festival-events.jpg",
     category: "News",
     body: [
       "The Crane Broiler Festival is sure to have another successful year, and they have put on their schedule of events so you don't miss out any of the fun.",
