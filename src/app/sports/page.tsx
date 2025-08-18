@@ -4,9 +4,15 @@ import { getUpcomingGames, getRecentResults, standings, type Game } from "@/data
 
 const latestPreviews = [
   {
+    slug: "25-26-fall-baseball",
+    title: "Pirate Preview: 25-26 Fall Baseball",
+    excerpt: "Crane Pirates bats return for fall baseball.",
+    coverImage: "/crane-baseball.jpg",
+  },
+  {
     slug: "25-26-spring-softball",
     title: "Pirate Preview: 25-26 Spring Softball",
-    excerpt: "Lady Pirates blend experience and new energy for an exciting fall on the diamond.",
+    excerpt: "Lady Pirates blend experience and new energy for an exciting spring on the diamond.",
     coverImage: "/pirates-softball.jpg",
   },
 ];
