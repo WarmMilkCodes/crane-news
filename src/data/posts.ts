@@ -46,7 +46,7 @@ export const posts: Post[] = [
     image: "/broiler-festival-events.jpg",
     category: "News",
     body: [
-      "The Crane Broiler Festival is sure to have another successful year, and they have put on their schedule of events so you don't miss out any of the fun.",
+      "The Crane Broiler Festival is sure to have another successful year, and they have released the schedule of events so you don't miss out any of the fun.",
       "As a reminder the Broiler Festival serves chicken on Friday and Saturday only.",
       "You have until Wednesday to get a discounted wristband that is good for your night of choice.",
       "![2025 Broiler Festival Schedule of Events](/b-fest-schedule.jpg)"
