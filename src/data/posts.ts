@@ -39,6 +39,23 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "crane-youth-sports-raffle-2025",
+    title: "Crane Youth Sports Football Raffling Big Ticket Items",
+    summary: "In an effort to continue raising funds to support the football program, Crane Youth Sports is raffling two items.",
+    date: "2025-08-19",
+    image: "/crane-youth-sports.jpg",
+    category: "Sports",
+    body: [
+      "Another season of Crane Youth Sports football is rapidly approaching, and with that comes fundraising.",
+      "The team is in constant need of new, safer equipment and this is one of the avenues used to help offset costs.",
+      "The fundraising done by the team and program, also help directly contribute to the upcoming Crane School's JH football program.",
+      "This year Crane Youth Sports is offering two raffles. The first is for a Sancrest trailer. Tickets for the trailer raffle are $10 each.",
+      "The next item the group is raffling is an AR-15. Tickets can be had for $5 each.",
+      "You can purchase raffle tickets from any of the football players, grades 3-6.",
+      "We will update the raffle items description as soon as they become available."
+    ]
+  },
+  {
     slug: "broiler-festival-events-schedule-2025",
     title: "Broiler Festival Schedule of Events",
     summary: "The Crane Broiler Festival has released the schedule of events, including booth operation times, music lineup, and more.",
