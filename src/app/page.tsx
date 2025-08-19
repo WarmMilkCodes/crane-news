@@ -110,7 +110,7 @@ export default function Home() {
                   <img
                     src={latestHistory.image}
                     alt={latestHistory.title}
-                    className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                   />
                 </div>
               )}
