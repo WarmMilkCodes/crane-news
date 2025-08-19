@@ -26,6 +26,7 @@ export const history: HistoryItem[] = [
     citation: "Original print edition; public domain due to publication date (≥95 years).",
     publicDomain: true,
     links: [
+      { label: "Newspapers.com", href: "https://img.newspapers.com/img/img?user=2900416&id=588454529&clippingId=179189247&width=711&height=2209&crop=116_973_711_2209&rotation=0&iat=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVlLXZpZXctaWQiOjU4ODQ1NDUyOSwiaWF0IjoxNzU1NjE2MjEzLCJleHAiOjE3NTU3MDI2MTN9.vKp2N6fANIIWd8ME7oyf9_FsP_hqCfGdmpraOfBT_MU" }
       // if you want to point to Newspapers.com or a library page (avoid full scans if not PD)
       // { label: "Library index", href: "https://…" }
     ],
