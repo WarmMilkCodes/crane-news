@@ -4,6 +4,7 @@ import { PostCard } from "@/components/PostCard";
 import WeatherWidget from "@/components/WeatherWidget";
 import SevereWeatherAlert from "@/components/SevereWeatherAlert";
 import { getEventsThisWeek } from "@/data/events";
+import { getLatestHistory } from "@/data/history";
 
 // Small reusable panel for death notices
 function DeathNoticesBlock() {
@@ -37,6 +38,8 @@ export default function Home() {
   const latest = getLatest(6);
   const [feature, ...rest] = latest;
   const weekEvents = getEventsThisWeek({ startOn: "sun", limit: 5 });
+  const latestHistory = getLatestHistory(1)[0];
+
 
   return (
     <div className="space-y-6">
@@ -83,6 +86,41 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
+            )}
+          </div>
+
+          {/* This Week in Crane History */}
+          <div className="panel p-4">
+            <div className="h-serif text-lg">This Week in Crane History</div>
+          
+            {!latestHistory ? (
+              <>
+                <p className="text-sm text-[var(--color-muted)] mt-2">
+                  Step back in time with headlines and moments from Crane’s past.
+                </p>
+                <a href="/history" className="btn-plain inline-flex mt-2">Explore History →</a>
+              </>
+            ) : (
+              <a href={`/history`} className="block group mt-2">
+                {latestHistory.image && (
+                  <div className="relative overflow-hidden rounded-[var(--radius)] bg-[var(--panel)]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={latestHistory.image}
+                      alt={latestHistory.title}
+                      className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                )}
+                <div className="mt-2 text-xs text-[var(--color-muted)]">
+                  {new Date(latestHistory.date).toLocaleDateString([], { dateStyle: "long" })}
+                </div>
+                <div className="font-semibold mt-0.5">{latestHistory.title}</div>
+                <div className="text-sm mt-1 line-clamp-3">
+                  {latestHistory.summary?.[0] ?? "Read more from the archives."}
+                </div>
+                <span className="btn-plain inline-flex mt-2">See more →</span>
+              </a>
             )}
           </div>
 
