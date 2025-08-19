@@ -5,6 +5,7 @@ import WeatherWidget from "@/components/WeatherWidget";
 import SevereWeatherAlert from "@/components/SevereWeatherAlert";
 import { getEventsThisWeek } from "@/data/events";
 import { getLatestHistory } from "@/data/history";
+import Link from "next/link";
 
 // Small reusable panel for death notices
 function DeathNoticesBlock() {
