@@ -25,25 +25,60 @@ function LostFoundCard({ p }: { p: LostFoundPost }) {
   );
 }
 
+function toContactHref(raw?: string) {
+  if (!raw) return undefined;
+  const s = raw.trim();
+
+  // Already a URL?
+  if (/^https?:\/\//i.test(s)) return s;
+
+  // Email?
+  if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s)) return `mailto:${s}`;
+
+  // Phone? (very forgiving)
+  if (/^[+()\-\s.\d]{7,}$/.test(s)) {
+    const digits = s.replace(/[^\d+]/g, "");
+    return `tel:${digits}`;
+  }
+
+  // Fallback: try to treat as URL
+  return `https://${s}`;
+}
+
 function JobCard({ p }: { p: JobPost }) {
+  const href = toContactHref(p.contact);
+
   return (
     <div className="card p-4">
       <div className="flex items-center justify-between">
         <div className="h-serif text-lg">{p.title}</div>
         <span className="tag tag--gold">{p.type}</span>
       </div>
+
       <div className="text-xs text-[var(--color-muted)]">
         {new Date(p.date).toLocaleDateString()} · {p.company}
         {p.location ? ` · ${p.location}` : ""}
       </div>
+
       {p.notes && <p className="mt-2 text-sm">{p.notes}</p>}
+
       <div className="mt-2 text-sm flex items-center gap-3">
         {p.pay && <span className="font-medium">{p.pay}</span>}
-        {p.contact && <span className="text-[var(--color-muted)]">Apply: {p.contact}</span>}
+        {href && (
+          <a
+            href={href}
+            target={href.startsWith("http") ? "_blank" : undefined}
+            rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+            className="underline"
+          >
+            View details / Apply →
+          </a>
+        )}
       </div>
     </div>
   );
 }
+
 
 export default function CommunityClient({ lf, jb }: Props) {
   const [tab, setTab] = useState<TabKey>("lost-found");

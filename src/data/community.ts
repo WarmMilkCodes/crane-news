@@ -23,4 +23,15 @@ export type JobPost = PostBase & {
 
 export const lostFound: LostFoundPost[] = [];
 
-export const jobs: JobPost[] = [];
+export const jobs: JobPost[] = [
+  {
+    id: "crane-r3-paraprofessional-2025-08",
+    title: "Special Education Paraprofessional",
+    company: "Crane R-III School District",
+    type: "Full-time",
+    date: "2025-08-19",
+    location: "Crane, MO",
+    notes: "Crane Schools is hiring a paraprofessional to support elementary classrooms. School-year schedule; assists teachers with student support and classroom tasks. See the district post for requirements and how to apply.",
+    contact: "https://crane.tedk12.com/hire/index.aspx"
+  }
+];
