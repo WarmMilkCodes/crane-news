@@ -31,7 +31,7 @@ export const jobs: JobPost[] = [
     type: "Full-time",
     date: "2025-08-19",
     location: "Crane, MO",
-    notes: "Crane Schools is hiring a paraprofessional to support elementary classrooms. School-year schedule; assists teachers with student support and classroom tasks. See the district post for requirements and how to apply.",
-    contact: "https://crane.tedk12.com/hire/index.aspx"
+    notes: "Crane Schools is hiring a special education paraprofessional to support elementary and secondary classrooms. School-year schedule; assists teachers with student support and classroom tasks. See the district website for requirements to apply.",
+    contact: "https://crane.tedk12.com/hire/ViewJob.aspx?JobID=208"
   }
 ];
