@@ -32,7 +32,7 @@ function toContactHref(raw?: string) {
   if (!raw) return undefined;
   const s = raw.trim();
 
-  if (/^https?:\/\//i.test(s)) return s;                 // URL
+  if (/^https?:\/\//i.test(s)) return s; // URL
   if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s)) return `mailto:${s}`; // Email
 
   // Phone (forgiving)
@@ -86,7 +86,7 @@ export default function CommunityClient({ lf, jb }: Props) {
 
   const [tab, setTab] = useState<TabKey>("lost-found");
 
-  // Init tab from ?tab= or #jobs / #lost-found / #job-... / #lf-...
+  // Init tab from ?tab= or hash: #jobs / #lost-found / #job-... / #lf-...
   useEffect(() => {
     const spTab = (searchParams.get("tab") as TabKey | null) ?? null;
     const hash = typeof window !== "undefined" ? window.location.hash.slice(1) : "";
@@ -103,7 +103,6 @@ export default function CommunityClient({ lf, jb }: Props) {
 
     // If a specific card id is present, scroll to it after render
     if (hash && (hash.startsWith("job-") || hash.startsWith("lf-"))) {
-      // small timeout to ensure layout is painted
       setTimeout(() => {
         const el = document.getElementById(hash);
         if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -112,13 +111,14 @@ export default function CommunityClient({ lf, jb }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // run once on mount
 
-  // When user clicks a tab, update both state and URL (?tab=...)
+  // Update state + URL (?tab=...) and keep a shareable hash (#jobs / #lost-found)
   function switchTab(next: TabKey) {
     setTab(next);
     const sp = new URLSearchParams(Array.from(searchParams.entries()));
     sp.set("tab", next);
-    // Drop any hash that might conflict with the new tab
-    router.replace(`${pathname}?${sp.toString()}`, { scroll: false });
+    const url = `${pathname}?${sp.toString()}#${next}`;
+    // Avoid scroll jump while keeping a nice shareable URL
+    router.replace(url, { scroll: false });
   }
 
   return (
@@ -131,36 +131,52 @@ export default function CommunityClient({ lf, jb }: Props) {
         </div>
       </header>
 
-      {/* Shareable quick anchors for tabs */}
-      <nav className="text-xs text-[var(--color-muted)] -mb-2">
-        <a href="#lost-found" className="underline mr-3">Link to Lost & Found</a>
-        <a href="#jobs" className="underline">Link to Jobs</a>
-      </nav>
-
-      <div className="flex gap-2">
-        <button
-          className={`panel px-3 py-2 text-sm ${tab === "lost-found" ? "ring-1 ring-[var(--color-accent,#22d3ee)]" : ""}`}
-          onClick={() => switchTab("lost-found")}
+      {/* Tabs as linkable anchors */}
+      <div className="flex gap-2" role="tablist" aria-label="Community tabs">
+        <a
+          href="#lost-found"
+          role="tab"
+          aria-selected={tab === "lost-found"}
+          onClick={(e) => {
+            e.preventDefault();
+            switchTab("lost-found");
+          }}
+          className={`panel px-3 py-2 text-sm cursor-pointer ${
+            tab === "lost-found" ? "ring-1 ring-[var(--color-accent,#22d3ee)]" : ""
+          }`}
         >
           Lost &amp; Found
-        </button>
-        <button
-          className={`panel px-3 py-2 text-sm ${tab === "jobs" ? "ring-1 ring-[var(--color-accent,#22d3ee)]" : ""}`}
-          onClick={() => switchTab("jobs")}
+        </a>
+
+        <a
+          href="#jobs"
+          role="tab"
+          aria-selected={tab === "jobs"}
+          onClick={(e) => {
+            e.preventDefault();
+            switchTab("jobs");
+          }}
+          className={`panel px-3 py-2 text-sm cursor-pointer ${
+            tab === "jobs" ? "ring-1 ring-[var(--color-accent,#22d3ee)]" : ""
+          }`}
         >
           Jobs
-        </button>
+        </a>
       </div>
 
       {tab === "lost-found" ? (
-        <section className="grid md:grid-cols-2 gap-3">
-          {lf.length ? lf.map(p => <LostFoundCard key={p.id} p={p} />) : (
+        <section id="lost-found" className="grid md:grid-cols-2 gap-3" aria-labelledby="lost-found">
+          {lf.length ? (
+            lf.map((p) => <LostFoundCard key={p.id} p={p} />)
+          ) : (
             <div className="panel p-3 text-sm">No posts yet.</div>
           )}
         </section>
       ) : (
-        <section className="grid md:grid-cols-2 gap-3">
-          {jb.length ? jb.map(p => <JobCard key={p.id} p={p} />) : (
+        <section id="jobs" className="grid md:grid-cols-2 gap-3" aria-labelledby="jobs">
+          {jb.length ? (
+            jb.map((p) => <JobCard key={p.id} p={p} />)
+          ) : (
             <div className="panel p-3 text-sm">No job posts yet.</div>
           )}
         </section>
