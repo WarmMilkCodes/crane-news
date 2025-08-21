@@ -39,6 +39,20 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "crane-broiler-fest-kickoff-2025",
+    title: "Broiler Festival Kicks Off - Lasts Through Saturday",
+    summary: "The Broiler Festival is up and running, rides and vendors opened yesterday and chicken dinners start tomorrow, Friday.",
+    date: "2025-08-21",
+    image: "kennys-funland.jpg",
+    category: "News",
+    body: [
+      "The Crane Broiler Festival is officially underway!",
+      "🎡 Rides opened last night and continue tonight. Chicken dinners begin tomorrow at 11 a.m. — one of the festival’s most popular traditions.",
+      "According to the festival’s Facebook page, early wristbands completely sold out for the first time ever, so a huge turnout is expected this year.",
+      "Stay tuned for more updates and coverage throughout the weekend. 🐔🔥"
+    ]
+  },
+  {
     slug: "crane-youth-sports-raffle-2025",
     title: "Crane Youth Sports Football Raffling Big Ticket Items",
     summary: "In an effort to continue raising funds to support the football program, Crane Youth Sports is raffling two items.",
