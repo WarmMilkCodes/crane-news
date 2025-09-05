@@ -69,6 +69,7 @@ export const games: Game[] = [
 export const standings: StandingsRow[] = [
   { level: "HS", sport: "Baseball", wins: 0, losses: 0 },
   { level: "HS", sport: "Volleyball", wins: 0, losses: 0 },
+  { level: "JH", sport: "Football", wins: 0, losses: 1 }
 ];
 
 // Helpers
