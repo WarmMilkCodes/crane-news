@@ -83,7 +83,18 @@ export const games: Game[] = [
     status: "Final",
     score: { home: 8, away: 48 },
     notes: "Crane JH football lost to Lighthouse Academy 8-48 on September 4. The team is now 0-1 on the season."
-  }
+  },
+  {
+    id: "2025-09-09-bsb-hs-billings",
+    date: "2025-09-09T17:00",
+    level: "HS",
+    sport: "Baseball",
+    opponent: "Billings Wildcats",
+    home: false,
+    venue: "Billings High School",
+    status: "Scheduled",
+  },
+
 ];
 
 export const standings: StandingsRow[] = [
