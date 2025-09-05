@@ -63,6 +63,18 @@ export const games: Game[] = [
     home: true,
     venue: "Crane High School",
     status: "Scheduled"
+  },
+  {
+    id: "2025-09-04-fb-jh-lighthouse",
+    date: "2025-09-04T18:00",
+    level: "JH",
+    sport: "Football",
+    opponent: "Lighthouse Academy",
+    home: true,
+    venue: "Crane High School",
+    status: "Final",
+    score: { home: 8, away: 48 },
+    notes: "Crane JH football lost to Lighthouse Academy 8-48 on September 4. The team is now 0-1 on the season."
   }
 ];
 
