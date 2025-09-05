@@ -25,34 +25,40 @@ export type StandingsRow = {
 
 export const games: Game[] = [
   {
-    id: "2025-08-30-vb-hs-monett-tourn",
-    date: "2025-08-30T12:00",
+    id: "2025-09-01-vb-hs-monett",
+    date: "2025-09-01T12:00",
     level: "HS",
     sport: "Volleyball",
     opponent: "Monett",
     home: false,
     venue: "Monett High School",
-    status: "Scheduled"
+    status: "Final",
+    score: { home: 3, away: 1},
+    notes: "Crane HS volleyball lost to Monett 1-3. The team is now 0-1 on the season."
   },
   {
-    id: "2025-09-01-bsb-hs-sparta",
-    date: "2025-09-01T17:00",
-    level: "HS",
-    sport: "Baseball",
-    opponent: "Sparta Trojans",
-    home: true,
-    venue: "Tootie Parsons Memorial Stadium",
-    status: "Scheduled"
-  },
-  {
-    id: "2025-09-02-bsb-hs-exeter",
+    id: "2025-09-02-bsb-hs-exter",
     date: "2025-09-02T17:00",
     level: "HS",
     sport: "Baseball",
-    opponent: "Exeter Tigers",
+    opponent: "Exter Tigers",
     home: true,
     venue: "Tootie Parsons Memorial Stadium",
-    status: "Scheduled"
+    status: "Final",
+    score: { home: 5, away: 11},
+    notes: "Crane HS baseball lost to Exter 5-11 on September 2. The team is now 0-1 on the season."
+  },
+  {
+    id: "2025-09-04-bsb-hs-wheaton",
+    date: "2025-09-04T17:00",
+    level: "HS",
+    sport: "Baseball",
+    opponent: "Wheaton Bulldogs",
+    home: false,
+    venue: "Wheaton High School",
+    status: "Final",
+    score: { home: 10, away: 0},
+    notes: "Crane HS baseball defeated Wheaton 10-0 on September 4. The team is now 0-2 on the season."
   },
   {
     id: "2025-09-04-vb-fordland",
@@ -62,7 +68,9 @@ export const games: Game[] = [
     opponent: "Fordland Eagles",
     home: true,
     venue: "Crane High School",
-    status: "Scheduled"
+    status: "Final",
+    score: { home: 1, away: 3},
+    notes: "Crane HS volleyball lost to Fordland 1-3 on September 4. The team is now 0-2 on the season."
   },
   {
     id: "2025-09-04-fb-jh-lighthouse",
@@ -79,8 +87,8 @@ export const games: Game[] = [
 ];
 
 export const standings: StandingsRow[] = [
-  { level: "HS", sport: "Baseball", wins: 0, losses: 0 },
-  { level: "HS", sport: "Volleyball", wins: 0, losses: 0 },
+  { level: "HS", sport: "Baseball", wins: 0, losses: 2 },
+  { level: "HS", sport: "Volleyball", wins: 0, losses: 2 },
   { level: "JH", sport: "Football", wins: 0, losses: 1 }
 ];
 
