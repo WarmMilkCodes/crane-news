@@ -1,21 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 import { getUpcomingGames, getRecentResults, standings, type Game } from "@/data/sports";
 
-const latestPreviews = [
-  {
-    slug: "25-26-fall-baseball",
-    title: "Pirate Preview: 25-26 Fall Baseball",
-    excerpt: "Crane Pirates bats return for fall baseball.",
-    coverImage: "/crane-baseball.jpg",
-  },
-  {
-    slug: "25-26-spring-softball",
-    title: "Pirate Preview: 25-26 Spring Softball",
-    excerpt: "Lady Pirates blend experience and new energy for an exciting spring on the diamond.",
-    coverImage: "/pirates-softball.jpg",
-  },
-];
+const MAX_UPCOMING = 3;
+const MAX_RECENT   = 3;
 
 export const metadata = {
   title: "Sports — Crane.news",
@@ -42,7 +31,9 @@ function GameRow({ g }: { g: Game }) {
         <span className="tag tag--gold">{badge}</span>
         <div>
           <div className="font-semibold">{g.sport}</div>
-          <div className="text-xs text-[var(--color-muted)]">{fmt(g.date)} · {where}{g.venue ? ` · ${g.venue}` : ""}</div>
+          <div className="text-xs text-[var(--color-muted)]">
+            {fmt(g.date)} · {where}{g.venue ? ` · ${g.venue}` : ""}
+          </div>
         </div>
       </div>
       <div className="text-right">
@@ -53,45 +44,84 @@ function GameRow({ g }: { g: Game }) {
   );
 }
 
+/** Client-only mini list with Show more/less (no routes) */
+function GameListClient({ title, items, initial }: { title: string; items: Game[]; initial: number }) {
+  "use client";
+  const [limit, setLimit] = React.useState(initial);
+  const shown = items.slice(0, limit);
+  const remaining = Math.max(items.length - limit, 0);
+
+  return (
+    <section className="space-y-3">
+      <div className="flex items-center justify-between">
+        <div className="h-serif text-xl">{title}</div>
+        <div className="flex items-center gap-3">
+          {remaining > 0 && (
+            <button
+              onClick={() => setLimit(items.length)}
+              className="text-sm text-cyan-600 hover:underline"
+            >
+              Show {remaining} more
+            </button>
+          )}
+          {limit > initial && (
+            <button
+              onClick={() => setLimit(initial)}
+              className="text-sm text-cyan-600 hover:underline"
+            >
+              Show less
+            </button>
+          )}
+        </div>
+      </div>
+
+      {shown.length ? shown.map(g => <GameRow key={g.id} g={g} />) : (
+        <div className="panel p-3 text-sm">Nothing to show yet.</div>
+      )}
+    </section>
+  );
+}
+
 export default function SportsPage() {
-  const upcoming = getUpcomingGames(8);
-  const recent = getRecentResults(6);
+  // Grab a reasonable superset; the client list enforces the cap.
+  const upcomingAll = getUpcomingGames(20);
+  const recentAll   = getRecentResults(20);
+
+  const latestPreviews = [
+    {
+      slug: "25-26-fall-baseball",
+      title: "Pirate Preview: 25-26 Fall Baseball",
+      excerpt: "Crane Pirates bats return for fall baseball.",
+      coverImage: "/crane-baseball.jpg",
+    },
+    {
+      slug: "25-26-spring-softball",
+      title: "Pirate Preview: 25-26 Spring Softball",
+      excerpt: "Lady Pirates blend experience and new energy for an exciting spring on the diamond.",
+      coverImage: "/pirates-softball.jpg",
+    },
+  ];
 
   return (
     <section className="space-y-6">
       <header className="space-y-1">
         <h1 className="h-serif text-2xl">Crane Sports</h1>
-        <p className="text-sm text-[var(--color-muted)]">Junior High & High School schedules, scores, and standings.</p>
+        <p className="text-sm text-[var(--color-muted)]">
+          Junior High & High School schedules, scores, and standings.
+        </p>
         <div className="panel p-3 text-xs text-[var(--color-muted)]">
           Tip? Score correction? <Link href="/submit" className="underline">Send an update</Link>.
         </div>
       </header>
 
       <div className="grid md:grid-cols-2 gap-4">
-        <section className="space-y-3">
-          <div className="h-serif text-xl">Upcoming Games</div>
-          {upcoming.length ? upcoming.map(g => <GameRow key={g.id} g={g} />) : (
-            <div className="panel p-3 text-sm">No upcoming games posted yet.</div>
-          )}
-        </section>
-
-        <section className="space-y-3">
-          <div className="h-serif text-xl">Recent Results</div>
-          {recent.length ? recent.map(g => <GameRow key={g.id} g={g} />) : (
-            <div className="panel p-3 text-sm">No final scores posted yet.</div>
-          )}
-        </section>
+        <GameListClient title="Upcoming Games" items={upcomingAll} initial={MAX_UPCOMING} />
+        <GameListClient title="Recent Results" items={recentAll} initial={MAX_RECENT} />
       </div>
 
-      {/* Previews mention */}
+      {/* Previews */}
       <section className="space-y-3">
-        <div className="flex items-center justify-between">
-          <div className="h-serif text-xl">Pirate Preview</div>
-          <Link href="/sports/previews" className="text-sm text-cyan-600 hover:underline">
-            View all →
-          </Link>
-        </div>
-
+        <div className="h-serif text-xl">Pirate Preview</div>
         {latestPreviews.length ? (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {latestPreviews.map((p) => (
