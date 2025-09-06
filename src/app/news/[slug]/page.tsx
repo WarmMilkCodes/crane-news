@@ -115,7 +115,7 @@ export default async function Article({
             competition: "Junior High Football",
           }}
           scoring={[
-            { t: "Q4", desc: "CR — Kendrick Bass rushing TD)" },
+            { t: "Q4", desc: "CR — Kendrick Bass rushing TD" },
           ]}
           players={[
             { name: "Kendrick Bass (#26)", line: "1 Rush TD" },
