@@ -94,7 +94,7 @@ export default async function Article({
       {/* Game recap highlight (only on the football article) */}
       {p.slug === "crane-football-season-opener-2025" && (
         <GameRecapBox
-          homeTeam="Crane"
+          homeTeam="Crane Pirates"
           awayTeam="Lighthouse Christian"
           homeScore={8}
           awayScore={48}

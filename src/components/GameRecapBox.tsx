@@ -59,48 +59,48 @@ export default function GameRecapBox({
       {/* Scoreboard */}
       <div className="grid grid-cols-2 gap-4 items-center rounded-xl border border-black/5 p-4">
         {/* Home */}
-        <div className="flex items-center gap-3">
-          <Helmet
-            width={48}
+        <div className="flex items-center gap-4">
+        <Helmet
+            width={64}                                // bigger helmet
             shellColor={homeHelmet.shell}
             facemaskColor={homeHelmet.mask}
-            stripeColor={null} // Pirates: no stripe
+            stripeColor={null}
             logoText="CR"
-          />
-          <div>
+        />
+        <div>
             <div className="uppercase tracking-wide text-[11px] text-gray-500">
-              {homeTeam}
+            {homeTeam}
             </div>
             <div
-              className={`text-3xl ${homeWin ? "font-black" : "font-bold"}`}
-              style={{ color: homeHelmet.shell }}
+            className={`text-4xl font-black`}       // bolder, larger score
+            style={{ color: homeHelmet.shell }}
             >
-              {homeScore}
+            {homeScore}
             </div>
-          </div>
+        </div>
         </div>
 
         {/* Away */}
-        <div className="flex items-center gap-3 justify-end text-right">
-          <div>
+        <div className="flex items-center gap-4 justify-end text-right">
+        <div>
             <div className="uppercase tracking-wide text-[11px] text-gray-500">
-              {awayTeam}
+            {awayTeam}
             </div>
             <div
-              className={`text-3xl ${awayWin ? "font-black" : "font-bold"}`}
-              style={{ color: awayHelmet.shell }}
+            className={`text-4xl font-black`}      // match Crane’s score size
+            style={{ color: awayHelmet.shell }}
             >
-              {awayScore}
+            {awayScore}
             </div>
-          </div>
-          <Helmet
-            width={48}
+        </div>
+        <Helmet
+            width={64}                               // bigger helmet
             shellColor={awayHelmet.shell}
             facemaskColor={awayHelmet.mask}
-            stripeColor={null} // Lighthouse: no stripe
+            stripeColor={null}
             logoText="LC"
             flip
-          />
+        />
         </div>
       </div>
 

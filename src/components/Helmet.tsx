@@ -32,7 +32,7 @@ export default function Helmet({
       height={(width * h) / w}
       style={{
         transform: flip ? "scaleX(-1)" : undefined,
-        filter: "drop-shadow(0 1px 2px rgba(0,0,0,.25))",
+        filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.4))",
       }}
       aria-label="Team helmet"
     >
@@ -96,15 +96,18 @@ export default function Helmet({
       {/* logo text (optional) */}
       {logoText && (
         <g transform="translate(62,61)">
-          <circle r="18" fill="rgba(255,255,255,.18)" />
+          <circle r="18" fill="rgba(255,255,255,.12)" />
           <text
             x="0"
-            y="7"
+            y="8"
             textAnchor="middle"
             fontFamily="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial"
-            fontSize="22"
+            fontSize="26"
             fontWeight={900}
             fill={logoColor}
+            stroke="black"
+            strokeWidth="1.5"
+            paintOrder="stroke"
           >
             {logoText.slice(0, 3).toUpperCase()}
           </text>
