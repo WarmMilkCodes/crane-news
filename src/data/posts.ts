@@ -40,7 +40,7 @@ export type Post = {
 export const posts: Post[] = [
   {
     slug: "crane-football-season-opener-2025",
-    title: "Crane Football Returns After 75 Years",
+    title: "Back on the Gridiron: Crane JH Pirates Make History",
     summary: "The Crane Pirates see the return of a football program after being dormant for 75 years.",
     date: "2025-09-06",
     image: "/cjh_football.jpg",
