@@ -1,10 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { getUpcomingGames, getRecentResults, standings, type Game } from "@/data/sports";
 
 const MAX_UPCOMING = 3;
-const MAX_RECENT   = 3;
+const MAX_RECENT = 3;
 
 export const metadata = {
   title: "Sports — Crane.news",
@@ -13,7 +15,13 @@ export const metadata = {
 
 function fmt(dt: string) {
   const d = new Date(dt);
-  return d.toLocaleString([], { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  return d.toLocaleString([], {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  });
 }
 
 function GameRow({ g }: { g: Game }) {
@@ -44,10 +52,8 @@ function GameRow({ g }: { g: Game }) {
   );
 }
 
-/** Client-only mini list with Show more/less (no routes) */
-function GameListClient({ title, items, initial }: { title: string; items: Game[]; initial: number }) {
-  "use client";
-  const [limit, setLimit] = React.useState(initial);
+function GameList({ title, items, initial }: { title: string; items: Game[]; initial: number }) {
+  const [limit, setLimit] = useState(initial);
   const shown = items.slice(0, limit);
   const remaining = Math.max(items.length - limit, 0);
 
@@ -75,7 +81,7 @@ function GameListClient({ title, items, initial }: { title: string; items: Game[
         </div>
       </div>
 
-      {shown.length ? shown.map(g => <GameRow key={g.id} g={g} />) : (
+      {shown.length ? shown.map((g) => <GameRow key={g.id} g={g} />) : (
         <div className="panel p-3 text-sm">Nothing to show yet.</div>
       )}
     </section>
@@ -83,9 +89,8 @@ function GameListClient({ title, items, initial }: { title: string; items: Game[
 }
 
 export default function SportsPage() {
-  // Grab a reasonable superset; the client list enforces the cap.
   const upcomingAll = getUpcomingGames(20);
-  const recentAll   = getRecentResults(20);
+  const recentAll = getRecentResults(20);
 
   const latestPreviews = [
     {
@@ -115,8 +120,8 @@ export default function SportsPage() {
       </header>
 
       <div className="grid md:grid-cols-2 gap-4">
-        <GameListClient title="Upcoming Games" items={upcomingAll} initial={MAX_UPCOMING} />
-        <GameListClient title="Recent Results" items={recentAll} initial={MAX_RECENT} />
+        <GameList title="Upcoming Games" items={upcomingAll} initial={MAX_UPCOMING} />
+        <GameList title="Recent Results" items={recentAll} initial={MAX_RECENT} />
       </div>
 
       {/* Previews */}
