@@ -5,6 +5,7 @@ import PostNotes from "@/components/PostNotes";
 import Markdown from "@/components/Markdown";
 import FeatureBanner from "@/components/FeatureBanner";
 import GameRecapBox from "@/components/GameRecapBox";
+import BroadcastRecap  from "@/components/BroadcastRecap";
 
 type SlugParams = { slug: string };
 
@@ -90,6 +91,38 @@ export default async function Article({
 
       {/* Updates / Corrections */}
       <PostNotes post={p} />
+
+      {p.slug === "crane-football-season-opener-2025" && (
+        <BroadcastRecap
+          home={{
+            name: "Crane Pirates",
+            short: "CRANE PIRATES",
+            shell: "#2d5ca2",
+            mask: "#b58825",
+            score: 8,
+            record: "0–1",
+          }}
+          away={{
+            name: "Lighthouse Christian",
+            short: "LIGHTHOUSE CHRISTIAN",
+            shell: "#ffffff",
+            mask: "#263645",
+            score: 48,
+            record: "1–0",
+          }}
+          meta={{
+            date: "2025-09-06",
+            venue: "Crane • Only home game",
+            competition: "Junior High Football",
+          }}
+          scoring={[
+            { t: "Q4 2:10", desc: "CR — Kendrick Bass 6-yd rush (2-pt failed)" },
+          ]}
+          players={[
+            { name: "Kendrick Bass (#26)", line: "1 Rush TD" },
+          ]}
+        />
+)}
 
       {/* Game recap highlight (only on the football article) */}
       {p.slug === "crane-football-season-opener-2025" && (
