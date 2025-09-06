@@ -108,8 +108,14 @@ export default async function Article({
             venueCity: "Lebanon",
           }}
           note="This was the only home game of the short inaugural season."
-          homeColor = "#134373"
-          awayColor = "#d7560c"
+          homeHelmet={{
+            shell: "#2d5ca2",
+            mask: "#b58825",
+          }}
+          awayHelmet={{
+            shell: "#ffffff",
+            mask: "#263645"
+          }}
         />
       )}
 

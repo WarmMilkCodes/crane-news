@@ -1,5 +1,8 @@
+// components/GameRecapBox.tsx
+import Helmet from "@/components/Helmet";
+
 type NextGame = {
-  date: string;        // ISO
+  date: string;
   opponent: string;
   location: "Home" | "Away";
   time?: string;
@@ -15,39 +18,17 @@ type Props = {
   attendance?: string;
   note?: string;
   nextGame?: NextGame;
-  homeColor?: string; // HEX or Tailwind color e.g. "#800000" or "bg-red-500"
-  awayColor?: string; // HEX or Tailwind color
+  homeHelmet: { shell: string; mask: string; logo?: string };
+  awayHelmet: { shell: string; mask: string; logo?: string };
 };
 
 function formatDate(d?: string) {
   if (!d) return "";
-  const dt = new Date(d);
-  return dt.toLocaleDateString(undefined, {
+  return new Date(d).toLocaleDateString(undefined, {
     weekday: "short",
     month: "short",
     day: "numeric",
   });
-}
-
-function TeamBadge({ name, color }: { name: string; color?: string }) {
-  const abbr =
-    name
-      .replace(/[^A-Za-z ]/g, "")
-      .split(" ")
-      .filter(Boolean)
-      .slice(0, 2)
-      .map((s) => s[0])
-      .join("")
-      .toUpperCase() || "TM";
-
-  return (
-    <div
-      className="w-8 h-8 rounded-full flex items-center justify-center font-black text-xs shadow-sm border border-black/10"
-      style={{ backgroundColor: color || "#f3f4f6", color: "#fff" }}
-    >
-      {abbr}
-    </div>
-  );
 }
 
 export default function GameRecapBox({
@@ -59,8 +40,8 @@ export default function GameRecapBox({
   attendance,
   note,
   nextGame,
-  homeColor = "#134373",
-  awayColor = "#d7560c",
+  homeHelmet,
+  awayHelmet,
 }: Props) {
   const homeWin = homeScore > awayScore;
   const awayWin = awayScore > homeScore;
@@ -70,21 +51,29 @@ export default function GameRecapBox({
       {/* Header */}
       <div className="flex items-center gap-2 mb-4">
         <span className="text-lg">🏈</span>
-        <h2 className="text-lg font-extrabold tracking-tight text-gray-900">Game Recap</h2>
+        <h2 className="text-lg font-extrabold tracking-tight text-gray-900">
+          Game Recap
+        </h2>
       </div>
 
       {/* Scoreboard */}
       <div className="grid grid-cols-2 gap-4 items-center rounded-xl border border-black/5 p-4">
         {/* Home */}
         <div className="flex items-center gap-3">
-          <TeamBadge name={homeTeam} color={homeColor} />
+          <Helmet
+            width={48}
+            shellColor={homeHelmet.shell}
+            facemaskColor={homeHelmet.mask}
+            stripeColor={null} // Pirates: no stripe
+            logoText="CR"
+          />
           <div>
-            <div className="uppercase tracking-wide text-[11px] text-gray-500">{homeTeam}</div>
+            <div className="uppercase tracking-wide text-[11px] text-gray-500">
+              {homeTeam}
+            </div>
             <div
-              className={`text-3xl leading-none ${
-                homeWin ? "font-black" : "font-bold"
-              }`}
-              style={{ color: homeColor }}
+              className={`text-3xl ${homeWin ? "font-black" : "font-bold"}`}
+              style={{ color: homeHelmet.shell }}
             >
               {homeScore}
             </div>
@@ -94,17 +83,24 @@ export default function GameRecapBox({
         {/* Away */}
         <div className="flex items-center gap-3 justify-end text-right">
           <div>
-            <div className="uppercase tracking-wide text-[11px] text-gray-500">{awayTeam}</div>
+            <div className="uppercase tracking-wide text-[11px] text-gray-500">
+              {awayTeam}
+            </div>
             <div
-              className={`text-3xl leading-none ${
-                awayWin ? "font-black" : "font-bold"
-              }`}
-              style={{ color: awayColor }}
+              className={`text-3xl ${awayWin ? "font-black" : "font-bold"}`}
+              style={{ color: awayHelmet.shell }}
             >
               {awayScore}
             </div>
           </div>
-          <TeamBadge name={awayTeam} color={awayColor} />
+          <Helmet
+            width={48}
+            shellColor={awayHelmet.shell}
+            facemaskColor={awayHelmet.mask}
+            stripeColor={null} // Lighthouse: no stripe
+            logoText="LC"
+            flip
+          />
         </div>
       </div>
 
