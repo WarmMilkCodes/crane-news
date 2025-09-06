@@ -1,4 +1,3 @@
-// components/GameRecapBox.tsx
 type NextGame = {
   date: string;        // ISO
   opponent: string;
@@ -16,6 +15,8 @@ type Props = {
   attendance?: string;
   note?: string;
   nextGame?: NextGame;
+  homeColor?: string; // HEX or Tailwind color e.g. "#800000" or "bg-red-500"
+  awayColor?: string; // HEX or Tailwind color
 };
 
 function formatDate(d?: string) {
@@ -28,18 +29,22 @@ function formatDate(d?: string) {
   });
 }
 
-function TeamBadge({ name }: { name: string }) {
+function TeamBadge({ name, color }: { name: string; color?: string }) {
   const abbr =
     name
       .replace(/[^A-Za-z ]/g, "")
       .split(" ")
       .filter(Boolean)
       .slice(0, 2)
-      .map(s => s[0])
+      .map((s) => s[0])
       .join("")
       .toUpperCase() || "TM";
+
   return (
-    <div className="w-7 h-7 rounded-full bg-black/5 flex items-center justify-center font-black text-[11px] text-gray-700">
+    <div
+      className="w-8 h-8 rounded-full flex items-center justify-center font-black text-xs shadow-sm border border-black/10"
+      style={{ backgroundColor: color || "#f3f4f6", color: "#fff" }}
+    >
       {abbr}
     </div>
   );
@@ -54,26 +59,33 @@ export default function GameRecapBox({
   attendance,
   note,
   nextGame,
+  homeColor = "#134373",
+  awayColor = "#d7560c",
 }: Props) {
   const homeWin = homeScore > awayScore;
   const awayWin = awayScore > homeScore;
 
   return (
-    <section className="rounded-[18px] border border-black/8 bg-white shadow-sm p-4 sm:p-5 mb-6">
+    <section className="rounded-[18px] border border-black/8 bg-white shadow p-5 mb-6">
       {/* Header */}
-      <div className="flex items-center gap-2 mb-3">
+      <div className="flex items-center gap-2 mb-4">
         <span className="text-lg">🏈</span>
         <h2 className="text-lg font-extrabold tracking-tight text-gray-900">Game Recap</h2>
       </div>
 
       {/* Scoreboard */}
-      <div className="grid grid-cols-2 gap-4 items-center rounded-xl border border-black/5 p-3 sm:p-4">
+      <div className="grid grid-cols-2 gap-4 items-center rounded-xl border border-black/5 p-4">
         {/* Home */}
         <div className="flex items-center gap-3">
-          <TeamBadge name={homeTeam} />
-          <div className="min-w-0">
-            <div className="uppercase tracking-wide text-[11px] text-gray-500">Crane</div>
-            <div className={`text-2xl sm:text-3xl leading-none ${homeWin ? "font-black" : "font-bold"} text-gray-900`}>
+          <TeamBadge name={homeTeam} color={homeColor} />
+          <div>
+            <div className="uppercase tracking-wide text-[11px] text-gray-500">{homeTeam}</div>
+            <div
+              className={`text-3xl leading-none ${
+                homeWin ? "font-black" : "font-bold"
+              }`}
+              style={{ color: homeColor }}
+            >
               {homeScore}
             </div>
           </div>
@@ -81,13 +93,18 @@ export default function GameRecapBox({
 
         {/* Away */}
         <div className="flex items-center gap-3 justify-end text-right">
-          <div className="min-w-0">
+          <div>
             <div className="uppercase tracking-wide text-[11px] text-gray-500">{awayTeam}</div>
-            <div className={`text-2xl sm:text-3xl leading-none ${awayWin ? "font-black" : "font-bold"} text-gray-900`}>
+            <div
+              className={`text-3xl leading-none ${
+                awayWin ? "font-black" : "font-bold"
+              }`}
+              style={{ color: awayColor }}
+            >
               {awayScore}
             </div>
           </div>
-          <TeamBadge name={awayTeam} />
+          <TeamBadge name={awayTeam} color={awayColor} />
         </div>
       </div>
 
@@ -109,7 +126,7 @@ export default function GameRecapBox({
           <>
             <div className="font-semibold text-gray-600">Next Game</div>
             <div className="text-gray-900">
-              {formatDate(nextGame.date)} · {nextGame.location === "Home" ? "Home" : "Away"} vs{" "}
+              {formatDate(nextGame.date)} · {nextGame.location} vs{" "}
               <span className="font-semibold">{nextGame.opponent}</span>
               {nextGame.time ? ` • ${nextGame.time}` : ""}
               {nextGame.venueCity ? ` • ${nextGame.venueCity}` : ""}
