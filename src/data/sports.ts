@@ -85,6 +85,18 @@ export const games: Game[] = [
     notes: "Crane JH football lost to Lighthouse Academy 8-48 on September 4. The team is now 0-1 on the season."
   },
   {
+    id: "2025-09-05-vb-blue-eye",
+    date: "2025-09-05T17:00",
+    level: "HS",
+    sport: "Volleyball",
+    opponent: "Blue Eye Bulldogs",
+    home: false,
+    venue: "Blue Eye High School",
+    status: "Final",
+    score: { home: 2, away: 3},
+    notes: "Crane HS volleyball won against Blue Eye 3-2 on September 5. The team is now 1-2 on the season."
+  },
+  {
     id: "2025-09-09-bsb-hs-billings",
     date: "2025-09-09T17:00",
     level: "HS",
@@ -98,7 +110,7 @@ export const games: Game[] = [
 ];
 
 export const standings: StandingsRow[] = [
-  { level: "HS", sport: "Baseball", wins: 0, losses: 2 },
+  { level: "HS", sport: "Baseball", wins: 1, losses: 2 },
   { level: "HS", sport: "Volleyball", wins: 0, losses: 2 },
   { level: "JH", sport: "Football", wins: 0, losses: 1 }
 ];
