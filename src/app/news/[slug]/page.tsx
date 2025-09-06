@@ -122,35 +122,8 @@ export default async function Article({
             { name: "Kendrick Bass (#26)", line: "1 Rush TD" },
           ]}
         />
-)}
+        )}
 
-      {/* Game recap highlight (only on the football article) */}
-      {p.slug === "crane-football-season-opener-2025" && (
-        <GameRecapBox
-          homeTeam="Crane Pirates"
-          awayTeam="Lighthouse Christian"
-          homeScore={8}
-          awayScore={48}
-          highlight="#26 Kendrick Bass • 4th Qtr TD run"
-          attendance="500+"
-          nextGame={{
-            date: "2025-09-09",
-            opponent: "Joel E. Barber Buckskins",
-            location: "Away",
-            time: "5:30 PM",
-            venueCity: "Lebanon",
-          }}
-          note="This was the only home game of the short inaugural season."
-          homeHelmet={{
-            shell: "#2d5ca2",
-            mask: "#b58825",
-          }}
-          awayHelmet={{
-            shell: "#ffffff",
-            mask: "#263645"
-          }}
-        />
-      )}
 
       {/* Body rendered as Markdown */}
       <div className="prose mt-4 max-w-none">
