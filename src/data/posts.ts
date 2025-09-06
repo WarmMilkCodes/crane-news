@@ -60,7 +60,7 @@ export const posts: Post[] = [
     slug: "obit-bill-long-crane",
     title: "Bill Long, of Crane",
     summary: "Memorial Service Friday, September 12 at 7 PM at Stumpff Funeral Chapel in Crane.",
-    date: "2025-09-06",
+    date: "2025-09-04",
     category: "Death Notices",
     image: "/death-notice.png",
     body: [
