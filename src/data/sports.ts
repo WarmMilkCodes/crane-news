@@ -97,6 +97,16 @@ export const games: Game[] = [
     notes: "Crane HS volleyball won against Blue Eye 3-2 on September 5. The team is now 1-2 on the season."
   },
   {
+    id: "2025-09-08-vb-seneca",
+    date: "2025-09-08T17:00",
+    level: "HS",
+    sport: "Volleyball",
+    opponent: "Seneca Indians",
+    home: false,
+    venue: "Seneca High School",
+    status: "Scheduled",
+  },
+  {
     id: "2025-09-09-bsb-hs-billings",
     date: "2025-09-09T17:00",
     level: "HS",
