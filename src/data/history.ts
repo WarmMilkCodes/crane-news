@@ -13,6 +13,23 @@ export type HistoryItem = {
 
 export const history: HistoryItem[] = [
   {
+    slug: "1929-09-05-veedol-wins",
+    date: "1929-09-05",
+    title: "Veedol Wins!",
+    summary: [
+      "Veedol motor oil was the lubricant used for the engines of the Graf Zeppelin, the first airship to complete a circumnavigation of the globe. The airship's successful 21-day journey demonstrated the durability and quality of Veedol's lubricants. "
+    ],
+    image: "/history/veedol.jpg",
+    attribution: "The Crane Chronicle — Sep. 05, 1929",
+    citation: "Original print edition; public domain due to publication date (≥95 years).",
+    publicDomain: true,
+    links: [
+      { label: "Newspapers.com", href: "https://www.newspapers.com/article/the-crane-chronicle/180511353/" }
+      // if you want to point to Newspapers.com or a library page (avoid full scans if not PD)
+      // { label: "Library index", href: "https://…" }
+    ],
+  },
+  {
     slug: "1929-08-15-school-opening",
     date: "1929-08-15",
     title: "Schools to Open Sept. 2 — New High School Delayed",
