@@ -115,6 +115,15 @@ export const games: Game[] = [
     home: false,
     venue: "Billings High School",
     status: "Scheduled",
+  },{
+    id: "2025-09-09-fb-jh-joel-e-barber",
+    date: "2025-09-09T18:00",
+    level: "JH",
+    sport: "Football",
+    opponent: "Joel E. Barber",
+    home: false,
+    venue: "Joel E. Barber School",
+    status: "Scheduled",
   },
 
 ];
