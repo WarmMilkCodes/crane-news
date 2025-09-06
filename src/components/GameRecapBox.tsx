@@ -65,7 +65,6 @@ export default function GameRecapBox({
             shellColor={homeHelmet.shell}
             facemaskColor={homeHelmet.mask}
             stripeColor={null}
-            logoText="CR"
         />
         <div>
             <div className="uppercase tracking-wide text-[11px] text-gray-500">
@@ -98,7 +97,6 @@ export default function GameRecapBox({
             shellColor={awayHelmet.shell}
             facemaskColor={awayHelmet.mask}
             stripeColor={null}
-            logoText="LC"
             flip
         />
         </div>
