@@ -39,6 +39,22 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "crane-football-season-opener-2025",
+    title: "Crane Football Returns After 75 Years",
+    summary: "The Crane Pirates see the return of a football program after being dormant for 75 years.",
+    date: "2025-09-06",
+    image: "/cjh_football.jpg",
+    category: "Sports",
+    body: [
+      "After a 75-year hiatus, the Crane Pirates football program made its much-anticipated return to the field on Thursday, September 4, 2025.",
+      "The inaugural game took place at home, in front of a packed crowd of over 500 ethusiastic fans. The Pirates faced off against the Lighouse Christian Chargers.",
+      "Despite a valiant effort, the Pirates' inaguragal game ended in a 48-8 loss. However, the team showed promise and determination throughout the game.",
+      "The Pirates' lone touchdown came late in the game, with a rushing touchdown by #26, Kendrick Bass.",
+      "This game marked the beginning of a new chapter for Crane School's athletic program, and the community is already looking foward towards the next game of the season - although this marked the only home game for the Pirates this season.",
+      "The Pirates will travel to Lebanon on Tuseday, September 9, 2025 for their next game against Joel E Barber Buckskins.",
+    ]
+  },
+  {
     slug: "crane-broiler-fest-kickoff-2025",
     title: "Broiler Festival Kicks Off - Lasts Through Saturday",
     summary: "The Broiler Festival is up and running, rides and vendors opened yesterday and chicken dinners start tomorrow, Friday.",
