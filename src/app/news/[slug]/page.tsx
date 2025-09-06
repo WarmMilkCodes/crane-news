@@ -3,42 +3,9 @@ import { posts, getPost } from "@/data/posts";
 import Link from "next/link";
 import Image from "next/image";
 import PostNotes from "@/components/PostNotes";
+import Markdown from "@/components/Markdown";
 
 type SlugParams = { slug: string };
-
-/** Detect a single-line Markdown image: ![alt](src "title") */
-function parseImageMd(s: string) {
-  // ![alt text](/path/to.jpg "optional title")
-  const m = s.match(/^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]+)")?\)$/);
-  if (!m) return null;
-  const [, alt, src, title] = m;
-  return { alt: alt?.trim() ?? "", src: src.trim(), title: title?.trim() };
-}
-
-function BodyBlock({ text }: { text: string }) {
-  const img = parseImageMd(text);
-  if (img) {
-    return (
-      <figure className="my-4">
-        <Image
-          src={img.src}
-          alt={img.alt || img.title || ""}
-          width={1200}
-          height={675}
-          className="w-full h-auto rounded-lg bg-[var(--panel)] object-contain"
-        />
-        {(img.title || img.alt) && (
-          <figcaption className="mt-2 text-xs text-[var(--color-muted)]">
-            {img.title || img.alt}
-          </figcaption>
-        )}
-      </figure>
-    );
-  }
-
-  // default: regular paragraph
-  return <p>{text}</p>;
-}
 
 export async function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -128,10 +95,10 @@ export default async function Article({
       {/* Updates / Corrections */}
       <PostNotes post={p} />
 
-      {/* Body with image support */}
-      <div className="prose mt-4">
+      {/* Body rendered as Markdown (supports **bold**, lists, and ![img](/path "title")) */}
+      <div className="prose mt-4 max-w-none">
         {p.body.map((para, i) => (
-          <BodyBlock key={i} text={para} />
+          <Markdown key={i}>{para}</Markdown>
         ))}
       </div>
 
