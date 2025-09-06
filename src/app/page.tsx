@@ -36,7 +36,7 @@ function DeathNoticesBlock() {
 }
 
 export default function Home() {
-  const latest = getLatest(6);
+  const latest = getLatest(4);
   const [feature, ...rest] = latest;
   const weekEvents = getEventsThisWeek({ startOn: "sun", limit: 5 });
   const latestHistory = getLatestHistory(1)[0];
