@@ -120,8 +120,8 @@ export const games: Game[] = [
 ];
 
 export const standings: StandingsRow[] = [
-  { level: "HS", sport: "Baseball", wins: 1, losses: 2 },
-  { level: "HS", sport: "Volleyball", wins: 0, losses: 2 },
+  { level: "HS", sport: "Baseball", wins: 0, losses: 2 },
+  { level: "HS", sport: "Volleyball", wins: 1, losses: 2 },
   { level: "JH", sport: "Football", wins: 0, losses: 1 }
 ];
 
