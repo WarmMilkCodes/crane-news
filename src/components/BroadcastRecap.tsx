@@ -1,11 +1,10 @@
 // components/BroadcastRecap.tsx
-import Helmet from "@/components/Helmet";
 
 type Team = {
   name: string;           // "Crane Pirates"
   short?: string;         // "CRANE PIRATES"
-  shell: string;          // helmet shell color
-  mask: string;           // facemask color
+  shell: string;          // team color (used for score tint)
+  mask: string;           // kept for compatibility (unused)
   score: number;          // 8
   record?: string;        // "0–1"
 };
@@ -26,7 +25,6 @@ type Props = {
   meta: Meta;
   scoring?: ScoringPlay[];
   players?: PlayerLine[];
-  helmetSize?: number;
 };
 
 export default function BroadcastRecap({
@@ -35,7 +33,6 @@ export default function BroadcastRecap({
   meta,
   scoring = [],
   players = [],
-  helmetSize = 84,
 }: Props) {
   const homeWin = home.score > away.score;
   const awayWin = away.score > home.score;
@@ -44,7 +41,7 @@ export default function BroadcastRecap({
     <section className="rounded-3xl overflow-hidden shadow-xl border border-black/5 bg-gradient-to-br from-white to-gray-50 mb-6">
       {/* Teams + Score */}
       <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-4 p-4 sm:p-6 md:p-8">
-        <Side team={home} helmetSize={helmetSize} scoreEmphasis={homeWin} />
+        <Side team={home} scoreEmphasis={homeWin} />
 
         {/* Center meta (desktop) */}
         <div className="hidden md:flex flex-col items-center gap-1 px-6">
@@ -62,12 +59,7 @@ export default function BroadcastRecap({
           )}
         </div>
 
-        <Side
-          team={away}
-          helmetSize={helmetSize}
-          scoreEmphasis={awayWin}
-          alignRight
-        />
+        <Side team={away} scoreEmphasis={awayWin} alignRight />
 
         {/* Center meta (mobile) */}
         <div className="md:hidden border-t border-black/5 pt-3 -mt-1 text-center">
@@ -127,15 +119,15 @@ export default function BroadcastRecap({
 
 function Side({
   team,
-  helmetSize,
   scoreEmphasis,
   alignRight = false,
 }: {
   team: Team;
-  helmetSize: number;
   scoreEmphasis: boolean;
   alignRight?: boolean;
 }) {
+  const scoreColor = readableScoreColor(team.shell);
+
   return (
     <div
       className={[
@@ -143,14 +135,6 @@ function Side({
         alignRight ? "justify-end text-right" : "",
       ].join(" ")}
     >
-      {!alignRight && (
-        <Helmet
-          width={helmetSize}
-          shellColor={team.shell}
-          facemaskColor={team.mask}
-          stripeColor={null}
-        />
-      )}
       <div className="min-w-0">
         <div className="text-[12px] sm:text-sm uppercase tracking-wide text-gray-500">
           {team.short ?? team.name}
@@ -162,20 +146,11 @@ function Side({
             scoreEmphasis ? "font-black" : "font-extrabold",
             "text-4xl sm:text-5xl md:text-6xl",
           ].join(" ")}
-          style={{ color: team.shell }}
+          style={{ color: scoreColor }}
         >
           {team.score}
         </div>
       </div>
-      {alignRight && (
-        <Helmet
-          width={helmetSize}
-          shellColor={team.shell}
-          facemaskColor={team.mask}
-          stripeColor={null}
-          flip
-        />
-      )}
     </div>
   );
 }
@@ -188,4 +163,27 @@ function formatDate(d: string) {
     month: "short",
     day: "numeric",
   });
+}
+
+/** Choose a readable score color against white backgrounds */
+function readableScoreColor(hex: string) {
+  const c = hex?.trim().toLowerCase();
+  if (!c || !c.startsWith("#")) return "#111827"; // gray-900
+  const [r, g, b] = hexToRgb(c);
+  const L = 0.2126 * (r / 255) + 0.7152 * (g / 255) + 0.0722 * (b / 255);
+  return L > 0.7 ? "#111827" : hex;
+}
+
+function hexToRgb(h: string): [number, number, number] {
+  let r = 0, g = 0, b = 0;
+  if (h.length === 4) {
+    r = parseInt(h[1] + h[1], 16);
+    g = parseInt(h[2] + h[2], 16);
+    b = parseInt(h[3] + h[3], 16);
+  } else if (h.length === 7) {
+    r = parseInt(h.slice(1, 3), 16);
+    g = parseInt(h.slice(3, 5), 16);
+    b = parseInt(h.slice(5, 7), 16);
+  }
+  return [r, g, b];
 }

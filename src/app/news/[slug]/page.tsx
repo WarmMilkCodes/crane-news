@@ -4,7 +4,6 @@ import Link from "next/link";
 import PostNotes from "@/components/PostNotes";
 import Markdown from "@/components/Markdown";
 import FeatureBanner from "@/components/FeatureBanner";
-import GameRecapBox from "@/components/GameRecapBox";
 import BroadcastRecap  from "@/components/BroadcastRecap";
 
 type SlugParams = { slug: string };
