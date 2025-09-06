@@ -38,20 +38,22 @@ export type Post = {
 };
 
 export const posts: Post[] = [
-  {
-    slug: "crane-football-season-opener-2025",
-    title: "Back on the Gridiron: Crane JH Pirates Make History",
-    summary: "The Crane Pirates see the return of a football program after being dormant for 75 years.",
-    date: "2025-09-06",
-    image: "/cjh_football.jpg",
-    category: "Sports",
-    body: [
-      "After a 75-year hiatus, the Crane Pirates football program made its much-anticipated return to the field on Thursday, September 4, 2025.",
-      "The inaugural game took place at home, in front of a packed crowd of over 500 ethusiastic fans. The Pirates faced off against the Lighouse Christian Chargers.",
-      "Despite a valiant effort, the Pirates' inaguragal game ended in a 48-8 loss. However, the team showed promise and determination throughout the game.",
-      "The Pirates' lone touchdown came late in the game, with a rushing touchdown by #26, Kendrick Bass.",
-      "This game marked the beginning of a new chapter for Crane School's athletic program, and the community is already looking foward towards the next game of the season - although this marked the only home game for the Pirates this season.",
-      "The Pirates will travel to Lebanon on Tuseday, September 9, 2025 for their next game against Joel E Barber Buckskins.",
+ {
+  slug: "crane-football-season-opener-2025",
+  title: "75 Years in the Making: How Crane Youth Sports Brought Football Back to Crane",
+  summary: "After a 75-year hiatus, Crane football returns — fueled by community passion, volunteer efforts, and a vision led by Crane Youth Sports.",
+  date: "2025-09-06",
+  image: "/cjh_football.jpg",
+  category: "Sports",
+  body: [
+      "For the first time in 75 years, football returned to the Crane School District — not because of a district mandate or budget windfall, but because one local organization refused to let the dream die.",
+      "Thanks to the tireless efforts of **Crane Youth Sports (CYS)**, led by **Luke Vaught**, the Pirates' Junior High football team has officially taken the field. What began as a small flag football program and Mighty Mites league for grades 3–6 has grown into a historic milestone for Crane athletics.",
+      "The program exists today entirely because of volunteerism, donations, and grassroots fundraising. Over the past few years, CYS has worked relentlessly to build support — from running raffles and merchandise sales to volunteering at concerts through **Thunder Ridge** and securing local sponsorships. Their commitment ultimately convinced the **Crane School Board** to approve a partnership that brought football back without creating an immediate financial burden on the district.",
+      "The long-awaited debut finally arrived this week as the Pirates hosted the **Lighthouse Christian Chargers** for the first Junior High football game in school history. More than **500 fans packed the stands**, with students, parents, alumni, and community members uniting to witness the start of a new era.",
+      "While the Pirates fell **48–8** in their inaugural game, the energy on the field and in the crowd made it clear: this was about more than a score. The team fought hard until the end, with the highlight coming late in the fourth quarter when **#26 Kendrick Bass** broke through for Crane's first touchdown of the modern era.",
+      "“This is just the beginning,” said CYS President **Luke Vaught**. “We've been building toward this moment for years, and seeing the kids finally out there, representing Crane, makes it all worth it.”",
+      "With their first-ever home game behind them — and the only home matchup of the short season — the Pirates now hit the road. Their next game is **Tuesday, September 9th**, when they travel to face the **Joel E. Barber Buckskins** in Lebanon.",
+      "Crane’s football journey is just getting started, but one thing is certain: after 75 years, the Friday night lights are finally back — and this time, the entire community is behind the Pirates."
     ]
   },
   {
