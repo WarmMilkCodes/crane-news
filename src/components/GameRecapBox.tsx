@@ -1,29 +1,48 @@
 // components/GameRecapBox.tsx
 type NextGame = {
-  date: string;      // ISO date (e.g., "2025-09-09")
-  opponent: string;  // "Joel E. Barber Buckskins"
+  date: string;        // ISO
+  opponent: string;
   location: "Home" | "Away";
-  time?: string;     // "5:30 PM"
-  venueCity?: string; // optional, e.g., "Lebanon"
+  time?: string;
+  venueCity?: string;
 };
 
 type Props = {
-  // Score
-  homeTeam: string;           // "Crane"
-  awayTeam: string;           // "Lighthouse Christian"
-  homeScore: number;          // 8
-  awayScore: number;          // 48
-  // Extras
-  highlight?: string;         // "#26 Kendrick Bass • 4th Qtr TD run"
-  attendance?: string;        // "500+"
-  note?: string;              // any small footnote
+  homeTeam: string;
+  awayTeam: string;
+  homeScore: number;
+  awayScore: number;
+  highlight?: string;
+  attendance?: string;
+  note?: string;
   nextGame?: NextGame;
 };
 
 function formatDate(d?: string) {
   if (!d) return "";
   const dt = new Date(d);
-  return dt.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
+  return dt.toLocaleDateString(undefined, {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+  });
+}
+
+function TeamBadge({ name }: { name: string }) {
+  const abbr =
+    name
+      .replace(/[^A-Za-z ]/g, "")
+      .split(" ")
+      .filter(Boolean)
+      .slice(0, 2)
+      .map(s => s[0])
+      .join("")
+      .toUpperCase() || "TM";
+  return (
+    <div className="w-7 h-7 rounded-full bg-black/5 flex items-center justify-center font-black text-[11px] text-gray-700">
+      {abbr}
+    </div>
+  );
 }
 
 export default function GameRecapBox({
@@ -36,59 +55,68 @@ export default function GameRecapBox({
   note,
   nextGame,
 }: Props) {
-  const winnerIsHome = homeScore > awayScore;
-  const winnerIsAway = awayScore > homeScore;
+  const homeWin = homeScore > awayScore;
+  const awayWin = awayScore > homeScore;
 
   return (
-    <section className="bg-white rounded-[var(--radius)] shadow-md border border-black/5 p-5 mb-6">
-      <h2 className="text-xl font-bold text-gray-900 mb-3">🏈 Game Recap</h2>
+    <section className="rounded-[18px] border border-black/8 bg-white shadow-sm p-4 sm:p-5 mb-6">
+      {/* Header */}
+      <div className="flex items-center gap-2 mb-3">
+        <span className="text-lg">🏈</span>
+        <h2 className="text-lg font-extrabold tracking-tight text-gray-900">Game Recap</h2>
+      </div>
 
-      {/* Score Row */}
-      <div className="grid grid-cols-2 gap-3 items-center border-b border-gray-200 pb-3 mb-3">
-        <div className="flex flex-col">
-          <span className={`text-sm uppercase tracking-wide ${winnerIsHome ? "font-black" : "font-semibold"} text-gray-600`}>
-            {homeTeam}
-          </span>
-          <span className={`text-2xl ${winnerIsHome ? "font-black" : "font-bold"} text-gray-900`}>
-            {homeScore}
-          </span>
+      {/* Scoreboard */}
+      <div className="grid grid-cols-2 gap-4 items-center rounded-xl border border-black/5 p-3 sm:p-4">
+        {/* Home */}
+        <div className="flex items-center gap-3">
+          <TeamBadge name={homeTeam} />
+          <div className="min-w-0">
+            <div className="uppercase tracking-wide text-[11px] text-gray-500">Crane</div>
+            <div className={`text-2xl sm:text-3xl leading-none ${homeWin ? "font-black" : "font-bold"} text-gray-900`}>
+              {homeScore}
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col items-end">
-          <span className={`text-sm uppercase tracking-wide ${winnerIsAway ? "font-black" : "font-semibold"} text-gray-600`}>
-            {awayTeam}
-          </span>
-          <span className={`text-2xl ${winnerIsAway ? "font-black" : "font-bold"} text-gray-900`}>
-            {awayScore}
-          </span>
+
+        {/* Away */}
+        <div className="flex items-center gap-3 justify-end text-right">
+          <div className="min-w-0">
+            <div className="uppercase tracking-wide text-[11px] text-gray-500">{awayTeam}</div>
+            <div className={`text-2xl sm:text-3xl leading-none ${awayWin ? "font-black" : "font-bold"} text-gray-900`}>
+              {awayScore}
+            </div>
+          </div>
+          <TeamBadge name={awayTeam} />
         </div>
       </div>
 
-      {/* Facts */}
-      <dl className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-6 text-sm">
+      {/* Details */}
+      <div className="mt-4 grid sm:grid-cols-2 gap-y-2 gap-x-6 text-sm">
         {highlight && (
           <>
-            <dt className="font-semibold text-gray-600">Pirates’ Highlight</dt>
-            <dd className="text-gray-900">{highlight}</dd>
+            <div className="font-semibold text-gray-600">Pirates’ Highlight</div>
+            <div className="text-gray-900">{highlight}</div>
           </>
         )}
         {attendance && (
           <>
-            <dt className="font-semibold text-gray-600">Attendance</dt>
-            <dd className="text-gray-900">{attendance}</dd>
+            <div className="font-semibold text-gray-600">Attendance</div>
+            <div className="text-gray-900">{attendance}</div>
           </>
         )}
         {nextGame && (
           <>
-            <dt className="font-semibold text-gray-600">Next Game</dt>
-            <dd className="text-gray-900">
+            <div className="font-semibold text-gray-600">Next Game</div>
+            <div className="text-gray-900">
               {formatDate(nextGame.date)} · {nextGame.location === "Home" ? "Home" : "Away"} vs{" "}
               <span className="font-semibold">{nextGame.opponent}</span>
               {nextGame.time ? ` • ${nextGame.time}` : ""}
               {nextGame.venueCity ? ` • ${nextGame.venueCity}` : ""}
-            </dd>
+            </div>
           </>
         )}
-      </dl>
+      </div>
 
       {note && <p className="mt-3 text-xs text-gray-500">{note}</p>}
     </section>
