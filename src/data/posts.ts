@@ -38,6 +38,30 @@ export type Post = {
 };
 
 export const posts: Post[] = [
+    {
+    slug: "obit-bill-long-crane",
+    title: "Bill Long, of Crane",
+    summary: "Memorial Service Friday, September 12 at 7 PM at Stumpff Funeral Chapel in Crane.",
+    date: "2025-09-06",
+    category: "Death Notices",
+    image: "/death-notice.png",
+    body: [
+      "Bill Long, of Crane, passed away.",
+      "Visitation will be held Friday, September 12 from 6-7 PM at Stumpff Funeral Chapel in Crane, with a memorial service to follow at 7 PM.",
+    ],
+    links: [
+      { label: "Stumpff Funeral Home - Current Services", href: "https://www.stumpfffuneral.com/" }
+    ],
+    death: {
+      name: "Bill Long",
+      city: "Crane",
+      services: {
+        visitation: { at: "Stumpff Funeral Chapel", when: "Fri, Sep 12, 6-7 PM" },
+        funeral: { at: "Stumpff Funeral Chapel", when: "Fri, Sep 12, 7 PM" }
+      },
+      source: { label: "Stumpff Funeral Home - Current Services", href: "https://www.stumpfffuneral.com/" }
+    }
+  },
  {
   slug: "crane-football-season-opener-2025",
   title: "75 Years in the Making: How Crane Youth Sports Brought Football Back to Crane",
