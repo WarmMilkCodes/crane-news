@@ -22,7 +22,6 @@ const NAV: Group[] = [
     href: "/media",
     children: [
       { label: "Media", href: "/media" },
-      { label: "Podcast", href: "/podcast" },
     ],
   },
   {
