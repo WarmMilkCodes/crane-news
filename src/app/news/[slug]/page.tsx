@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 import { posts, getPost } from "@/data/posts";
 import Link from "next/link";
-import Image from "next/image";
 import PostNotes from "@/components/PostNotes";
 import Markdown from "@/components/Markdown";
+import FeatureBanner from "@/components/FeatureBanner";
+import GameRecapBox from "@/components/GameRecapBox";
 
 type SlugParams = { slug: string };
 
@@ -74,28 +75,43 @@ export default async function Article({
 
       <h1 className="h-serif text-3xl mt-2">{p.title}</h1>
 
-      {/* Hero image with attribution overlay */}
-      <div className="relative mt-4 bg-[var(--panel)] rounded-[var(--radius)] overflow-hidden">
-        <Image
-          src={hero}
-          alt={p.title}
-          width={1200}
-          height={675}
-          sizes="(min-width: 1024px) 800px, (min-width: 640px) 600px, 100vw"
-          className="w-full h-auto max-h-72 mx-auto object-contain"
-          priority
-        />
-        {p.attribution && (
-          <span className="absolute bottom-2 right-2 z-10 text-[10px] leading-none text-white/85 bg-black/50 px-2 py-0.5 rounded">
-            {p.attribution}
-          </span>
-        )}
-      </div>
+      {/* Feature banner */}
+      <FeatureBanner
+        image={hero}
+        title={p.title}
+        subtitle={
+          p.slug === "crane-football-season-opener-2025"
+            ? "75 Years in the Making — Junior High Season Kicks Off"
+            : undefined
+        }
+        tag={p.category ?? "News"}
+        attribution={p.attribution}
+      />
 
       {/* Updates / Corrections */}
       <PostNotes post={p} />
 
-      {/* Body rendered as Markdown (supports **bold**, lists, and ![img](/path "title")) */}
+      {/* Game recap highlight (only on the football article) */}
+      {p.slug === "crane-football-season-opener-2025" && (
+        <GameRecapBox
+          homeTeam="Crane"
+          awayTeam="Lighthouse Christian"
+          homeScore={8}
+          awayScore={48}
+          highlight="#26 Kendrick Bass • 4th Qtr TD run"
+          attendance="500+"
+          nextGame={{
+            date: "2025-09-09",
+            opponent: "Joel E. Barber Buckskins",
+            location: "Away",
+            time: "5:30 PM",
+            venueCity: "Lebanon",
+          }}
+          note="This was the only home game of the short inaugural season."
+        />
+      )}
+
+      {/* Body rendered as Markdown */}
       <div className="prose mt-4 max-w-none">
         {p.body.map((para, i) => (
           <Markdown key={i}>{para}</Markdown>
